@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SmartGraph.iml" filepath="$PROJECT_DIR$/SmartGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smartgraph/smartgraph.iml" filepath="$PROJECT_DIR$/smartgraph/smartgraph.iml" />
     </modules>
   </component>
 </project>
