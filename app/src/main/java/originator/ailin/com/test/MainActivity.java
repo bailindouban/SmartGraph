@@ -1,4 +1,4 @@
-package originator.ailin.com.smartgraph;
+package originator.ailin.com.test;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

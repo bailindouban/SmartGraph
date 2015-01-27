@@ -1,4 +1,4 @@
-package originator.ailin.com.smartgraph;
+package originator.ailin.com.test;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
