@@ -15,6 +15,12 @@
     <string name="pie_chart_simple">Pie Chart Simple</string>
     <string name="pie_chart">Pie Chart</string>
 
+    <!-- Line Chart -->
+    <string name="draw_line_chart_simple">Draw Line Chart Simple</string>
+    <string name="draw_line_chart">Draw Line Chart</string>
+    <string name="line_chart_simple">Line Chart Simple</string>
+    <string name="line_chart">Line Chart</string>
+
     <string name="action_settings">Settings</string>
 
 </resources>
