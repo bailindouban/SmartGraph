@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">SmartGraph</string>
+    <string name="draw_bar_chart">Draw Bar Chart</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

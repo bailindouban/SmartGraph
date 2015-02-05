@@ -1,19 +1,45 @@
 package originator.ailin.com.test;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import originator.ailin.com.smartgraph.BarChart;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    private BarChart mBarChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //init();
     }
 
+    /**
+     * drawChart
+     * @param v
+     */
+    public void drawChart(View v) {
+        switch (v.getId()) {
+            case R.id.drawBarChart:
+                init();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void init() {
+        int data[] = {10, 50, 32, 59, 200, 63};
+        mBarChart = (BarChart) findViewById(R.id.bar_chart);
+        mBarChart.setmData(data);
+        mBarChart.setmColor(getResources().getColor(R.color.blue));
+        mBarChart.invalidate();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -6,10 +6,14 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public class BarChart extends View {
     private Paint mPaint;
+    private int[] mData;
+    private int mColor;
+    private int mLeft, mTop, mBottom, mWidth, mInterval;
 
     public BarChart(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -19,13 +23,33 @@ public class BarChart extends View {
     private void init() {
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
+
+        mLeft = 10;
+        mTop = 10;
+        mBottom = 1000;
+        mWidth = 50;
+        mInterval = 30;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        Log.d("kim", "onDraw");
+        if(mData != null) {
+            for(int d : mData) {
+                mPaint.setColor(mColor);
+                Rect rect = new Rect(mLeft, mBottom - d, mLeft + mWidth, mBottom);
+                canvas.drawRect(rect, mPaint);
+                mLeft += mWidth + mInterval;
+            }
+        }
+    }
 
-        Rect rect = new Rect(150, 150, 300, 500);
-        canvas.drawRect(rect, mPaint);
+    public void setmData(int[] mData) {
+        this.mData = mData;
+    }
+
+    public void setmColor(int mColor) {
+        this.mColor = mColor;
     }
 }
