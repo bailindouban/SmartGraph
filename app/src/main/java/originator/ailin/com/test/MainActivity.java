@@ -6,11 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.BarChart;
+import originator.ailin.com.smartgraph.barchart.SimpleBarChart;
 
 
 public class MainActivity extends ActionBarActivity {
-    private BarChart mBarChart;
+    private SimpleBarChart mSimpleBarChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,20 +25,20 @@ public class MainActivity extends ActionBarActivity {
      */
     public void drawChart(View v) {
         switch (v.getId()) {
-            case R.id.drawBarChart:
-                init();
+            case R.id.drawSimpleBarChart:
+                drawSimpleBarChart();
                 break;
             default:
                 break;
         }
     }
 
-    private void init() {
+    private void drawSimpleBarChart() {
         int data[] = {10, 50, 32, 59, 200, 63};
-        mBarChart = (BarChart) findViewById(R.id.bar_chart);
-        mBarChart.setmData(data);
-        mBarChart.setmColor(getResources().getColor(R.color.blue));
-        mBarChart.invalidate();
+        mSimpleBarChart = (SimpleBarChart) findViewById(R.id.bar_chart);
+        mSimpleBarChart.setmData(data);
+        mSimpleBarChart.setmColor(getResources().getColor(R.color.blue));
+        mSimpleBarChart.invalidate();
     }
 
     @Override
