@@ -9,24 +9,4 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <!-- Draw Simple Bar Chart -->
-    <Button
-        android:text="@string/draw_simple_bar_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="drawChart"
-        android:id="@+id/drawSimpleBarChart" />
-
-    <!-- Draw Bar Chart -->
-    <Button
-        android:text="@string/draw_bar_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="drawChart"
-        android:id="@+id/drawBarChart" />
-
-    <originator.ailin.com.smartgraph.barchart.SimpleBarChart
-        android:id="@+id/bar_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </LinearLayout>

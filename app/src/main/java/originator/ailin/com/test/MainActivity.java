@@ -4,47 +4,40 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.view.SubMenu;
 
-import originator.ailin.com.smartgraph.barchart.SimpleBarChart;
+import originator.ailin.com.test.TestCase.TestBarChart;
+import originator.ailin.com.test.Utils.Constant;
 
 
 public class MainActivity extends ActionBarActivity {
-    private SimpleBarChart mSimpleBarChart;
+    private TestBarChart mTestBarChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //init();
+        init();
     }
 
-    /**
-     * drawChart
-     * @param v
-     */
-    public void drawChart(View v) {
-        switch (v.getId()) {
-            case R.id.drawSimpleBarChart:
-                drawSimpleBarChart();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void drawSimpleBarChart() {
-        int data[] = {10, 50, 32, 59, 200, 63};
-        mSimpleBarChart = (SimpleBarChart) findViewById(R.id.bar_chart);
-        mSimpleBarChart.setmData(data);
-        mSimpleBarChart.setmColor(getResources().getColor(R.color.blue));
-        mSimpleBarChart.invalidate();
+    private void init() {
+        mTestBarChart = new TestBarChart(getApplication());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        SubMenu barChart = menu.addSubMenu(R.string.bar_chart);
+        SubMenu pieChart = menu.addSubMenu(R.string.pie_chart);
+
+        barChart.add(Constant.GROUP_ID_BAR_CHART, Constant.ITEM_ID_SIMPLE_BAR_CHART, 0, R.string.bar_chart_simple);
+        barChart.add(Constant.GROUP_ID_BAR_CHART, Constant.ITEM_ID_BAR_CHART, 0, R.string.bar_chart);
+
+        pieChart.add(Constant.GROUP_ID_PIE_CHART, Constant.ITEM_ID_SIMPLE_PIE_CHART, 0, R.string.pie_chart_simple);
+        pieChart.add(Constant.GROUP_ID_PIE_CHART, Constant.ITEM_ID_PIE_CHART, 0, R.string.pie_chart);
         return true;
     }
 
@@ -56,8 +49,13 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case Constant.ITEM_ID_SIMPLE_BAR_CHART:
+                setContentView(mTestBarChart.drawSimpleBarChart());
+                return true;
+            case Constant.ITEM_ID_BAR_CHART:
+                setContentView(mTestBarChart.drawBarChart());
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

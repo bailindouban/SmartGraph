@@ -2,10 +2,19 @@
 <resources>
 
     <string name="app_name">SmartGraph</string>
-    <string name="draw_simple_bar_chart">Draw Simple Bar Chart</string>
-    <string name="draw_bar_chart">Draw Bar Chart</string>
 
-    <string name="hello_world">Hello world!</string>
+    <!-- Bar Chart -->
+    <string name="draw_bar_chart_simple">Draw Bar Chart Simple</string>
+    <string name="draw_bar_chart">Draw Bar Chart</string>
+    <string name="bar_chart_simple">Bar Chart Simple</string>
+    <string name="bar_chart">Bar Chart</string>
+
+    <!-- Pie Chart -->
+    <string name="draw_pie_chart_simple">Draw Pie Chart Simple</string>
+    <string name="draw_pie_chart">Draw Pie Chart</string>
+    <string name="pie_chart_simple">Pie Chart Simple</string>
+    <string name="pie_chart">Pie Chart</string>
+
     <string name="action_settings">Settings</string>
 
 </resources>
