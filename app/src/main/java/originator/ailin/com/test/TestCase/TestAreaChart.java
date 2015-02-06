@@ -3,21 +3,21 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.barchart.BarChart;
-import originator.ailin.com.smartgraph.barchart.SimpleBarChart;
+import originator.ailin.com.smartgraph.areachart.AreaChart;
+import originator.ailin.com.smartgraph.areachart.SimpleAreaChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 
 /**
  * Created by Kim_Bai on 2/5/2015.
  */
-public class TestBarChart extends TestChart {
+public class TestAreaChart extends TestChart {
     /**
      * Constructor
      *
      * @param context
      */
-    public TestBarChart(Context context) {
+    public TestAreaChart(Context context) {
         super(context);
     }
 
@@ -27,10 +27,11 @@ public class TestBarChart extends TestChart {
      */
     @Override
     public View drawSimpleChart() {
-        mSimpleChart = new SimpleBarChart(mContext);
-        int[] data = {10, 50, 32, 59, 200, 63};
+        mSimpleChart = new SimpleAreaChart(mContext);
+        int[] data = {320, 320, 280, 120, 150};
         mSimpleChart.data = data;
         mSimpleChart.color = Constant.COLOR_BLUE;
+        mSimpleChart.interval = 150;
         return mSimpleChart;
     }
 
@@ -40,11 +41,13 @@ public class TestBarChart extends TestChart {
      */
     @Override
     public View drawChart() {
-        mChart = new BarChart(mContext);
-        int[][] data = {{10, 50, 32}, {47, 120, 67}, {421, 63, 74}, {22, 23, 24}, {342,321,358}};
-        int[] color = {Constant.COLOR_BLUE, Constant.COLOR_PINK, Constant.COLOR_YELLOW};
+        mChart = new AreaChart(mContext);
+        int[][] data = {{320, 320, 280, 120, 150}, {120, 120, 120, 210, 280}};
+        int[] color = {Constant.COLOR_BLUE, Constant.COLOR_PINK};
         mChart.data = data;
         mChart.color = color;
+        mChart.interval = 150;
         return mChart;
     }
+
 }

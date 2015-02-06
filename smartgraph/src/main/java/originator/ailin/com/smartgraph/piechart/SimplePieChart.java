@@ -8,12 +8,12 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.base.SimpleChart;
 
-public class SimpleBarChart extends SimpleChart {
+public class SimplePieChart extends SimpleChart {
     /**
      * Constructor 1
      * @param context
      */
-    public SimpleBarChart(Context context) {
+    public SimplePieChart(Context context) {
         super(context);
     }
 
@@ -22,7 +22,7 @@ public class SimpleBarChart extends SimpleChart {
      * @param context
      * @param attrs
      */
-    public SimpleBarChart(Context context, AttributeSet attrs) {
+    public SimplePieChart(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

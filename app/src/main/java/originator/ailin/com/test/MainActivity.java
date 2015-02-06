@@ -1,25 +1,26 @@
 package originator.ailin.com.test;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 
-import originator.ailin.com.smartgraph.barchart.BarChart;
-import originator.ailin.com.smartgraph.barchart.SimpleBarChart;
-import originator.ailin.com.smartgraph.linechart.LineChart;
-import originator.ailin.com.smartgraph.linechart.SimpleLineChart;
+import originator.ailin.com.test.TestCase.TestAreaChart;
 import originator.ailin.com.test.TestCase.TestBarChart;
 import originator.ailin.com.test.TestCase.TestLineChart;
-import originator.ailin.com.test.Utils.Constant;
+import originator.ailin.com.test.TestCase.TestPieChart;
+import originator.ailin.com.test.TestCase.base.TestChart;
 
 
 public class MainActivity extends ActionBarActivity {
     private Context mContext;
-    private TestBarChart mTestBarChart;
-    private TestLineChart mTestLineChart;
+    private Resources mResources;
+    private TestChart[] mTestChart;
+    private String[][] mChart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,20 @@ public class MainActivity extends ActionBarActivity {
 
     private void init() {
         mContext = getApplicationContext();
-        mTestBarChart = new TestBarChart(mContext.getResources());
-        mTestLineChart = new TestLineChart(mContext.getResources());
+        mResources = mContext.getResources();
+
+        mTestChart = new TestChart[] {
+                new TestBarChart(mContext),
+                new TestPieChart(mContext),
+                new TestLineChart(mContext),
+                new TestAreaChart(mContext)
+        };
+        mChart = new String[][]{
+                mResources.getStringArray(R.array.bar_chart),
+                mResources.getStringArray(R.array.pie_chart),
+                mResources.getStringArray(R.array.line_chart),
+                mResources.getStringArray(R.array.area_chart)
+        };
     }
 
     @Override
@@ -40,21 +53,13 @@ public class MainActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        SubMenu barChart = menu.addSubMenu(R.string.bar_chart);
-        SubMenu pieChart = menu.addSubMenu(R.string.pie_chart);
-        SubMenu lineChart = menu.addSubMenu(R.string.line_chart);
+        for (int i = 0; i < mChart.length; i++) {
+            SubMenu subMenu = menu.addSubMenu(mChart[i][1]);
+            for (int j = 0; j < mChart[i].length; j++) {
+                subMenu.add(i + 1, (i + 1) * 10 + j + 1, 0, mChart[i][j]);
+            }
+        }
 
-        // BAR CHART
-        barChart.add(Constant.GROUP_ID_BAR_CHART, Constant.ITEM_ID_SIMPLE_BAR_CHART, 0, R.string.bar_chart_simple);
-        barChart.add(Constant.GROUP_ID_BAR_CHART, Constant.ITEM_ID_BAR_CHART, 0, R.string.bar_chart);
-
-        // PIE CHART
-        pieChart.add(Constant.GROUP_ID_PIE_CHART, Constant.ITEM_ID_SIMPLE_PIE_CHART, 0, R.string.pie_chart_simple);
-        pieChart.add(Constant.GROUP_ID_PIE_CHART, Constant.ITEM_ID_PIE_CHART, 0, R.string.pie_chart);
-
-        // LINE CHART
-        lineChart.add(Constant.GROUP_ID_LINE_CHART, Constant.ITEM_ID_SIMPLE_LINE_CHART, 0, R.string.line_chart_simple);
-        lineChart.add(Constant.GROUP_ID_LINE_CHART, Constant.ITEM_ID_LINE_CHART, 0, R.string.line_chart);
         return true;
     }
 
@@ -65,18 +70,15 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
 
         //noinspection SimplifiableIfStatement
-        switch (item.getItemId()) {
-            case Constant.ITEM_ID_SIMPLE_BAR_CHART:
-                setContentView(mTestBarChart.drawSimpleChart(new SimpleBarChart(mContext)));
+        int groupId = item.getGroupId() - 1;
+        int itemId = item.getItemId();
+
+        switch (itemId % 10) {
+            case 1:
+                setContentView(mTestChart[groupId].drawSimpleChart());
                 return true;
-            case Constant.ITEM_ID_BAR_CHART:
-                setContentView(mTestBarChart.drawChart(new BarChart(mContext)));
-                return true;
-            case Constant.ITEM_ID_SIMPLE_LINE_CHART:
-                setContentView(mTestLineChart.drawSimpleChart(new SimpleLineChart(mContext)));
-                return true;
-            case Constant.ITEM_ID_LINE_CHART:
-                setContentView(mTestLineChart.drawChart(new LineChart(mContext)));
+            case 2:
+                setContentView(mTestChart[groupId].drawChart());
                 return true;
         }
 

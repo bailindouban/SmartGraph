@@ -4,23 +4,34 @@
     <string name="app_name">SmartGraph</string>
 
     <!-- Bar Chart -->
-    <string name="draw_bar_chart_simple">Draw Bar Chart Simple</string>
-    <string name="draw_bar_chart">Draw Bar Chart</string>
-    <string name="bar_chart_simple">Bar Chart Simple</string>
-    <string name="bar_chart">Bar Chart</string>
+    <string-array name="bar_chart">
+        <item>Simple Bar Chart</item>
+        <item>Bar Chart</item>
+    </string-array>
 
     <!-- Pie Chart -->
-    <string name="draw_pie_chart_simple">Draw Pie Chart Simple</string>
-    <string name="draw_pie_chart">Draw Pie Chart</string>
-    <string name="pie_chart_simple">Pie Chart Simple</string>
-    <string name="pie_chart">Pie Chart</string>
+    <string-array name="pie_chart">
+        <item>Simple Pie Chart</item>
+        <item>Pie Chart</item>
+    </string-array>
 
     <!-- Line Chart -->
-    <string name="draw_line_chart_simple">Draw Line Chart Simple</string>
-    <string name="draw_line_chart">Draw Line Chart</string>
-    <string name="line_chart_simple">Line Chart Simple</string>
-    <string name="line_chart">Line Chart</string>
+    <string-array name="line_chart">
+        <item>Simple Line Chart</item>
+        <item>Line Chart</item>
+    </string-array>
+
+    <!-- Area Chart -->
+    <string-array name="area_chart">
+        <item>Simple Area Chart</item>
+        <item>Area Chart</item>
+    </string-array>
 
     <string name="action_settings">Settings</string>
+
+
+
+
+
 
 </resources>
