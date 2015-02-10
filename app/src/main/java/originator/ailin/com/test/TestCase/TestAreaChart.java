@@ -27,12 +27,12 @@ public class TestAreaChart extends TestChart {
      */
     @Override
     public View drawSimpleChart() {
-        mSimpleChart = new SimpleAreaChart(mContext);
-        int[] data = {320, 320, 280, 120, 150};
-        mSimpleChart.data = data;
-        mSimpleChart.color = Constant.COLOR_BLUE;
-        mSimpleChart.interval = 150;
-        return mSimpleChart;
+        baseChart = new SimpleAreaChart(context);
+        float[] data = {320, 320, 280, 120, 150};
+        baseChart.data = data;
+        baseChart.color = Constant.COLOR_BLUE;
+        baseChart.interval = 150;
+        return baseChart;
     }
 
     /**
@@ -41,13 +41,13 @@ public class TestAreaChart extends TestChart {
      */
     @Override
     public View drawChart() {
-        mChart = new AreaChart(mContext);
-        int[][] data = {{320, 320, 280, 120, 150}, {120, 120, 120, 210, 280}};
-        int[] color = {Constant.COLOR_BLUE, Constant.COLOR_PINK};
-        mChart.data = data;
-        mChart.color = color;
-        mChart.interval = 150;
-        return mChart;
+        baseChart = new AreaChart(context);
+        float[][] datas = {{320, 320, 280, 120, 150}, {120, 120, 120, 210, 280}};
+        int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_PINK};
+        baseChart.datas = datas;
+        baseChart.colors = colors;
+        baseChart.interval = 150;
+        return baseChart;
     }
 
 }

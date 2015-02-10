@@ -36,15 +36,15 @@ public class MainActivity extends ActionBarActivity {
 
         mTestChart = new TestChart[] {
                 new TestBarChart(mContext),
-                new TestPieChart(mContext),
                 new TestLineChart(mContext),
-                new TestAreaChart(mContext)
+                new TestAreaChart(mContext),
+                new TestPieChart(mContext)
         };
         mChart = new String[][]{
                 mResources.getStringArray(R.array.bar_chart),
-                mResources.getStringArray(R.array.pie_chart),
                 mResources.getStringArray(R.array.line_chart),
-                mResources.getStringArray(R.array.area_chart)
+                mResources.getStringArray(R.array.area_chart),
+                mResources.getStringArray(R.array.pie_chart)
         };
     }
 

@@ -27,13 +27,13 @@ public class TestLineChart extends TestChart {
      */
     @Override
     public View drawSimpleChart() {
-        mSimpleChart = new SimpleLineChart(mContext);
-        int[] data = {10, 50, 32, 59, 200, 63};
-        mSimpleChart.data = data;
-        mSimpleChart.color = Constant.COLOR_BLUE;
-        mSimpleChart.width = 10;
-        mSimpleChart.interval = 150;
-        return mSimpleChart;
+        baseChart = new SimpleLineChart(context);
+        float[] data = {10, 50, 32, 59, 200, 63};
+        baseChart.data = data;
+        baseChart.color = Constant.COLOR_BLUE;
+        baseChart.width = 10;
+        baseChart.interval = 150;
+        return baseChart;
     }
 
     /**
@@ -42,13 +42,13 @@ public class TestLineChart extends TestChart {
      */
     @Override
     public View drawChart() {
-        mChart = new LineChart(mContext);
-        int[][] data = {{220, 60, 132, 60, 140}, {47, 280, 24, 220, 67}, {421, 221, 320, 63, 104}};
-        int[] color = {Constant.COLOR_BLUE, Constant.COLOR_PINK, Constant.COLOR_YELLOW};
-        mChart.data = data;
-        mChart.color = color;
-        mChart.width = 10;
-        mChart.interval = 200;
-        return mChart;
+        baseChart = new LineChart(context);
+        float[][] datas = {{220, 60, 132, 60, 140}, {47, 280, 24, 220, 67}, {421, 221, 320, 63, 104}};
+        int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_PINK, Constant.COLOR_YELLOW};
+        baseChart.datas = datas;
+        baseChart.colors = colors;
+        baseChart.width = 10;
+        baseChart.interval = 200;
+        return baseChart;
     }
 }
