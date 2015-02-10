@@ -2,13 +2,13 @@ package originator.ailin.com.smartgraph.barchart;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import originator.ailin.com.smartgraph.base.SimpleChart;
+import originator.ailin.com.smartgraph.base.BaseChart;
 
-public class SimpleBarChart extends SimpleChart {
+public class SimpleBarChart extends BaseChart {
     /**
      * Constructor 1
      * @param context
@@ -33,10 +33,10 @@ public class SimpleBarChart extends SimpleChart {
 
         int leftInit = left;
         if(data != null) {
-            for(int d : data) {
+            for(float d : data) {
                 paint.setColor(color);
-                Rect rect = new Rect(leftInit, bottom - d, leftInit + width, bottom);
-                canvas.drawRect(rect, paint);
+                RectF rectF = new RectF(leftInit, bottom - d, leftInit + width, bottom);
+                canvas.drawRect(rectF, paint);
                 leftInit += width + interval;
             }
         }

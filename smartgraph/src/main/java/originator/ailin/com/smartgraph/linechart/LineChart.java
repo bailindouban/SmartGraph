@@ -7,9 +7,9 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import originator.ailin.com.smartgraph.base.Chart;
+import originator.ailin.com.smartgraph.base.BaseChart;
 
-public class LineChart extends Chart {
+public class LineChart extends BaseChart {
     /**
      * Constructor 1
      * @param context
@@ -31,17 +31,17 @@ public class LineChart extends Chart {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
-        if(data != null) {
-            for(int i = 0; i < data.length; i++) {
+        if(datas != null) {
+            for(int i = 0; i < datas.length; i++) {
                 int leftInit = left;
-                paint.setColor(color[i]);
+                paint.setColor(colors[i]);
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeWidth(width);
                 Path path = new Path();
-                path.moveTo(leftInit, bottom - data[i][0]);
-                for(int j = 1; j < data[i].length; j++) {
+                path.moveTo(leftInit, bottom - datas[i][0]);
+                for(int j = 1; j < datas[i].length; j++) {
                     leftInit += interval;
-                    path.lineTo(leftInit, bottom - data[i][j]);
+                    path.lineTo(leftInit, bottom - datas[i][j]);
                 }
                 canvas.drawPath(path, paint);
             }

@@ -2,13 +2,13 @@ package originator.ailin.com.smartgraph.piechart;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import originator.ailin.com.smartgraph.base.SimpleChart;
+import originator.ailin.com.smartgraph.base.BaseChart;
 
-public class SimplePieChart extends SimpleChart {
+public class SimplePieChart extends BaseChart {
     /**
      * Constructor 1
      * @param context
@@ -31,13 +31,17 @@ public class SimplePieChart extends SimpleChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
 
-        int leftInit = left;
         if(data != null) {
-            for(int d : data) {
-                paint.setColor(color);
-                Rect rect = new Rect(leftInit, bottom - d, leftInit + width, bottom);
-                canvas.drawRect(rect, paint);
-                leftInit += width + interval;
+            float total = 0;
+            for(float d : data) {
+                total += d;
+            }
+            for(int i = 0; i < data.length; i++) {
+                paint.setColor(colors[i]);
+                RectF oval = new RectF(center.x - radius, center.y - radius, center.x + radius, center.y + radius);
+                float swipeAngle = data[i] * 360 / total;
+                canvas.drawArc(oval, startAngle, swipeAngle, true, paint);
+                startAngle += swipeAngle;
             }
         }
     }

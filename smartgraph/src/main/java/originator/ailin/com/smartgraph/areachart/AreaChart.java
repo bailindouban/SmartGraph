@@ -3,15 +3,16 @@ package originator.ailin.com.smartgraph.areachart;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import originator.ailin.com.smartgraph.base.Chart;
+import originator.ailin.com.smartgraph.base.BaseChart;
 
-public class AreaChart extends Chart {
+public class AreaChart extends BaseChart {
     /**
      * Constructor 1
      * @param context
@@ -33,7 +34,7 @@ public class AreaChart extends Chart {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
-        if(data != null) {
+        if(datas != null) {
             List[] dataDeal = getDataArray();
         }
     }
@@ -47,10 +48,10 @@ public class AreaChart extends Chart {
         for(int i = 0; i < data.length; i++) {
             int leftInit = left;
             dataArray[i] = new ArrayList();
-            dataArray[i].add(new Point(leftInit, bottom - data[i][0]));
-            for(int j = 1; j < data[i].length; j++) {
+            dataArray[i].add(new PointF(leftInit, bottom - datas[i][0]));
+            for(int j = 1; j < datas[i].length; j++) {
                 leftInit += interval;
-                dataArray[i].add(new Point(leftInit, bottom - data[i][j]));
+                dataArray[i].add(new PointF(leftInit, bottom - datas[i][j]));
             }
             dataArray[i].add(new Point(leftInit, bottom));
             dataArray[i].add(new Point(leftInit, bottom));

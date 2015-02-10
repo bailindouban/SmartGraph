@@ -6,9 +6,9 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import originator.ailin.com.smartgraph.base.SimpleChart;
+import originator.ailin.com.smartgraph.base.BaseChart;
 
-public class SimpleAreaChart extends SimpleChart {
+public class SimpleAreaChart extends BaseChart {
     /**
      * Constructor 1
      * @param context
