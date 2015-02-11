@@ -1,4 +1,4 @@
-package originator.ailin.com.smartgraph.piechart;
+package originator.ailin.com.smartgraph.doughnut;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,12 +8,12 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.base.BaseChart;
 
-public class SimplePieChart extends BaseChart {
+public class SimpleDoughnut extends BaseChart {
     /**
      * Constructor 1
      * @param context
      */
-    public SimplePieChart(Context context) {
+    public SimpleDoughnut(Context context) {
         super(context);
     }
 
@@ -22,7 +22,7 @@ public class SimplePieChart extends BaseChart {
      * @param context
      * @param attrs
      */
-    public SimplePieChart(Context context, AttributeSet attrs) {
+    public SimpleDoughnut(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -44,6 +44,5 @@ public class SimplePieChart extends BaseChart {
                 startAngle += swipeAngle;
             }
         }
-
     }
 }

@@ -20,6 +20,7 @@ public class BaseChart extends View {
     public Point center;
     public int radius;
     public float startAngle;
+    public float bias[];
 
     // For data
     public float[] data;
