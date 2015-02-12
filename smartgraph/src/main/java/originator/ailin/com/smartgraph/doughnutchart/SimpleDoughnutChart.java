@@ -1,0 +1,54 @@
+package originator.ailin.com.smartgraph.doughnutchart;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.util.AttributeSet;
+import android.util.Log;
+
+import originator.ailin.com.smartgraph.base.BaseChart;
+
+public class SimpleDoughnutChart extends BaseChart {
+    /**
+     * Constructor 1
+     * @param context
+     */
+    public SimpleDoughnutChart(Context context) {
+        super(context);
+    }
+
+    /**
+     * Constructor 2
+     * @param context
+     * @param attrs
+     */
+    public SimpleDoughnutChart(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        Log.d("kim", "onDraw");
+
+        if(data != null) {
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(width);
+            radius -= width / 2f;
+
+            float total = 0;
+            for(float d : data) {
+                total += d;
+            }
+            for(int i = 0; i < data.length; i++) {
+                paint.setColor(colors[i]);
+                RectF oval = new RectF(center.x - radius, center.y - radius, center.x + radius, center.y + radius);
+                float swipeAngle = data[i] * 360 / total;
+                canvas.drawArc(oval, startAngle, swipeAngle, false, paint);
+
+                startAngle += swipeAngle;
+            }
+        }
+    }
+}

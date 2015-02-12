@@ -10,10 +10,10 @@ import android.view.SubMenu;
 
 import originator.ailin.com.test.TestCase.TestAreaChart;
 import originator.ailin.com.test.TestCase.TestBarChart;
+import originator.ailin.com.test.TestCase.TestDoughnutChart;
 import originator.ailin.com.test.TestCase.TestLineChart;
 import originator.ailin.com.test.TestCase.TestPieChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
-
 
 public class MainActivity extends ActionBarActivity {
     private Context mContext;
@@ -38,13 +38,15 @@ public class MainActivity extends ActionBarActivity {
                 new TestBarChart(mContext),
                 new TestLineChart(mContext),
                 new TestAreaChart(mContext),
-                new TestPieChart(mContext)
+                new TestPieChart(mContext),
+                new TestDoughnutChart(mContext)
         };
         mChart = new String[][]{
                 mResources.getStringArray(R.array.bar_chart),
                 mResources.getStringArray(R.array.line_chart),
                 mResources.getStringArray(R.array.area_chart),
-                mResources.getStringArray(R.array.pie_chart)
+                mResources.getStringArray(R.array.pie_chart),
+                mResources.getStringArray(R.array.doughnut_chart)
         };
     }
 
@@ -80,6 +82,8 @@ public class MainActivity extends ActionBarActivity {
             case 2:
                 setContentView(mTestChart[groupId].drawChart());
                 return true;
+            case 3:
+                setContentView(mTestChart[groupId].drawSpecialChart());
         }
 
         return super.onOptionsItemSelected(item);

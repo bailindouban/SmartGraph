@@ -57,6 +57,7 @@ public class BaseChart extends View {
     private void init() {
         paint = new Paint();
         paint.setColor(Color.BLACK);
+        paint.setAntiAlias(true);
 
         // For Bar Chart
         left = 100;

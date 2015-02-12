@@ -9,12 +9,6 @@
         <item>Bar Chart</item>
     </string-array>
 
-    <!-- Pie Chart -->
-    <string-array name="pie_chart">
-        <item>Simple Pie Chart</item>
-        <item>Pie Chart</item>
-    </string-array>
-
     <!-- Line Chart -->
     <string-array name="line_chart">
         <item>Simple Line Chart</item>
@@ -27,11 +21,19 @@
         <item>Area Chart</item>
     </string-array>
 
+    <!-- Pie Chart -->
+    <string-array name="pie_chart">
+        <item>Simple Pie Chart</item>
+        <item>Pie Chart</item>
+    </string-array>
+
+    <!-- Doughnut Chart -->
+    <string-array name="doughnut_chart">
+        <item>Simple Doughnut Chart</item>
+        <item>Doughnut Chart</item>
+        <item>Rose Chart</item>
+    </string-array>
+
     <string name="action_settings">Settings</string>
-
-
-
-
-
 
 </resources>

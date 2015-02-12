@@ -32,4 +32,12 @@ public abstract class TestChart {
      * @return
      */
     abstract public View drawChart();
+
+    /**
+     * Draw Special Chart
+     * @return
+     */
+    public View drawSpecialChart() {
+        return null;
+    };
 }
