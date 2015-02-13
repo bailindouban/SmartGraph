@@ -10,6 +10,7 @@ import originator.ailin.com.smartgraph.base.obj.BarObj;
 import originator.ailin.com.smartgraph.base.obj.BubbleObj;
 import originator.ailin.com.smartgraph.base.obj.DoughnutObj;
 import originator.ailin.com.smartgraph.base.obj.PieObj;
+import originator.ailin.com.smartgraph.base.obj.ScatterObj;
 
 /**
  * Created by Kim_Bai on 2/5/2015.
@@ -25,6 +26,7 @@ public class BaseChart extends View {
     public PieObj pieObj = new PieObj();
     public DoughnutObj doughnutObj = new DoughnutObj();
     public BubbleObj bubbleObj = new BubbleObj();
+    public ScatterObj scatterObj = new ScatterObj();
 
     // For data
     public float[] data;

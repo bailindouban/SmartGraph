@@ -46,7 +46,7 @@ public class TestBubbleChart extends TestChart {
         MyPoint[] bubblePointB = {new MyPoint(400, 160, 30), new MyPoint(300, 150, 80), new MyPoint(130, 370, 60)};
         MyPoint[] bubblePointC = {new MyPoint(50, 270, 100), new MyPoint(380, 320, 40), new MyPoint(500, 80, 80), new MyPoint(400, 60, 50), new MyPoint(750, 260, 40)};
 
-        MyPoint[][] bubblePoints =  {bubblePointA, bubblePointB, bubblePointC};
+        MyPoint[][] bubblePoints = {bubblePointA, bubblePointB, bubblePointC};
         baseChart.bubbleObj.bubblePoints = bubblePoints;
 
         baseChart.colors = new int[] {Constant.COLOR_BLUE, Constant.COLOR_PINK, Constant.COLOR_GREEN};

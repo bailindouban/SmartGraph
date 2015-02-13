@@ -27,6 +27,12 @@
         <item>Bubble Chart</item>
     </string-array>
 
+    <!-- Scatter Plot -->
+    <string-array name="scatter_plot">
+        <item>Simple Scatter Plot</item>
+        <item>Scatter Plot</item>
+    </string-array>
+
     <!-- Pie Chart -->
     <string-array name="pie_chart">
         <item>Simple Pie Chart</item>
