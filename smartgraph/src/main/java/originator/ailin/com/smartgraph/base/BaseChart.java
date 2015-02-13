@@ -6,19 +6,25 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import originator.ailin.com.smartgraph.base.obj.BarObj;
+import originator.ailin.com.smartgraph.base.obj.BubbleObj;
+import originator.ailin.com.smartgraph.base.obj.DoughnutObj;
+import originator.ailin.com.smartgraph.base.obj.PieObj;
+
 /**
  * Created by Kim_Bai on 2/5/2015.
  */
 public class BaseChart extends View {
     public Paint paint;
 
+    // For X/Y
+    public int left = 100, bottom = 1000;
+
     // For Chart Objects
     public BarObj barObj = new BarObj();
     public PieObj pieObj = new PieObj();
     public DoughnutObj doughnutObj = new DoughnutObj();
-
-    // For Bubble Chart
-    public float size;
+    public BubbleObj bubbleObj = new BubbleObj();
 
     // For data
     public float[] data;
@@ -56,8 +62,6 @@ public class BaseChart extends View {
         paint = new Paint();
         paint.setColor(Color.BLACK);
         paint.setAntiAlias(true);
-
-        // For Bubble Chart
-        size = 10;
     }
+
 }

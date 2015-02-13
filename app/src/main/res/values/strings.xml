@@ -21,6 +21,12 @@
         <item>Area Chart</item>
     </string-array>
 
+    <!-- Bubble Chart -->
+    <string-array name="bubble_chart">
+        <item>Simple Bubble Chart</item>
+        <item>Bubble Chart</item>
+    </string-array>
+
     <!-- Pie Chart -->
     <string-array name="pie_chart">
         <item>Simple Pie Chart</item>

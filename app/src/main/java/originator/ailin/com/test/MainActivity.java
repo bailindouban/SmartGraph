@@ -10,6 +10,7 @@ import android.view.SubMenu;
 
 import originator.ailin.com.test.TestCase.TestAreaChart;
 import originator.ailin.com.test.TestCase.TestBarChart;
+import originator.ailin.com.test.TestCase.TestBubbleChart;
 import originator.ailin.com.test.TestCase.TestDoughnutChart;
 import originator.ailin.com.test.TestCase.TestLineChart;
 import originator.ailin.com.test.TestCase.TestPieChart;
@@ -38,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
                 new TestBarChart(mContext),
                 new TestLineChart(mContext),
                 new TestAreaChart(mContext),
+                new TestBubbleChart(mContext),
                 new TestPieChart(mContext),
                 new TestDoughnutChart(mContext)
         };
@@ -45,6 +47,7 @@ public class MainActivity extends ActionBarActivity {
                 mResources.getStringArray(R.array.bar_chart),
                 mResources.getStringArray(R.array.line_chart),
                 mResources.getStringArray(R.array.area_chart),
+                mResources.getStringArray(R.array.bubble_chart),
                 mResources.getStringArray(R.array.pie_chart),
                 mResources.getStringArray(R.array.doughnut_chart)
         };
