@@ -30,14 +30,13 @@ public class SimpleBarChart extends BaseChart {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
-
-        int leftInit = left;
+        int leftInit = barObj.left;
         if(data != null) {
             for(float d : data) {
                 paint.setColor(color);
-                RectF rectF = new RectF(leftInit, bottom - d, leftInit + width, bottom);
+                RectF rectF = new RectF(leftInit, barObj.bottom - d, leftInit + barObj.width, barObj.bottom);
                 canvas.drawRect(rectF, paint);
-                leftInit += width + interval;
+                leftInit += barObj.width + barObj.interval;
             }
         }
     }

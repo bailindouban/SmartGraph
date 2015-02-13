@@ -35,24 +35,25 @@ public class DoughnutChart extends BaseChart {
 
         if(data != null) {
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(width);
-            radius -= width / 2f;
+            paint.setStrokeWidth(doughnutObj.radiusOuter - doughnutObj.radiusInner);
+            float radius = (doughnutObj.radiusInner + doughnutObj.radiusOuter ) / 2;
 
             float total = 0;
             for(float d : data) {
                 total += d;
             }
+
             for(int i = 0; i < data.length; i++) {
                 paint.setColor(colors[i]);
                 float swipeAngle = data[i] * 360 / total;
 
-                double radian = Math.PI * (2 * startAngle + swipeAngle) / 360;
+                double radian = Math.PI * (2 * doughnutObj.startAngle + swipeAngle) / 360;
                 PointF biasXY = new PointF();
-                biasXY.set(bias[i] * (float)Math.cos(radian), bias[i] * (float)Math.sin(radian));
-                RectF oval = new RectF(center.x - radius + biasXY.x, center.y - radius + biasXY.y, center.x + radius + biasXY.x, center.y + radius + biasXY.y);
+                biasXY.set(doughnutObj.bias[i] * (float)Math.cos(radian), doughnutObj.bias[i] * (float)Math.sin(radian));
+                RectF oval = new RectF(doughnutObj.center.x - radius + biasXY.x, doughnutObj.center.y - radius + biasXY.y, doughnutObj.center.x + radius + biasXY.x, doughnutObj.center.y + radius + biasXY.y);
 
-                canvas.drawArc(oval, startAngle, swipeAngle, false, paint);
-                startAngle += swipeAngle;
+                canvas.drawArc(oval, doughnutObj.startAngle, swipeAngle, false, paint);
+                doughnutObj.startAngle += swipeAngle;
             }
         }
     }

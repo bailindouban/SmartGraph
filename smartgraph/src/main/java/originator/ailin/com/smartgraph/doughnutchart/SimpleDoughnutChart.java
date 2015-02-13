@@ -34,8 +34,8 @@ public class SimpleDoughnutChart extends BaseChart {
 
         if(data != null) {
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(width);
-            radius -= width / 2f;
+            paint.setStrokeWidth(doughnutObj.radiusOuter - doughnutObj.radiusInner);
+            float radius = (doughnutObj.radiusInner + doughnutObj.radiusOuter) / 2;
 
             float total = 0;
             for(float d : data) {
@@ -43,11 +43,11 @@ public class SimpleDoughnutChart extends BaseChart {
             }
             for(int i = 0; i < data.length; i++) {
                 paint.setColor(colors[i]);
-                RectF oval = new RectF(center.x - radius, center.y - radius, center.x + radius, center.y + radius);
+                RectF oval = new RectF(doughnutObj.center.x - radius, doughnutObj.center.y - radius, doughnutObj.center.x + radius, doughnutObj.center.y + radius);
                 float swipeAngle = data[i] * 360 / total;
-                canvas.drawArc(oval, startAngle, swipeAngle, false, paint);
+                canvas.drawArc(oval, doughnutObj.startAngle, swipeAngle, false, paint);
 
-                startAngle += swipeAngle;
+                doughnutObj.startAngle += swipeAngle;
             }
         }
     }

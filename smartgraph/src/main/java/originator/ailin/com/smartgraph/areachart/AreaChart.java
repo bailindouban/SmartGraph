@@ -46,15 +46,15 @@ public class AreaChart extends BaseChart {
     private List[] getDataArray() {
         List[] dataArray = new ArrayList[3];
         for(int i = 0; i < data.length; i++) {
-            int leftInit = left;
+            int leftInit = barObj.left;
             dataArray[i] = new ArrayList();
-            dataArray[i].add(new PointF(leftInit, bottom - datas[i][0]));
+            dataArray[i].add(new PointF(leftInit, barObj.bottom - datas[i][0]));
             for(int j = 1; j < datas[i].length; j++) {
-                leftInit += interval;
-                dataArray[i].add(new PointF(leftInit, bottom - datas[i][j]));
+                leftInit += barObj.interval;
+                dataArray[i].add(new PointF(leftInit, barObj.bottom - datas[i][j]));
             }
-            dataArray[i].add(new Point(leftInit, bottom));
-            dataArray[i].add(new Point(leftInit, bottom));
+            dataArray[i].add(new Point(leftInit, barObj.bottom));
+            dataArray[i].add(new Point(leftInit, barObj.bottom));
         }
 
         return dataArray;

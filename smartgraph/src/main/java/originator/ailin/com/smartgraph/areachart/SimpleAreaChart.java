@@ -32,16 +32,16 @@ public class SimpleAreaChart extends BaseChart {
         Log.d("kim", "onDraw");
 
         if(data != null) {
-            int leftInit = left;
+            int leftInit = barObj.left;
             paint.setColor(color);
             Path path = new Path();
-            path.moveTo(leftInit, bottom - data[0]);
+            path.moveTo(leftInit, barObj.bottom - data[0]);
             for(int i = 1; i < data.length; i++) {
-                leftInit += interval;
-                path.lineTo(leftInit, bottom - data[i]);
+                leftInit += barObj.interval;
+                path.lineTo(leftInit, barObj.bottom - data[i]);
             }
-            path.lineTo(leftInit, bottom);
-            path.lineTo(left, bottom);
+            path.lineTo(leftInit, barObj.bottom);
+            path.lineTo(barObj.left, barObj.bottom);
             path.close();
             canvas.drawPath(path, paint);
         }

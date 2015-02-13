@@ -38,10 +38,10 @@ public class SimplePieChart extends BaseChart {
             }
             for(int i = 0; i < data.length; i++) {
                 paint.setColor(colors[i]);
-                RectF oval = new RectF(center.x - radius, center.y - radius, center.x + radius, center.y + radius);
+                RectF oval = new RectF(pieObj.center.x - pieObj.radius, pieObj.center.y - pieObj.radius, pieObj.center.x + pieObj.radius, pieObj.center.y + pieObj.radius);
                 float swipeAngle = data[i] * 360 / total;
-                canvas.drawArc(oval, startAngle, swipeAngle, true, paint);
-                startAngle += swipeAngle;
+                canvas.drawArc(oval, pieObj.startAngle, swipeAngle, true, paint);
+                pieObj.startAngle += swipeAngle;
             }
         }
 

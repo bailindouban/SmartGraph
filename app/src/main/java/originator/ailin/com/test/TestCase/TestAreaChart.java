@@ -31,7 +31,7 @@ public class TestAreaChart extends TestChart {
         float[] data = {320, 320, 280, 120, 150};
         baseChart.data = data;
         baseChart.color = Constant.COLOR_BLUE;
-        baseChart.interval = 150;
+        baseChart.barObj.interval = 150;
         return baseChart;
     }
 
@@ -46,7 +46,7 @@ public class TestAreaChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_PINK};
         baseChart.datas = datas;
         baseChart.colors = colors;
-        baseChart.interval = 150;
+        baseChart.barObj.interval = 150;
         return baseChart;
     }
 

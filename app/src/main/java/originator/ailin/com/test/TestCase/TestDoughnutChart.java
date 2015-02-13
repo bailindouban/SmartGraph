@@ -35,10 +35,10 @@ public class TestDoughnutChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
         baseChart.colors = colors;
-        baseChart.center = new Point(600, 800);
-        baseChart.radius = 250;
-        baseChart.startAngle = 0;
-        baseChart.width = 120;
+        baseChart.doughnutObj.center = new Point(600, 800);
+        baseChart.doughnutObj.radiusOuter = 300;
+        baseChart.doughnutObj.radiusInner = 180;
+        baseChart.doughnutObj.startAngle = 0;
         return baseChart;
     }
 
@@ -53,12 +53,12 @@ public class TestDoughnutChart extends TestChart {
         float[] bias = {50, 50, 50, 50};
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
-        baseChart.bias = bias;
         baseChart.colors = colors;
-        baseChart.center = new Point(600, 800);
-        baseChart.radius = 250;
-        baseChart.startAngle = 0;
-        baseChart.width = 120;
+        baseChart.doughnutObj.bias = bias;
+        baseChart.doughnutObj.center = new Point(600, 800);
+        baseChart.doughnutObj.radiusOuter = 300;
+        baseChart.doughnutObj.radiusInner = 180;
+        baseChart.doughnutObj.startAngle = 0;
         return baseChart;
     }
 
@@ -69,10 +69,10 @@ public class TestDoughnutChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK, Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
         baseChart.colors = colors;
-        baseChart.center = new Point(600, 800);
-        baseChart.radius = 80;
-        baseChart.startAngle = 0;
-        baseChart.width = 150;
+        baseChart.doughnutObj.center = new Point(600, 800);
+        baseChart.doughnutObj.radiusOuter = 200;
+        baseChart.doughnutObj.radiusInner = 50;
+        baseChart.doughnutObj.startAngle = 0;
         return baseChart;
     }
 }

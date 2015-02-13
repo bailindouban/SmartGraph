@@ -34,9 +34,9 @@ public class TestPieChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
         baseChart.colors = colors;
-        baseChart.center = new Point(600, 800);
-        baseChart.radius = 250;
-        baseChart.startAngle = 0;
+        baseChart.pieObj.center = new Point(600, 800);
+        baseChart.pieObj.radius = 250;
+        baseChart.pieObj.startAngle = 0;
         return baseChart;
     }
 
@@ -51,11 +51,11 @@ public class TestPieChart extends TestChart {
         float[] bias = {50, 50, 50, 50};
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
-        baseChart.bias = bias;
+        baseChart.pieObj.bias = bias;
         baseChart.colors = colors;
-        baseChart.center = new Point(600, 800);
-        baseChart.radius = 250;
-        baseChart.startAngle = 0;
+        baseChart.pieObj.center = new Point(600, 800);
+        baseChart.pieObj.radius = 250;
+        baseChart.pieObj.startAngle = 0;
         return baseChart;
     }
 }

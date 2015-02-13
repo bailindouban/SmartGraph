@@ -41,13 +41,13 @@ public class PieChart extends BaseChart {
                 paint.setColor(colors[i]);
                 float swipeAngle = data[i] * 360 / total;
 
-                double radian = Math.PI * (2 * startAngle + swipeAngle) / 360;
+                double radian = Math.PI * (2 * pieObj.startAngle + swipeAngle) / 360;
                 PointF biasXY = new PointF();
-                biasXY.set(bias[i] * (float)Math.cos(radian), bias[i] * (float)Math.sin(radian));
-                RectF oval = new RectF(center.x - radius + biasXY.x, center.y - radius + biasXY.y, center.x + radius + biasXY.x, center.y + radius + biasXY.y);
+                biasXY.set(pieObj.bias[i] * (float)Math.cos(radian), pieObj.bias[i] * (float)Math.sin(radian));
+                RectF oval = new RectF(pieObj.center.x - pieObj.radius + biasXY.x, pieObj.center.y - pieObj.radius + biasXY.y, pieObj.center.x + pieObj.radius + biasXY.x, pieObj.center.y + pieObj.radius + biasXY.y);
 
-                canvas.drawArc(oval, startAngle, swipeAngle, true, paint);
-                startAngle += swipeAngle;
+                canvas.drawArc(oval, pieObj.startAngle, swipeAngle, true, paint);
+                pieObj.startAngle += swipeAngle;
             }
         }
     }

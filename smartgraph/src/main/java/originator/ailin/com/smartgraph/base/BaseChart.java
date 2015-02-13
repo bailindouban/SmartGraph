@@ -3,7 +3,6 @@ package originator.ailin.com.smartgraph.base;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -13,21 +12,20 @@ import android.view.View;
 public class BaseChart extends View {
     public Paint paint;
 
-    // For Bar Chart
-    public int left, bottom, width, interval;
+    // For Chart Objects
+    public BarObj barObj = new BarObj();
+    public PieObj pieObj = new PieObj();
+    public DoughnutObj doughnutObj = new DoughnutObj();
 
-    // For Pie Chart
-    public Point center;
-    public int radius;
-    public float startAngle;
-    public float bias[];
+    // For Bubble Chart
+    public float size;
 
     // For data
     public float[] data;
     public float[][] datas;
 
     // For color
-    public int color;
+    public int color = Color.BLACK;
     public int[] colors;
 
     /**
@@ -59,18 +57,7 @@ public class BaseChart extends View {
         paint.setColor(Color.BLACK);
         paint.setAntiAlias(true);
 
-        // For Bar Chart
-        left = 100;
-        bottom = 1000;
-        width = 50;
-        interval = 30;
-
-        // For Pie Chart
-        center = new Point(500, 400);
-        radius = 150;
-        startAngle = 0;
-
-        // For color
-        color = Color.BLACK;
+        // For Bubble Chart
+        size = 10;
     }
 }
