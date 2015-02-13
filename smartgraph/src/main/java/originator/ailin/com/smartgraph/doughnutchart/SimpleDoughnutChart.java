@@ -41,6 +41,7 @@ public class SimpleDoughnutChart extends BaseChart {
             for(float d : data) {
                 total += d;
             }
+
             for(int i = 0; i < data.length; i++) {
                 paint.setColor(colors[i]);
                 RectF oval = new RectF(doughnutObj.center.x - radius, doughnutObj.center.y - radius, doughnutObj.center.x + radius, doughnutObj.center.y + radius);

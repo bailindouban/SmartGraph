@@ -31,11 +31,11 @@ public class BarChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(datas != null) {
-            int leftInit = barObj.left;
+            int leftInit = left;
             for(int i = 0; i < datas.length; i++) {
                 for(int j = 0; j < datas[i].length; j++) {
                     paint.setColor(colors[j]);
-                    RectF rectF = new RectF(leftInit, barObj.bottom - datas[i][j], leftInit + barObj.width, barObj.bottom);
+                    RectF rectF = new RectF(leftInit, bottom - datas[i][j], leftInit + barObj.width, bottom);
                     canvas.drawRect(rectF, paint);
                     leftInit += barObj.width;
                 }

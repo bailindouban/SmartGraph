@@ -33,15 +33,15 @@ public class SimpleLineChart extends BaseChart {
         Log.d("kim", "onDraw");
 
         if(data != null) {
-            int leftInit = barObj.left;
+            int leftInit = left;
             paint.setColor(color);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(barObj.width);
             Path path = new Path();
-            path.moveTo(leftInit, barObj.bottom - data[0]);
+            path.moveTo(leftInit, bottom - data[0]);
             for(int i = 1; i < data.length; i++) {
                 leftInit += barObj.interval;
-                path.lineTo(leftInit, barObj.bottom - data[i]);
+                path.lineTo(leftInit, bottom - data[i]);
             }
             canvas.drawPath(path, paint);
         }

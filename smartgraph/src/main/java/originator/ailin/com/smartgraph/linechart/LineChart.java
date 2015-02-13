@@ -33,15 +33,15 @@ public class LineChart extends BaseChart {
         Log.d("kim", "onDraw");
         if(datas != null) {
             for(int i = 0; i < datas.length; i++) {
-                int leftInit = barObj.left;
+                int leftInit = left;
                 paint.setColor(colors[i]);
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeWidth(barObj.width);
                 Path path = new Path();
-                path.moveTo(leftInit, barObj.bottom - datas[i][0]);
+                path.moveTo(leftInit, bottom - datas[i][0]);
                 for(int j = 1; j < datas[i].length; j++) {
                     leftInit += barObj.interval;
-                    path.lineTo(leftInit, barObj.bottom - datas[i][j]);
+                    path.lineTo(leftInit, bottom - datas[i][j]);
                 }
                 canvas.drawPath(path, paint);
             }
