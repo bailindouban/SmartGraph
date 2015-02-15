@@ -28,7 +28,7 @@ public class TestBarChart extends TestChart {
     @Override
     public View drawSimpleChart() {
         baseChart = new SimpleBarChart(context);
-        float[] data = {10, 50, 602, 59, 200, 63, 503, 43, 569, 402};
+        float[] data = {10, 50, 622, 59, 200, 63, 503, 43, 569, 402};
         baseChart.data = data;
         baseChart.color = Constant.COLOR_BLUE;
 

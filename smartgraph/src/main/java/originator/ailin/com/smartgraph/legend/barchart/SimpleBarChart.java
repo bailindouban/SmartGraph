@@ -32,21 +32,23 @@ public class SimpleBarChart extends BaseChart {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
-        int leftInit = left;
         if(data != null) {
+            int leftInit = left;
+
             // Draw XY axis
             float dataMax = 0;
             for (float d : data) {
                 dataMax = (d > dataMax) ? d : dataMax;
             }
+
+            int unit = 100;
             int maxWidth = data.length * (barObj.width + barObj.interval);
-            int maxHeight = (int) dataMax + 50;
+            int maxHeight = (int) dataMax + unit;
             Axis axis = new Axis(canvas, paint, leftInit, bottom);
             axis.drawAxisX(maxWidth);
             axis.drawAxisY(maxHeight);
 
             // Draw Grid
-            int unit = 100;
             Grid grid = new Grid(canvas, paint, leftInit, bottom);
             grid.drawGridY(maxWidth, maxHeight, unit);
 

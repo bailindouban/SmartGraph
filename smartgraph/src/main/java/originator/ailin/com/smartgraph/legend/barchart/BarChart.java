@@ -44,14 +44,15 @@ public class BarChart extends BaseChart {
                     dataMax = (d > dataMax) ? d : dataMax;
                 }
             }
+
+            int unit = 100;
             int maxWidth = datas.length * barObj.interval + datas.length * datas[0].length * barObj.width;
-            int maxHeight = (int) dataMax + 50;
+            int maxHeight = (int) dataMax + unit;
             Axis axis = new Axis(canvas, paint, leftInit, bottom);
             axis.drawAxisX(maxWidth);
             axis.drawAxisY(maxHeight);
 
             // Draw Grid
-            int unit = 100;
             Grid grid = new Grid(canvas, paint, leftInit, bottom);
             grid.drawGridY(maxWidth, maxHeight, unit);
 

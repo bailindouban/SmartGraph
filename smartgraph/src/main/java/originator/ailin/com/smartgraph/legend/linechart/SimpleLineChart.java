@@ -7,6 +7,8 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import originator.ailin.com.smartgraph.axis.Axis;
+import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 
 public class SimpleLineChart extends BaseChart {
@@ -34,6 +36,24 @@ public class SimpleLineChart extends BaseChart {
 
         if(data != null) {
             int leftInit = left;
+
+            // Draw XY axis
+            float dataMax = 0;
+            for (float d : data) {
+                dataMax = (d > dataMax) ? d : dataMax;
+            }
+
+            int unit = 100;
+            int maxWidth = (data.length - 1)* barObj.interval;
+            int maxHeight = (int) dataMax + unit;
+            Axis axis = new Axis(canvas, paint, leftInit, bottom);
+            axis.drawAxisX(maxWidth);
+            axis.drawAxisY(maxHeight);
+
+            // Draw Grid
+            Grid grid = new Grid(canvas, paint, leftInit, bottom);
+            grid.drawGridY(maxWidth, maxHeight, unit);
+
             paint.setColor(color);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(barObj.width);
