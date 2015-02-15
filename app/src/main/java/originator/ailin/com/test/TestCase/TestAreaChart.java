@@ -3,8 +3,8 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.areachart.AreaChart;
-import originator.ailin.com.smartgraph.areachart.SimpleAreaChart;
+import originator.ailin.com.smartgraph.legend.areachart.AreaChart;
+import originator.ailin.com.smartgraph.legend.areachart.SimpleAreaChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 

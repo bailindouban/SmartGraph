@@ -3,8 +3,8 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.barchart.BarChart;
-import originator.ailin.com.smartgraph.barchart.SimpleBarChart;
+import originator.ailin.com.smartgraph.legend.barchart.BarChart;
+import originator.ailin.com.smartgraph.legend.barchart.SimpleBarChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 
@@ -28,9 +28,13 @@ public class TestBarChart extends TestChart {
     @Override
     public View drawSimpleChart() {
         baseChart = new SimpleBarChart(context);
-        float[] data = {10, 50, 32, 59, 200, 63};
+        float[] data = {10, 50, 602, 59, 200, 63, 503, 43, 569, 402};
         baseChart.data = data;
         baseChart.color = Constant.COLOR_BLUE;
+
+        baseChart.title = "2014年销售业绩";
+        baseChart.labelX = new String[] {"1月份", "2月份", "3月份", "4月份", "5月份", "6月份", "7月份", "8月份", "9月份", "10月份"};
+        baseChart.label = new String[] {"我的销售额"};
         return baseChart;
     }
 
@@ -41,10 +45,14 @@ public class TestBarChart extends TestChart {
     @Override
     public View drawChart() {
         baseChart = new BarChart(context);
-        float[][] datas = {{10, 50, 32}, {47, 120, 67}, {421, 63, 74}, {22, 23, 24}, {342,321,358}};
+        float[][] datas = {{10, 50, 32}, {47, 120, 67}, {421, 63, 74}, {342,321,358}};
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_PINK, Constant.COLOR_YELLOW};
         baseChart.datas = datas;
         baseChart.colors = colors;
+
+        baseChart.title = "2014年销售业绩";
+        baseChart.labelX = new String[] {"1月份", "2月份", "3月份", "4月份"};
+        baseChart.label = new String[] {"小明", "小李", "小王"};
         return baseChart;
     }
 }

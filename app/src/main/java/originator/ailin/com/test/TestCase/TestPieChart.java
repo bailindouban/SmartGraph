@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Point;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.piechart.PieChart;
-import originator.ailin.com.smartgraph.piechart.SimplePieChart;
+import originator.ailin.com.smartgraph.legend.piechart.PieChart;
+import originator.ailin.com.smartgraph.legend.piechart.SimplePieChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 

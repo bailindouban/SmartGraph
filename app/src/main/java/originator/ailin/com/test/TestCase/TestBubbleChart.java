@@ -3,9 +3,9 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.base.MyPoint;
-import originator.ailin.com.smartgraph.bubblechart.BubbleChart;
-import originator.ailin.com.smartgraph.bubblechart.SimpleBubbleChart;
+import originator.ailin.com.smartgraph.legend.base.MyPoint;
+import originator.ailin.com.smartgraph.legend.bubblechart.BubbleChart;
+import originator.ailin.com.smartgraph.legend.bubblechart.SimpleBubbleChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 

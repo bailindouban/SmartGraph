@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.scatterplot.ScatterPlot;
-import originator.ailin.com.smartgraph.scatterplot.SimpleScatterPlot;
+import originator.ailin.com.smartgraph.legend.scatterplot.ScatterPlot;
+import originator.ailin.com.smartgraph.legend.scatterplot.SimpleScatterPlot;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 
