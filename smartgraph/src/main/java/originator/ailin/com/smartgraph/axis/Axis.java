@@ -15,8 +15,8 @@ public class Axis {
     public Axis(Canvas mCanvas, Paint mPaint, int mLeftInit, int mBottom) {
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
-        this.mLeftInit = mLeftInit;
-        this.mBottom = mBottom;
+        this.mLeftInit = mLeftInit - 1;
+        this.mBottom = mBottom + 1;
 
         init();
     }
@@ -27,7 +27,7 @@ public class Axis {
     }
 
     public void drawAxisX(int maxWidth) {
-        mCanvas.drawLine(mLeftInit, mBottom, maxWidth + mLeftInit, mBottom, mPaint);
+        mCanvas.drawLine(mLeftInit, mBottom, maxWidth + mLeftInit + 1, mBottom, mPaint);
     }
 
     public void drawAxisY(int maxHeight) {
