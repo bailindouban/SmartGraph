@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import originator.ailin.com.smartgraph.axis.Axis;
+import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 import originator.ailin.com.smartgraph.legend.base.MyPoint;
 
@@ -32,6 +33,26 @@ public class BubbleChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(bubbleObj.bubblePoints != null) {
+
+            // Draw XY axis
+            float dataMaxX = 0, dataMaxY = 0;
+            for (MyPoint[] points : bubbleObj.bubblePoints) {
+                for(MyPoint point : points) {
+                    dataMaxX = ((point.x + point.radius) > dataMaxX) ? (point.x + point.radius) : dataMaxX;
+                    dataMaxY = ((point.y + point.radius) > dataMaxY) ? (point.y + point.radius) : dataMaxY;
+                }
+            }
+
+            int unit = 100;
+            int maxWidth = (int) dataMaxX;
+            int maxHeight = (int) dataMaxY + unit;
+            Axis axis = new Axis(canvas, paint, left, bottom);
+            axis.drawAxisX(maxWidth);
+            axis.drawAxisY(maxHeight);
+
+            // Draw Grid
+            Grid grid = new Grid(canvas, paint, left, bottom);
+            grid.drawGridY(maxWidth, maxHeight, unit);
 
             // Draw Legend
             for(int i = 0; i < bubbleObj.bubblePoints.length; i++) {

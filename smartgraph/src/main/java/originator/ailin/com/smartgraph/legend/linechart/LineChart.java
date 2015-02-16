@@ -56,6 +56,7 @@ public class LineChart extends BaseChart {
                 Grid grid = new Grid(canvas, paint, leftInit, bottom);
                 grid.drawGridY(maxWidth, maxHeight, unit);
 
+                // Draw Legend
                 paint.setColor(colors[i]);
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeWidth(barObj.width);

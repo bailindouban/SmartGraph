@@ -6,6 +6,8 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import originator.ailin.com.smartgraph.axis.Axis;
+import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 
 public class ScatterPlot extends BaseChart {
@@ -31,6 +33,27 @@ public class ScatterPlot extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(scatterObj.scatterPoints != null) {
+            // Draw XY axis
+            float dataMaxX = 0, dataMaxY = 0;
+            for (int i = 0; i < scatterObj.scatterPoints.length; i++) {
+                for(PointF point : scatterObj.scatterPoints[i]) {
+                    dataMaxX = ((point.x + scatterObj.radii[i]) > dataMaxX) ? (point.x + scatterObj.radii[i]) : dataMaxX;
+                    dataMaxY = ((point.y + scatterObj.radii[i]) > dataMaxY) ? (point.y + scatterObj.radii[i]) : dataMaxY;
+                }
+            }
+
+            int unit = 100;
+            int maxWidth = (int) dataMaxX;
+            int maxHeight = (int) dataMaxY + unit;
+            Axis axis = new Axis(canvas, paint, left, bottom);
+            axis.drawAxisX(maxWidth);
+            axis.drawAxisY(maxHeight);
+
+            // Draw Grid
+            Grid grid = new Grid(canvas, paint, left, bottom);
+            grid.drawGridY(maxWidth, maxHeight, unit);
+
+            // Draw Legend
             for(int i = 0; i < scatterObj.scatterPoints.length; i++) {
                 paint.setColor(colors[i]);
                 for(PointF point : scatterObj.scatterPoints[i]) {
