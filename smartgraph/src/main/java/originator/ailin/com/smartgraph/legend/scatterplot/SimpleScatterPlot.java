@@ -41,7 +41,7 @@ public class SimpleScatterPlot extends BaseChart {
                 dataMaxY = ((point.y + scatterObj.radius) > dataMaxY) ? (point.y + scatterObj.radius) : dataMaxY;
             }
 
-            int unit = 100;
+            int unit = 100; 
             int maxWidth = (int) dataMaxX;
             int maxHeight = (int) dataMaxY + unit;
             Axis axis = new Axis(canvas, paint, left, bottom);
