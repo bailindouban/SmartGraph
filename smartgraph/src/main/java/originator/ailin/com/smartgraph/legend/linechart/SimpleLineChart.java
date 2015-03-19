@@ -10,6 +10,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleLineChart extends BaseChart {
     /**
@@ -54,6 +55,7 @@ public class SimpleLineChart extends BaseChart {
             Grid grid = new Grid(canvas, paint, leftInit, bottom);
             grid.drawGridY(maxWidth, maxHeight, unit);
 
+            // Draw Legend
             paint.setColor(color);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(barObj.width);
@@ -64,6 +66,10 @@ public class SimpleLineChart extends BaseChart {
                 path.lineTo(leftInit, bottom - data[i]);
             }
             canvas.drawPath(path, paint);
+
+            // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
         }
     }
 }

@@ -9,6 +9,7 @@ import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 import originator.ailin.com.smartgraph.legend.base.MyPoint;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class BubbleChart extends BaseChart {
     /**
@@ -61,6 +62,10 @@ public class BubbleChart extends BaseChart {
                     canvas.drawCircle(left + point.x, bottom - point.y, point.radius, paint);
                 }
             }
+
+            // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
         }
     }
 }

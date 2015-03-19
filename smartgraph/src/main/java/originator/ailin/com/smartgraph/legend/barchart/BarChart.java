@@ -9,6 +9,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class BarChart extends BaseChart {
 
@@ -67,6 +68,10 @@ public class BarChart extends BaseChart {
 
                 leftInit += barObj.interval;
             }
+
+            // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
         }
     }
 }

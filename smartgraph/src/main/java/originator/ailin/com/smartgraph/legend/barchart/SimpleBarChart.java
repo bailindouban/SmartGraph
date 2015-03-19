@@ -9,6 +9,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleBarChart extends BaseChart {
     /**
@@ -44,12 +45,12 @@ public class SimpleBarChart extends BaseChart {
             int unit = 100;
             int maxWidth = data.length * (barObj.width + barObj.interval);
             int maxHeight = (int) dataMax + unit;
-            Axis axis = new Axis(canvas, paint, leftInit, bottom);
+            Axis axis = new Axis(canvas, paint, left, bottom);
             axis.drawAxisX(maxWidth);
             axis.drawAxisY(maxHeight);
 
             // Draw Grid
-            Grid grid = new Grid(canvas, paint, leftInit, bottom);
+            Grid grid = new Grid(canvas, paint, left, bottom);
             grid.drawGridY(maxWidth, maxHeight, unit);
 
             // Draw Chart
@@ -61,6 +62,8 @@ public class SimpleBarChart extends BaseChart {
             }
 
             // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
 
             // Draw labelX
 

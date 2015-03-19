@@ -9,6 +9,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleAreaChart extends BaseChart {
     /**
@@ -65,6 +66,10 @@ public class SimpleAreaChart extends BaseChart {
             path.lineTo(left, bottom);
             path.close();
             canvas.drawPath(path, paint);
+
+            // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
         }
     }
 }

@@ -22,7 +22,9 @@ public class BaseChart extends View {
     public int left = 100, bottom = 1000;
 
     // For title
-    public String title;
+    public String titleText;
+    public int titleSize;
+    public int titleColor;
 
     // For label
     public String[] labelX, labelY, label;
@@ -70,6 +72,10 @@ public class BaseChart extends View {
         paint = new Paint();
         paint.setColor(Color.BLACK);
         paint.setAntiAlias(true);
+
+        titleText = "Chart Title";
+        titleColor = Color.BLUE;
+        titleSize = 50;
     }
 
 }

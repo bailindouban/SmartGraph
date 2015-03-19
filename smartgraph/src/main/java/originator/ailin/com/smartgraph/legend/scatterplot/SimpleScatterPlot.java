@@ -9,6 +9,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleScatterPlot extends BaseChart {
     /**
@@ -57,6 +58,10 @@ public class SimpleScatterPlot extends BaseChart {
             for(PointF point : scatterObj.scatterPoint) {
                 canvas.drawCircle(left + point.x, bottom - point.y, scatterObj.radius, paint);
             }
+
+            // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
         }
     }
 }

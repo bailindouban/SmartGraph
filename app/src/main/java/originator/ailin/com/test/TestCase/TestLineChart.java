@@ -33,6 +33,7 @@ public class TestLineChart extends TestChart {
         baseChart.color = Constant.COLOR_BLUE;
         baseChart.barObj.width = 10;
         baseChart.barObj.interval = 150;
+        baseChart.titleText = "2014年销售业绩";
         return baseChart;
     }
 
@@ -49,6 +50,7 @@ public class TestLineChart extends TestChart {
         baseChart.colors = colors;
         baseChart.barObj.width = 10;
         baseChart.barObj.interval = 200;
+        baseChart.titleText = "2014年销售业绩";
         return baseChart;
     }
 }

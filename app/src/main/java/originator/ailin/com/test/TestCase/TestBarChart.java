@@ -32,7 +32,7 @@ public class TestBarChart extends TestChart {
         baseChart.data = data;
         baseChart.color = Constant.COLOR_BLUE;
 
-        baseChart.title = "2014年销售业绩";
+        baseChart.titleText = "2014年销售业绩";
         baseChart.labelX = new String[] {"1月份", "2月份", "3月份", "4月份", "5月份", "6月份", "7月份", "8月份", "9月份", "10月份"};
         baseChart.label = new String[] {"我的销售额"};
         return baseChart;
@@ -50,7 +50,9 @@ public class TestBarChart extends TestChart {
         baseChart.datas = datas;
         baseChart.colors = colors;
 
-        baseChart.title = "2014年销售业绩";
+        baseChart.titleText = "2015年销售业绩";
+        baseChart.titleSize = 100;
+        baseChart.titleColor = Constant.COLOR_GREEN;
         baseChart.labelX = new String[] {"1月份", "2月份", "3月份", "4月份"};
         baseChart.label = new String[] {"小明", "小李", "小王"};
         return baseChart;

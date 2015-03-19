@@ -10,12 +10,12 @@ import android.graphics.Paint;
 public class Grid {
     private Canvas mCanvas;
     private Paint mPaint;
-    private int mLeftInit, mBottom;
+    private int mLeft, mBottom;
 
-    public Grid(Canvas mCanvas, Paint mPaint, int mLeftInit, int mBottom) {
+    public Grid(Canvas mCanvas, Paint mPaint, int mLeft, int mBottom) {
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
-        this.mLeftInit = mLeftInit;
+        this.mLeft = mLeft;
         this.mBottom = mBottom;
 
         init();
@@ -30,7 +30,7 @@ public class Grid {
         int num = (int) (maxHeight / unit + 1);
 
         for(int i = 1; i < num; i++) {
-            mCanvas.drawLine(mLeftInit, mBottom - unit * i, maxWidth + mLeftInit, mBottom - unit * i, mPaint);    // X lines
+            mCanvas.drawLine(mLeft, mBottom - unit * i, maxWidth + mLeft, mBottom - unit * i, mPaint);    // X lines
         }
     }
 }
