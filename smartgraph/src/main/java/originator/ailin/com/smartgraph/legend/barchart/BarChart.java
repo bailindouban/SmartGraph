@@ -57,7 +57,7 @@ public class BarChart extends BaseChart {
             Grid grid = new Grid(canvas, paint, leftInit, bottom);
             grid.drawGridY(maxWidth, maxHeight, unit);
 
-            // Draw Chart
+            // Draw Legend
             for(int i = 0; i < datas.length; i++) {
                 for(int j = 0; j < datas[i].length; j++) {
                     paint.setColor(colors[j]);

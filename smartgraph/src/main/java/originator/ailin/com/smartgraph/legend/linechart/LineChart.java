@@ -35,28 +35,28 @@ public class LineChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(datas != null) {
-            for(int i = 0; i < datas.length; i++) {
-                int leftInit = left;
+            int leftInit = left;
 
-                // Draw XY axis
-                float dataMax = 0;
-                for (float[] data : datas) {
-                    for(float d : data) {
-                        dataMax = (d > dataMax) ? d : dataMax;
-                    }
+            // Draw XY axis
+            float dataMax = 0;
+            for (float[] data : datas) {
+                for(float d : data) {
+                    dataMax = (d > dataMax) ? d : dataMax;
                 }
-                int unit = 100;
-                int maxWidth = (datas[0].length - 1) * barObj.interval;
-                int maxHeight = (int) dataMax + unit;
-                Axis axis = new Axis(canvas, paint, leftInit, bottom);
-                axis.drawAxisX(maxWidth);
-                axis.drawAxisY(maxHeight);
+            }
+            int unit = 100;
+            int maxWidth = (datas[0].length - 1) * barObj.interval;
+            int maxHeight = (int) dataMax + unit;
+            Axis axis = new Axis(canvas, paint, leftInit, bottom);
+            axis.drawAxisX(maxWidth);
+            axis.drawAxisY(maxHeight);
 
-                // Draw Grid
+            // Draw Grid
+            Grid grid = new Grid(canvas, paint, leftInit, bottom);
+            grid.drawGridY(maxWidth, maxHeight, unit);
 
-                Grid grid = new Grid(canvas, paint, leftInit, bottom);
-                grid.drawGridY(maxWidth, maxHeight, unit);
-
+            for(int i = 0; i < datas.length; i++) {
+                leftInit = left;
                 // Draw Legend
                 paint.setColor(colors[i]);
                 paint.setStyle(Paint.Style.STROKE);
@@ -69,10 +69,11 @@ public class LineChart extends BaseChart {
                 }
                 canvas.drawPath(path, paint);
 
-                // Draw Title
-                Title title = new Title(canvas, paint, left, bottom);
-                title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
             }
+
+            // Draw Title
+            Title title = new Title(canvas, paint, left, bottom);
+            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
         }
     }
 }
