@@ -37,7 +37,7 @@ public class TestDoughnutChart extends TestChart {
         baseChart.colors = colors;
         baseChart.doughnutObj.center = new Point(600, 800);
         baseChart.doughnutObj.radiusOuter = 300;
-        baseChart.doughnutObj.radiusInner = 180;
+        baseChart.doughnutObj.radiusInner = 100;
         baseChart.doughnutObj.startAngle = 0;
         return baseChart;
     }
@@ -57,7 +57,7 @@ public class TestDoughnutChart extends TestChart {
         baseChart.doughnutObj.bias = bias;
         baseChart.doughnutObj.center = new Point(600, 800);
         baseChart.doughnutObj.radiusOuter = 300;
-        baseChart.doughnutObj.radiusInner = 180;
+        baseChart.doughnutObj.radiusInner = 100;
         baseChart.doughnutObj.startAngle = 0;
         return baseChart;
     }
@@ -70,8 +70,8 @@ public class TestDoughnutChart extends TestChart {
         baseChart.data = data;
         baseChart.colors = colors;
         baseChart.doughnutObj.center = new Point(600, 800);
-        baseChart.doughnutObj.radiusOuter = 200;
-        baseChart.doughnutObj.radiusInner = 50;
+        baseChart.doughnutObj.radiusOuter = 300;
+        baseChart.doughnutObj.radiusInner = 80;
         baseChart.doughnutObj.startAngle = 0;
         return baseChart;
     }

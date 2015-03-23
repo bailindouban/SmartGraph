@@ -35,7 +35,7 @@ public class TestPieChart extends TestChart {
         baseChart.data = data;
         baseChart.colors = colors;
         baseChart.pieObj.center = new Point(600, 800);
-        baseChart.pieObj.radius = 250;
+        baseChart.pieObj.radius = 300;
         baseChart.pieObj.startAngle = 0;
         return baseChart;
     }
@@ -54,7 +54,7 @@ public class TestPieChart extends TestChart {
         baseChart.pieObj.bias = bias;
         baseChart.colors = colors;
         baseChart.pieObj.center = new Point(600, 800);
-        baseChart.pieObj.radius = 250;
+        baseChart.pieObj.radius = 300;
         baseChart.pieObj.startAngle = 0;
         return baseChart;
     }

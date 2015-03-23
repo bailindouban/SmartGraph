@@ -35,15 +35,13 @@ public class RoseChart extends BaseChart {
         if(data != null) {
             paint.setStyle(Paint.Style.STROKE);
 
-            float total = 0;
             float maxData = data[0];
             for(float d : data) {
                 maxData = (d > maxData) ? d : maxData;
-                total += d;
             }
             for(int i = 0; i < data.length; i++) {
                 float widthDeal = (doughnutObj.radiusOuter - doughnutObj.radiusInner) * data[i] / maxData;
-                float radiusDeal = (doughnutObj.radiusInner + doughnutObj.radiusOuter) / 2 + widthDeal / 2;
+                float radiusDeal = doughnutObj.radiusInner + (doughnutObj.radiusOuter - doughnutObj.radiusInner) * data[i] / maxData / 2;
                 paint.setStrokeWidth(widthDeal);
 
                 paint.setColor(colors[i]);
