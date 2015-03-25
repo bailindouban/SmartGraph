@@ -9,6 +9,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.polar.Polar;
 import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleBarChart extends BaseChart {
@@ -65,9 +66,10 @@ public class SimpleBarChart extends BaseChart {
             Title title = new Title(canvas, paint, left, bottom);
             title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
 
-            // Draw labelX
-
-            // Draw labelY
+            // Draw PolarXY
+            Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
+            polar.drawPolarY(maxHeight, unit);
+            polar.drawPolarX(data.length, barObj.width, barObj.interval);
 
             // Draw label
         }
