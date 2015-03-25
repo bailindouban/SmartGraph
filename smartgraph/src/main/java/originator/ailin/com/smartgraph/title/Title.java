@@ -23,6 +23,6 @@ public class Title {
         mPaint.setStrokeWidth(1);
         mPaint.setTextSize(titleSize);
         mPaint.setColor(titleColor);
-        mCanvas.drawText(titleText, mLeft + (maxWidth - titleText.length() * titleSize / 2) / 2, mBottom - maxHeight, mPaint);
+        mCanvas.drawText(titleText, mLeft + (maxWidth - mPaint.measureText(titleText)) / 2, mBottom - maxHeight, mPaint);
     }
 }

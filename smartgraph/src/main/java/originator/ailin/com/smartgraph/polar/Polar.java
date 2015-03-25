@@ -61,7 +61,7 @@ public class Polar {
             String polarX = String.valueOf("2");
             Rect bounds = new Rect();
             mPaint.getTextBounds(polarX, 0, polarX.length(), bounds);
-            mCanvas.drawText(polarX, mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginY, mPaint);    // Y Polars
+            mCanvas.drawText(polarX, mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // Y Polars
         }
     }
 
