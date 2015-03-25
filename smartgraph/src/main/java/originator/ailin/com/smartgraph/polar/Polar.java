@@ -60,24 +60,46 @@ public class Polar {
         for(int i = 0; i < num; i++) {
             Rect bounds = new Rect();
             mPaint.getTextBounds(polarX[i], 0, polarX[i].length(), bounds);
-            mCanvas.drawText(polarX[i], mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // Y Polars
+            mCanvas.drawText(polarX[i], mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // X Polars
+        }
+    }
+
+    /**
+     *
+     * @param maxWidth
+     * @param unitX
+     */
+    public void drawPolarBubbleX(int maxWidth, int unitX) {
+        mPaint.setTextSize(mPolarTextSizeX);
+        int num = (int) (maxWidth / unitX + 1);
+
+        for(int i = 0; i < num; i++) {
+            String polarX = String.valueOf(unitX * i);
+            Rect bounds = new Rect();
+            mPaint.getTextBounds(polarX, 0, polarX.length(), bounds);
+            mCanvas.drawText(polarX, mLeft + unitX * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // X Polars
+        }
+
+        for(int i = 1; i < num; i++) {
+            mPaint.setColor(Color.BLACK);
+            mCanvas.drawLine(mLeft + unitX * i, mBottom - mPolarMarginX, mLeft + unitX * i, mBottom + mPolarMarginX, mPaint);
         }
     }
 
     /**
      *
      * @param maxHeight
-     * @param unit
+     * @param unitY
      */
-    public void drawPolarY(int maxHeight, int unit) {
+    public void drawPolarY(int maxHeight, int unitY) {
         mPaint.setTextSize(mPolarTextSizeY);
-        int num = (int) (maxHeight / unit + 1);
+        int num = (int) (maxHeight / unitY + 1);
 
         for(int i = 0; i < num; i++) {
-            String polarY = String.valueOf(i * unit);
+            String polarY = String.valueOf(unitY * i);
             Rect bounds = new Rect();
             mPaint.getTextBounds(polarY, 0, polarY.length(), bounds);
-            mCanvas.drawText(polarY, mLeft - bounds.width() - mPolarMarginY, mBottom - unit * i + bounds.height() / 2, mPaint);    // Y Polars
+            mCanvas.drawText(polarY, mLeft - bounds.width() - mPolarMarginY, mBottom - unitY * i + bounds.height() / 2, mPaint);    // Y Polars
         }
     }
 
