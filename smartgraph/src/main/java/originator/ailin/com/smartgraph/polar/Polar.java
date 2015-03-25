@@ -72,7 +72,7 @@ public class Polar {
     public void drawPolarY(int maxHeight, int unit) {
         mPaint.setTextSize(mPolarTextSizeY);
         int num = (int) (maxHeight / unit + 1);
-        
+
         for(int i = 0; i < num; i++) {
             String polarY = String.valueOf(i * unit);
             Rect bounds = new Rect();
