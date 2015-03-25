@@ -54,6 +54,9 @@ public class MainActivity extends ActionBarActivity {
                 mResources.getStringArray(R.array.pie_chart),
                 mResources.getStringArray(R.array.doughnut_chart)
         };
+
+        // Default
+        setContentView(mTestChart[0].drawSimpleChart());
     }
 
     @Override
