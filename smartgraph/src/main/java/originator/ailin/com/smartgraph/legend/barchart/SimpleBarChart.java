@@ -69,7 +69,7 @@ public class SimpleBarChart extends BaseChart {
             // Draw PolarXY
             Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
             polar.drawPolarY(maxHeight, unit);
-            polar.drawPolarX(data.length, barObj.width, barObj.interval);
+            polar.drawPolarX(data.length, barObj.width, barObj.interval, polarX);
 
             // Draw label
         }

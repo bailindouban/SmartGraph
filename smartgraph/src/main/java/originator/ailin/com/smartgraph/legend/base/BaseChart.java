@@ -26,8 +26,11 @@ public class BaseChart extends View {
     public int titleSize;
     public int titleColor;
 
+    // For polarX
+    public String[] polarX;
+
     // For label
-    public String[] labelX, labelY, label;
+    public String[] label;
 
     // For Chart Objects
     public BarObj barObj = new BarObj();

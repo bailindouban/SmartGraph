@@ -54,14 +54,13 @@ public class Polar {
      * @param width
      * @param interval
      */
-    public void drawPolarX(int num, int width, int interval) {
+    public void drawPolarX(int num, int width, int interval, String[] polarX) {
         mPaint.setTextSize(mPolarTextSizeX);
 
         for(int i = 0; i < num; i++) {
-            String polarX = String.valueOf("2");
             Rect bounds = new Rect();
-            mPaint.getTextBounds(polarX, 0, polarX.length(), bounds);
-            mCanvas.drawText(polarX, mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // Y Polars
+            mPaint.getTextBounds(polarX[i], 0, polarX[i].length(), bounds);
+            mCanvas.drawText(polarX[i], mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // Y Polars
         }
     }
 
@@ -73,7 +72,8 @@ public class Polar {
     public void drawPolarY(int maxHeight, int unit) {
         mPaint.setTextSize(mPolarTextSizeY);
         int num = (int) (maxHeight / unit + 1);
-        for(int i = 1; i < num; i++) {
+        
+        for(int i = 0; i < num; i++) {
             String polarY = String.valueOf(i * unit);
             Rect bounds = new Rect();
             mPaint.getTextBounds(polarY, 0, polarY.length(), bounds);
