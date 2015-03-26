@@ -10,7 +10,6 @@ import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class BarChart extends BaseChart {
 
@@ -36,7 +35,7 @@ public class BarChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(datas != null) {
-            int leftInit = left;
+            float leftInit = left;
 
             // Draw XY axis
             float dataMax = 0;
@@ -70,8 +69,7 @@ public class BarChart extends BaseChart {
             }
 
             // Draw Title
-            Title title = new Title(canvas, paint, left, bottom);
-            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
+            drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw PolarXY
             drawPolarX(canvas, datas.length, barObj.width * datas[0].length, barObj.interval);

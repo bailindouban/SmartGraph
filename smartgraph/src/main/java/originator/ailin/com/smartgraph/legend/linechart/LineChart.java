@@ -10,7 +10,6 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class LineChart extends BaseChart {
     /**
@@ -35,7 +34,7 @@ public class LineChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(datas != null) {
-            int leftInit = left;
+            float leftInit = left;
 
             // Draw XY axis
             float dataMax = 0;
@@ -72,8 +71,7 @@ public class LineChart extends BaseChart {
             }
 
             // Draw Title
-            Title title = new Title(canvas, paint, left, bottom);
-            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
+            drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw PolarXY
             drawPolarX(canvas, datas[0].length, 0, barObj.interval);

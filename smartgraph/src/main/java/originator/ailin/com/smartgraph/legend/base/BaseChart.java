@@ -13,6 +13,7 @@ import originator.ailin.com.smartgraph.legend.base.obj.DoughnutObj;
 import originator.ailin.com.smartgraph.legend.base.obj.PieObj;
 import originator.ailin.com.smartgraph.legend.base.obj.ScatterObj;
 import originator.ailin.com.smartgraph.polar.Polar;
+import originator.ailin.com.smartgraph.title.Title;
 
 /**
  * Created by Kim_Bai on 2/5/2015.
@@ -21,7 +22,7 @@ public abstract class BaseChart extends View {
     public Paint paint;
 
     // For X / Y axis
-    public int left = 100, bottom = 1000;
+    public float left = 100, bottom = 1000;
 
     // For title
     public String titleText;
@@ -122,5 +123,10 @@ public abstract class BaseChart extends View {
     public void drawPolarY(Canvas canvas, int maxHeight) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarY(maxHeight, unitY, polarsTextColorY);
+    }
+
+    public void drawTitle(Canvas canvas, float maxWidth, float maxHeight) {
+        Title title = new Title(canvas, paint, left, bottom);
+        title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
     }
 }

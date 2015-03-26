@@ -9,7 +9,6 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class ScatterPlot extends BaseChart {
     /**
@@ -63,8 +62,7 @@ public class ScatterPlot extends BaseChart {
             }
 
             // Draw Title
-            Title title = new Title(canvas, paint, left, bottom);
-            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
+            drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw PolarXY
             drawPolarBubbleX(canvas, maxWidth);

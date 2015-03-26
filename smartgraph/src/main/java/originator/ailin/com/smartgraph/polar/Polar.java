@@ -14,7 +14,7 @@ import originator.ailin.com.smartgraph.R;
 public class Polar {
     private Canvas mCanvas;
     private Paint mPaint;
-    private int mLeft, mBottom;
+    private float mLeft, mBottom;
     private int mPolarsTextSizeX, mPolarsTextSizeY;
     private float mPolarsMarginX, mPolarsMarginY;
     private Resources mResources;
@@ -26,7 +26,7 @@ public class Polar {
      * @param mLeft
      * @param mBottom
      */
-    public Polar(Resources mResources, Canvas mCanvas, Paint mPaint, int mLeft, int mBottom) {
+    public Polar(Resources mResources, Canvas mCanvas, Paint mPaint, float mLeft, float mBottom) {
         this.mResources = mResources;
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
@@ -48,12 +48,14 @@ public class Polar {
     }
 
     /**
+     *
      * @param num
      * @param width
      * @param interval
      * @param polarsTextX
+     * @param polarTextColorX
      */
-    public void drawPolarX(int num, int width, int interval, String[] polarsTextX, int polarTextColorX) {
+    public void drawPolarX(int num, float width, float interval, String[] polarsTextX, int polarTextColorX) {
         mPaint.setTextAlign(Paint.Align.LEFT);
         mPaint.setTextSize(mPolarsTextSizeX);
         mPaint.setColor(polarTextColorX);
@@ -66,10 +68,12 @@ public class Polar {
     }
 
     /**
+     *
      * @param maxWidth
      * @param unitX
+     * @param polarsTextColorX
      */
-    public void drawPolarBubbleX(int maxWidth, int unitX, int polarsTextColorX) {
+    public void drawPolarBubbleX(float maxWidth, int unitX, int polarsTextColorX) {
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(mPolarsTextSizeX);
         mPaint.setColor(polarsTextColorX);
@@ -91,10 +95,12 @@ public class Polar {
     }
 
     /**
+     *
      * @param maxHeight
      * @param unitY
+     * @param polarsTextColorY
      */
-    public void drawPolarY(int maxHeight, int unitY, int polarsTextColorY) {
+    public void drawPolarY(float maxHeight, int unitY, int polarsTextColorY) {
         mPaint.setTextAlign(Paint.Align.RIGHT);
         mPaint.setTextSize(mPolarsTextSizeY);
         mPaint.setColor(polarsTextColorY);

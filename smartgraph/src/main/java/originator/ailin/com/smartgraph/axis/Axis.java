@@ -10,7 +10,7 @@ import android.graphics.Paint;
 public class Axis {
     private Canvas mCanvas;
     private Paint mPaint;
-    private int mLeft, mBottom;
+    private float mLeft, mBottom;
 
     /**
      *
@@ -19,7 +19,7 @@ public class Axis {
      * @param mLeft
      * @param mBottom
      */
-    public Axis(Canvas mCanvas, Paint mPaint, int mLeft, int mBottom) {
+    public Axis(Canvas mCanvas, Paint mPaint, float mLeft, float mBottom) {
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
         this.mLeft = mLeft - 1;
@@ -40,7 +40,7 @@ public class Axis {
      *
      * @param maxWidth
      */
-    public void drawAxisX(int maxWidth) {
+    public void drawAxisX(float maxWidth) {
         mCanvas.drawLine(mLeft, mBottom, maxWidth + mLeft + 1, mBottom, mPaint);
     }
 
@@ -48,7 +48,7 @@ public class Axis {
      *
      * @param maxHeight
      */
-    public void drawAxisY(int maxHeight) {
+    public void drawAxisY(float maxHeight) {
         mCanvas.drawLine(mLeft, mBottom, mLeft, mBottom - maxHeight, mPaint);
     }
 

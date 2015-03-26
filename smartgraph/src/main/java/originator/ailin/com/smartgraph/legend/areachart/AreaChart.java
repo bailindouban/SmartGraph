@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class AreaChart extends BaseChart {
     private int size;
@@ -35,7 +34,7 @@ public class AreaChart extends BaseChart {
     protected void onDraw(Canvas canvas) {
 
         if(datas != null) {
-            int leftInit = left;
+            float leftInit = left;
 
             // Draw XY axis
             Float[][] dataArray = getDataArray();
@@ -72,8 +71,7 @@ public class AreaChart extends BaseChart {
             }
 
             // Draw Title
-            Title title = new Title(canvas, paint, left, bottom);
-            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
+            drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw PolarXY
             drawPolarX(canvas, size_sub, 0, barObj.interval);

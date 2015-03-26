@@ -10,7 +10,6 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class DoughnutChart extends BaseChart {
     private float mBiasXMax = 0, mBiasXMin = 0, mBiasYMax = 0, mBiasYMin = 0;
@@ -67,8 +66,9 @@ public class DoughnutChart extends BaseChart {
             }
 
             // Draw Title
-            Title title = new Title(canvas, paint, doughnutObj.center.x - doughnutObj.radiusOuter + mBiasXMin, doughnutObj.center.y + doughnutObj.radiusOuter + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin));
-            title.drawTitle(titleText, titleSize, titleColor, doughnutObj.radiusOuter * 2 - mBiasXMin + mBiasXMax, doughnutObj.radiusOuter * 2 - mBiasYMin + mBiasYMax);
+            left = doughnutObj.center.x - doughnutObj.radiusOuter + mBiasXMin;
+            bottom = doughnutObj.center.y + doughnutObj.radiusOuter + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin);
+            drawTitle(canvas, doughnutObj.radiusOuter * 2 - mBiasXMin + mBiasXMax, doughnutObj.radiusOuter * 2 - mBiasYMin + mBiasYMax);
         }
     }
 }

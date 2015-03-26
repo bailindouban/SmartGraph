@@ -8,7 +8,6 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class SimplePieChart extends BaseChart {
     /**
@@ -48,8 +47,9 @@ public class SimplePieChart extends BaseChart {
             }
 
             // Draw Title
-            Title title = new Title(canvas, paint, pieObj.center.x - pieObj.radius, (int) (pieObj.center.y + pieObj.radius - getResources().getDimension(R.dimen.pie_title_margin)));
-            title.drawTitle(titleText, titleSize, titleColor, pieObj.radius * 2, pieObj.radius * 2);
+            left = pieObj.center.x - pieObj.radius;
+            bottom = pieObj.center.y + pieObj.radius - getResources().getDimension(R.dimen.pie_title_margin);
+            drawTitle(canvas, pieObj.radius * 2, pieObj.radius * 2);
         }
 
     }

@@ -10,7 +10,6 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleLineChart extends BaseChart {
     /**
@@ -36,7 +35,7 @@ public class SimpleLineChart extends BaseChart {
         Log.d("kim", "onDraw");
 
         if(data != null) {
-            int leftInit = left;
+            float leftInit = left;
 
             // Draw XY axis
             float dataMax = 0;
@@ -68,8 +67,7 @@ public class SimpleLineChart extends BaseChart {
             canvas.drawPath(path, paint);
 
             // Draw Title
-            Title title = new Title(canvas, paint, left, bottom);
-            title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
+            drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw PolarXY
             drawPolarX(canvas, data.length, 0, barObj.interval);

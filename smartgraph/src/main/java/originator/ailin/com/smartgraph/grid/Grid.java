@@ -10,7 +10,7 @@ import android.graphics.Paint;
 public class Grid {
     private Canvas mCanvas;
     private Paint mPaint;
-    private int mLeft, mBottom;
+    private float mLeft, mBottom;
 
     /**
      *
@@ -19,7 +19,7 @@ public class Grid {
      * @param mLeft
      * @param mBottom
      */
-    public Grid(Canvas mCanvas, Paint mPaint, int mLeft, int mBottom) {
+    public Grid(Canvas mCanvas, Paint mPaint, float mLeft, float mBottom) {
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
         this.mLeft = mLeft;
@@ -42,7 +42,7 @@ public class Grid {
      * @param maxHeight
      * @param unit
      */
-    public void drawGridY(int maxWidth, int maxHeight, int unit) {
+    public void drawGridY(float maxWidth, float maxHeight, int unit) {
         int num = (int) (maxHeight / unit + 1);
 
         for(int i = 1; i < num; i++) {

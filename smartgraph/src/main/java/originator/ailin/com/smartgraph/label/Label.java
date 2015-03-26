@@ -49,8 +49,8 @@ public class Label {
         mLabelMarginB = mResources.getDimension(R.dimen.label_margin_bottom);
         mLabelIconMargin = mResources.getDimension(R.dimen.label_icon_margin);
 
-        mLabelIconWidth = 60;
-        mLabelIconHeight = 60;
+        mLabelIconWidth = 40;
+        mLabelIconHeight = 40;
     }
 
     /**
