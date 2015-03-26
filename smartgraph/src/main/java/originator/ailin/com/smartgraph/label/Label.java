@@ -72,7 +72,7 @@ public class Label {
         for(int i = 0; i < num; i++) {
             // Draw Label Icon
             float LeftInit = mLeft + maxWidth + mLabelMarginL;
-            float topInit = mBottom - maxHeight / 2 - itemHeightMax * labelsText.length / 2 + itemHeightMax * i;
+            float topInit = mBottom - maxHeight / 2 - itemHeightMax * num / 2 + itemHeightMax * i;
             mPaint.setColor(iconsColor[i]);
             mCanvas.drawRect(LeftInit, topInit, LeftInit + mLabelIconWidth, topInit + mLabelIconHeight, mPaint);
 
