@@ -12,6 +12,13 @@ public class Axis {
     private Paint mPaint;
     private int mLeft, mBottom;
 
+    /**
+     *
+     * @param mCanvas
+     * @param mPaint
+     * @param mLeft
+     * @param mBottom
+     */
     public Axis(Canvas mCanvas, Paint mPaint, int mLeft, int mBottom) {
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
@@ -21,15 +28,26 @@ public class Axis {
         init();
     }
 
+    /**
+     * Init Params
+     */
     private void init() {
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(2);
     }
 
+    /**
+     *
+     * @param maxWidth
+     */
     public void drawAxisX(int maxWidth) {
         mCanvas.drawLine(mLeft, mBottom, maxWidth + mLeft + 1, mBottom, mPaint);
     }
 
+    /**
+     *
+     * @param maxHeight
+     */
     public void drawAxisY(int maxHeight) {
         mCanvas.drawLine(mLeft, mBottom, mLeft, mBottom - maxHeight, mPaint);
     }

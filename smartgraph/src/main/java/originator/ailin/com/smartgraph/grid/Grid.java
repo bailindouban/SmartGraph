@@ -12,6 +12,13 @@ public class Grid {
     private Paint mPaint;
     private int mLeft, mBottom;
 
+    /**
+     *
+     * @param mCanvas
+     * @param mPaint
+     * @param mLeft
+     * @param mBottom
+     */
     public Grid(Canvas mCanvas, Paint mPaint, int mLeft, int mBottom) {
         this.mCanvas = mCanvas;
         this.mPaint = mPaint;
@@ -21,11 +28,20 @@ public class Grid {
         init();
     }
 
+    /**
+     * Init Params
+     */
     private void init() {
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(2);
     }
 
+    /**
+     *
+     * @param maxWidth
+     * @param maxHeight
+     * @param unit
+     */
     public void drawGridY(int maxWidth, int maxHeight, int unit) {
         int num = (int) (maxHeight / unit + 1);
 

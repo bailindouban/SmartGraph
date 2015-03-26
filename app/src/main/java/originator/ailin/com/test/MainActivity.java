@@ -23,7 +23,6 @@ public class MainActivity extends ActionBarActivity {
     private TestChart[] mTestChart;
     private String[][] mChart;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
         };
 
         // Default
-        setContentView(mTestChart[3].drawSimpleChart());
+        setContentView(mTestChart[5].drawSimpleChart());
     }
 
     @Override

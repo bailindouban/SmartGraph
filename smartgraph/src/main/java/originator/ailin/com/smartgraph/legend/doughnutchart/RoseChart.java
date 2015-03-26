@@ -7,7 +7,9 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class RoseChart extends BaseChart {
     /**
@@ -33,6 +35,7 @@ public class RoseChart extends BaseChart {
         Log.d("kim", "onDraw");
 
         if(data != null) {
+            // Draw Legend
             paint.setStyle(Paint.Style.STROKE);
 
             float maxData = data[0];
@@ -51,6 +54,10 @@ public class RoseChart extends BaseChart {
 
                 doughnutObj.startAngle += swipeAngle;
             }
+
+            // Draw Title
+            Title title = new Title(canvas, paint, doughnutObj.center.x - doughnutObj.radiusOuter, (int) (doughnutObj.center.y + doughnutObj.radiusOuter - getResources().getDimension(R.dimen.pie_title_margin)));
+            title.drawTitle(titleText, titleSize, titleColor, doughnutObj.radiusOuter * 2, doughnutObj.radiusOuter * 2);
         }
     }
 }

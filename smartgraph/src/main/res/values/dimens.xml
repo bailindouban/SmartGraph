@@ -5,4 +5,6 @@
 
     <dimen name="polar_margin_x">3dp</dimen>
     <dimen name="polar_margin_y">4dp</dimen>
+
+    <dimen name="pie_title_margin">5dp</dimen>
 </resources>

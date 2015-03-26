@@ -54,7 +54,7 @@ public class SimpleBarChart extends BaseChart {
             Grid grid = new Grid(canvas, paint, left, bottom);
             grid.drawGridY(maxWidth, maxHeight, unit);
 
-            // Draw Chart
+            // Draw Legend
             for(float d : data) {
                 paint.setColor(color);
                 RectF rectF = new RectF(leftInit, bottom - d, leftInit + barObj.width, bottom);
