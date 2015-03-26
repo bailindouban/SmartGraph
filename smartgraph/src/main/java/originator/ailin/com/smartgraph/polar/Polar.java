@@ -54,13 +54,14 @@ public class Polar {
      * @param width
      * @param interval
      */
-    public void drawPolarX(int num, int width, int interval, String[] polarX) {
+    public void drawPolarX(int num, int width, int interval, String[] polarsXText) {
+        mPaint.setTextAlign(Paint.Align.LEFT);
         mPaint.setTextSize(mPolarTextSizeX);
 
         for(int i = 0; i < num; i++) {
             Rect bounds = new Rect();
-            mPaint.getTextBounds(polarX[i], 0, polarX[i].length(), bounds);
-            mCanvas.drawText(polarX[i], mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // X Polars
+            mPaint.getTextBounds(polarsXText[i], 0, polarsXText[i].length(), bounds);
+            mCanvas.drawText(polarsXText[i], mLeft + width / 2 + (width + interval) * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // X Polars
         }
     }
 
@@ -70,16 +71,19 @@ public class Polar {
      * @param unitX
      */
     public void drawPolarBubbleX(int maxWidth, int unitX) {
+        mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(mPolarTextSizeX);
         int num = (int) (maxWidth / unitX + 1);
 
+        // Draw PolarX Text
         for(int i = 0; i < num; i++) {
-            String polarX = String.valueOf(unitX * i);
+            String polarXText = String.valueOf(unitX * i);
             Rect bounds = new Rect();
-            mPaint.getTextBounds(polarX, 0, polarX.length(), bounds);
-            mCanvas.drawText(polarX, mLeft + unitX * i - bounds.width() / 2, mBottom + bounds.height() + mPolarMarginX, mPaint);    // X Polars
+            mPaint.getTextBounds(polarXText, 0, polarXText.length(), bounds);
+            mCanvas.drawText(polarXText, mLeft + unitX * i, mBottom + bounds.height() + mPolarMarginX, mPaint);    // X Polars
         }
 
+        // Draw Tick Mark
         for(int i = 1; i < num; i++) {
             mPaint.setColor(Color.BLACK);
             mCanvas.drawLine(mLeft + unitX * i, mBottom - mPolarMarginX, mLeft + unitX * i, mBottom + mPolarMarginX, mPaint);
@@ -92,31 +96,33 @@ public class Polar {
      * @param unitY
      */
     public void drawPolarY(int maxHeight, int unitY) {
+        mPaint.setTextAlign(Paint.Align.RIGHT);
         mPaint.setTextSize(mPolarTextSizeY);
         int num = (int) (maxHeight / unitY + 1);
 
         for(int i = 0; i < num; i++) {
-            String polarY = String.valueOf(unitY * i);
+            String polarYText = String.valueOf(unitY * i);
             Rect bounds = new Rect();
-            mPaint.getTextBounds(polarY, 0, polarY.length(), bounds);
-            mCanvas.drawText(polarY, mLeft - bounds.width() - mPolarMarginY, mBottom - unitY * i + bounds.height() / 2, mPaint);    // Y Polars
+            mPaint.getTextBounds(polarYText, 0, polarYText.length(), bounds);
+            mCanvas.drawText(polarYText, mLeft - mPolarMarginY, mBottom - unitY * i + bounds.height() / 2, mPaint);    // Y Polars
         }
     }
 
     // Setters
-    public void setmPolarTextSizeY(int mPolarTextSizeY) {
-        this.mPolarTextSizeY = mPolarTextSizeY;
-    }
 
     public void setmPolarTextSizeX(int mPolarTextSizeX) {
         this.mPolarTextSizeX = mPolarTextSizeX;
     }
 
-    public void setmPolarMarginX(int mPolarMarginX) {
+    public void setmPolarTextSizeY(int mPolarTextSizeY) {
+        this.mPolarTextSizeY = mPolarTextSizeY;
+    }
+
+    public void setmPolarMarginX(float mPolarMarginX) {
         this.mPolarMarginX = mPolarMarginX;
     }
 
-    public void setmPolarMarginY(int mPolarMarginY) {
+    public void setmPolarMarginY(float mPolarMarginY) {
         this.mPolarMarginY = mPolarMarginY;
     }
 }

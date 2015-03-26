@@ -8,6 +8,7 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 import originator.ailin.com.smartgraph.polar.Polar;
 import originator.ailin.com.smartgraph.title.Title;
@@ -69,9 +70,11 @@ public class SimpleBarChart extends BaseChart {
             // Draw PolarXY
             Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
             polar.drawPolarY(maxHeight, unit);
-            polar.drawPolarX(data.length, barObj.width, barObj.interval, polarX);
+            polar.drawPolarX(data.length, barObj.width, barObj.interval, polarsTextX);
 
             // Draw label
+            Label label = new Label(getResources(), canvas, paint, left, bottom);
+            label.drawLabel(labelsText, maxWidth, maxHeight);
         }
     }
 }

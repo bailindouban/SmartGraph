@@ -33,8 +33,8 @@ public class TestBarChart extends TestChart {
         baseChart.color = Constant.COLOR_BLUE;
 
         baseChart.titleText = "2014年销售业绩";
-        baseChart.polarX = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        baseChart.label = new String[] {"我的销售额"};
+        baseChart.polarsTextX = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        baseChart.labelsText = new String[] {"白白"};
         return baseChart;
     }
 
@@ -53,8 +53,8 @@ public class TestBarChart extends TestChart {
         baseChart.titleText = "2015年销售业绩";
         baseChart.titleSize = 54;
         baseChart.titleColor = Constant.COLOR_GREEN;
-        baseChart.polarX = new String[] {"1月份", "2月份", "3月份", "4月份"};
-        baseChart.label = new String[] {"小明", "小李", "小王"};
+        baseChart.polarsTextX = new String[] {"1月份", "2月份", "3月份", "4月份"};
+        baseChart.labelsText = new String[] {"小明", "白白", "小王"};
         return baseChart;
     }
 }

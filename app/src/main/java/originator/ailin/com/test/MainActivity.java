@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
         };
 
         // Default
-        setContentView(mTestChart[5].drawSimpleChart());
+        setContentView(mTestChart[0].drawSimpleChart());
     }
 
     @Override

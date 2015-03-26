@@ -27,10 +27,10 @@ public class BaseChart extends View {
     public int titleColor;
 
     // For polarX
-    public String[] polarX;
+    public String[] polarsTextX;
 
     // For label
-    public String[] label;
+    public String[] labelsText;
 
     // For Chart Objects
     public BarObj barObj = new BarObj();
@@ -80,7 +80,8 @@ public class BaseChart extends View {
         titleColor = Color.BLUE;
         titleSize = 50;
 
-        polarX = new String[] {"1月份", "2月份", "3月份", "4月份", "5月份", "6月份", "7月份", "8月份", "9月份", "10月份", "11月份", "12月份"};
+        polarsTextX = new String[] {"1月份", "2月份", "3月份", "4月份", "5月份", "6月份", "7月份", "8月份", "9月份", "10月份", "11月份", "12月份"};
+        labelsText = new String[] {"小明", "小李", "小王", "小白"};
     }
 
 }

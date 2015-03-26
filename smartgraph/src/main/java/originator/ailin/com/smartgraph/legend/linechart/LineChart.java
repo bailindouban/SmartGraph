@@ -79,7 +79,7 @@ public class LineChart extends BaseChart {
             // Draw PolarXY
             Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
             polar.drawPolarY(maxHeight, unit);
-            polar.drawPolarX(datas[0].length, 0, barObj.interval, polarX);
+            polar.drawPolarX(datas[0].length, 0, barObj.interval, polarsTextX);
         }
     }
 }

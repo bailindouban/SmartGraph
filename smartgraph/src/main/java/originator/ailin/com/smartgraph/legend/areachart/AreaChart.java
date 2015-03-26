@@ -79,7 +79,7 @@ public class AreaChart extends BaseChart {
             // Draw PolarXY
             Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
             polar.drawPolarY(maxHeight, unit);
-            polar.drawPolarX(size_sub, 0, barObj.interval, polarX);
+            polar.drawPolarX(size_sub, 0, barObj.interval, polarsTextX);
 
             // Draw label
         }
