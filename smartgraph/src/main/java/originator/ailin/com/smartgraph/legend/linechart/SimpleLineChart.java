@@ -43,16 +43,15 @@ public class SimpleLineChart extends BaseChart {
                 dataMax = (d > dataMax) ? d : dataMax;
             }
 
-            int unit = 100;
             int maxWidth = (data.length - 1)* barObj.interval;
-            int maxHeight = (int) dataMax + unit;
+            int maxHeight = (int) dataMax + unitY;
             Axis axis = new Axis(canvas, paint, leftInit, bottom);
             axis.drawAxisX(maxWidth);
             axis.drawAxisY(maxHeight);
 
             // Draw Grid
             Grid grid = new Grid(canvas, paint, leftInit, bottom);
-            grid.drawGridY(maxWidth, maxHeight, unit);
+            grid.drawGridY(maxWidth, maxHeight, unitY);
 
             // Draw Legend
             paint.setColor(color);

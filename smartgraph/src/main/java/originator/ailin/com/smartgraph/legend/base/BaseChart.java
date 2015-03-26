@@ -93,7 +93,7 @@ public abstract class BaseChart extends View {
         polarsTextColorX = Color.BLUE;
         polarsTextColorY = Color.BLUE;
 
-        labelsText = new String[] {"小明", "小李", "小王", "小白"};
+        labelsText = new String[] {"小明", "小李", "小王", "小白", "小朱", "小志", "小管", "小张"};
         labelsTextColor = Color.BLUE;
     }
 

@@ -49,7 +49,12 @@ public class SimplePieChart extends BaseChart {
             // Draw Title
             left = pieObj.center.x - pieObj.radius;
             bottom = pieObj.center.y + pieObj.radius - getResources().getDimension(R.dimen.pie_title_margin);
-            drawTitle(canvas, pieObj.radius * 2, pieObj.radius * 2);
+            float maxWidth = pieObj.radius * 2;
+            float maxHeight = pieObj.radius * 2;
+            drawTitle(canvas, maxWidth, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
         }
 
     }

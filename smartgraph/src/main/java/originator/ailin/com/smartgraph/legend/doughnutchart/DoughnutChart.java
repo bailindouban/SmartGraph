@@ -68,7 +68,12 @@ public class DoughnutChart extends BaseChart {
             // Draw Title
             left = doughnutObj.center.x - doughnutObj.radiusOuter + mBiasXMin;
             bottom = doughnutObj.center.y + doughnutObj.radiusOuter + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin);
-            drawTitle(canvas, doughnutObj.radiusOuter * 2 - mBiasXMin + mBiasXMax, doughnutObj.radiusOuter * 2 - mBiasYMin + mBiasYMax);
+            float maxWidth = doughnutObj.radiusOuter * 2 - mBiasXMin + mBiasXMax;
+            float maxHeight = doughnutObj.radiusOuter * 2 - mBiasYMin + mBiasYMax;
+            drawTitle(canvas, maxWidth, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
         }
     }
 }

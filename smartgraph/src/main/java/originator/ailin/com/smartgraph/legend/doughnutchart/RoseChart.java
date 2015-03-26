@@ -57,7 +57,12 @@ public class RoseChart extends BaseChart {
             // Draw Title
             left = doughnutObj.center.x - doughnutObj.radiusOuter;
             bottom = doughnutObj.center.y + doughnutObj.radiusOuter - getResources().getDimension(R.dimen.pie_title_margin);
-            drawTitle(canvas, doughnutObj.radiusOuter * 2, doughnutObj.radiusOuter * 2);
+            float maxWidth = doughnutObj.radiusOuter * 2;
+            float maxHeight = doughnutObj.radiusOuter * 2;
+            drawTitle(canvas, maxWidth, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
         }
     }
 }
