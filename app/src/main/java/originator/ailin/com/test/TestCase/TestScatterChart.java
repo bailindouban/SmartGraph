@@ -29,7 +29,7 @@ public class TestScatterChart extends TestChart {
     @Override
     public View drawSimpleChart() {
         baseChart = new SimpleScatterPlot(context);
-        PointF[] scatterPoint = {new PointF(70, 270), new PointF(180, 320), new PointF(260, 80)};
+        PointF[] scatterPoint = {new PointF(70, 130), new PointF(180, 120), new PointF(560, 180), new PointF(460, 290), new PointF(60, 230), new PointF(390, 250)};
         baseChart.scatterObj.scatterPoint = scatterPoint;
         baseChart.scatterObj.radius = 20;
         baseChart.color = Constant.COLOR_BLUE;
