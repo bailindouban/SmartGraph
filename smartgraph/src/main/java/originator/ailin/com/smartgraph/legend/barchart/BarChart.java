@@ -10,11 +10,9 @@ import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.polar.Polar;
 import originator.ailin.com.smartgraph.title.Title;
 
 public class BarChart extends BaseChart {
-
 
     /**
      * Constructor 1
@@ -76,13 +74,12 @@ public class BarChart extends BaseChart {
             title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
 
             // Draw PolarXY
-            Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
-            polar.drawPolarY(maxHeight, unit);
-            polar.drawPolarX(datas.length, barObj.width * datas[0].length, barObj.interval, polarsTextX);
+            drawPolarX(canvas, datas.length, barObj.width * datas[0].length, barObj.interval);
+            drawPolarY(canvas, maxHeight);
 
             // Draw label
             Label label = new Label(getResources(), canvas, paint, left, bottom);
-            label.drawLabel(labelsText, maxWidth, maxHeight);
+            label.drawLabel(labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
         }
     }
 }

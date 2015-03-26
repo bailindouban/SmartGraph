@@ -2,7 +2,6 @@ package originator.ailin.com.smartgraph.label;
 
 import android.content.res.Resources;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
@@ -43,7 +42,6 @@ public class Label {
      * Init Params
      */
     private void init() {
-        mPaint.setColor(Color.BLUE);
         mLabelTextSize = 34;
         mLabelMarginL = mResources.getDimension(R.dimen.label_margin_left);
         mLabelMarginT = mResources.getDimension(R.dimen.label_margin_top);
@@ -51,31 +49,36 @@ public class Label {
         mLabelMarginB = mResources.getDimension(R.dimen.label_margin_bottom);
         mLabelIconMargin = mResources.getDimension(R.dimen.label_icon_margin);
 
-        mLabelIconWidth = 30;
-        mLabelIconHeight = 30;
+        mLabelIconWidth = 60;
+        mLabelIconHeight = 60;
     }
 
     /**
      *
-     * @param label
+     * @param labelsText
+     * @param labelsTextColor
+     * @param iconsColor
      * @param maxWidth
      * @param maxHeight
      */
-    public void drawLabel(String[] label, float maxWidth, float maxHeight) {
+    public void drawLabel(String[] labelsText, int labelsTextColor, int[] iconsColor, float maxWidth, float maxHeight) {
         mPaint.setTextAlign(Paint.Align.LEFT);
         mPaint.setTextSize(mLabelTextSize);
+        Rect bounds = new Rect();
+        mPaint.getTextBounds(labelsText[0], 0, labelsText[0].length(), bounds);
 
-        for(int i = 0; i < label.length; i++) {
-
+        float itemHeightMax = mLabelIconHeight > bounds.height() ? mLabelIconHeight : bounds.height();
+        itemHeightMax += mResources.getDimension(R.dimen.label_icon_margin);
+        for(int i = 0; i < labelsText.length; i++) {
             // Draw Label Icon
             float LeftInit = mLeft + maxWidth + mLabelMarginL;
-            float topInit = mBottom - maxHeight / 2 - mLabelIconHeight / 2;
+            float topInit = mBottom - maxHeight / 2 - itemHeightMax * labelsText.length / 2 + itemHeightMax * i;
+            mPaint.setColor(iconsColor[i]);
             mCanvas.drawRect(LeftInit, topInit, LeftInit + mLabelIconWidth, topInit + mLabelIconHeight, mPaint);
 
             // Draw Label Text
-            Rect bounds = new Rect();
-            mPaint.getTextBounds(label[i], 0, label[i].length(), bounds);
-            mCanvas.drawText(label[i], LeftInit + mLabelIconWidth + mLabelIconMargin, topInit + mLabelIconHeight / 2 + bounds.height() / 2, mPaint);    // Labels
+            mPaint.setColor(labelsTextColor);
+            mCanvas.drawText(labelsText[i], LeftInit + mLabelIconWidth + mLabelIconMargin, topInit + mLabelIconHeight / 2 + bounds.height() / 2, mPaint);    // Labels
         }
     }
 

@@ -9,7 +9,6 @@ import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 import originator.ailin.com.smartgraph.legend.base.MyPoint;
-import originator.ailin.com.smartgraph.polar.Polar;
 import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleBubbleChart extends BaseChart {
@@ -43,7 +42,6 @@ public class SimpleBubbleChart extends BaseChart {
                 dataMaxY = ((point.y + point.radius) > dataMaxY) ? (point.y + point.radius) : dataMaxY;
             }
 
-            int unitX = 100, unitY = 100;
             int maxWidth = (int) dataMaxX + unitX;
             int maxHeight = (int) dataMaxY + unitY;
             Axis axis = new Axis(canvas, paint, left, bottom);
@@ -65,9 +63,10 @@ public class SimpleBubbleChart extends BaseChart {
             title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
 
             // Draw PolarXY
-            Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
-            polar.drawPolarY(maxHeight, unitY);
-            polar.drawPolarBubbleX(maxWidth, unitX);
+            drawPolarBubbleX(canvas, maxWidth);
+            drawPolarY(canvas, maxHeight);
         }
     }
+
+
 }
