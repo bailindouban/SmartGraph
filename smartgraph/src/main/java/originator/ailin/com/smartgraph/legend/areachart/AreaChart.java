@@ -78,6 +78,7 @@ public class AreaChart extends BaseChart {
             drawPolarY(canvas, maxHeight);
 
             // Draw label
+            drawLabel(canvas, size, maxWidth, maxHeight, colors);
         }
     }
 

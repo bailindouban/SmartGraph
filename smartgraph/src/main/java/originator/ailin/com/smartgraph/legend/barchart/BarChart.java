@@ -8,7 +8,6 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
-import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
 
 public class BarChart extends BaseChart {
@@ -76,8 +75,7 @@ public class BarChart extends BaseChart {
             drawPolarY(canvas, maxHeight);
 
             // Draw label
-            Label label = new Label(getResources(), canvas, paint, left, bottom);
-            label.drawLabel(labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
+            drawLabel(canvas, datas[0].length, maxWidth, maxHeight, colors);
         }
     }
 }

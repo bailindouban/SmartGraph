@@ -42,7 +42,6 @@ public class ScatterPlot extends BaseChart {
                 }
             }
 
-            int unitX = 100, unitY = 100;
             int maxWidth = (int) dataMaxX + unitX;
             int maxHeight = (int) dataMaxY + unitY;
             Axis axis = new Axis(canvas, paint, left, bottom);
@@ -67,6 +66,9 @@ public class ScatterPlot extends BaseChart {
             // Draw PolarXY
             drawPolarBubbleX(canvas, maxWidth);
             drawPolarY(canvas, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, scatterObj.scatterPoints.length, maxWidth, maxHeight, colors);
         }
     }
 }

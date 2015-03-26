@@ -8,7 +8,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.axis.Axis;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.base.BaseChart;
-import originator.ailin.com.smartgraph.legend.base.MyPoint;
+import originator.ailin.com.smartgraph.legend.base.obj.MyPoint;
 
 public class SimpleBubbleChart extends BaseChart {
     /**
@@ -63,8 +63,9 @@ public class SimpleBubbleChart extends BaseChart {
             // Draw PolarXY
             drawPolarBubbleX(canvas, maxWidth);
             drawPolarY(canvas, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, 1, maxWidth, maxHeight, new int[] {color});
         }
     }
-
-
 }

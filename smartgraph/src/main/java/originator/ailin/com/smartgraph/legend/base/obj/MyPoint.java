@@ -1,4 +1,4 @@
-package originator.ailin.com.smartgraph.legend.base;
+package originator.ailin.com.smartgraph.legend.base.obj;
 
 /**
  * Created by Kim_Bai on 2/13/2015.

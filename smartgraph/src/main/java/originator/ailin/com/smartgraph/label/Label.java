@@ -61,7 +61,7 @@ public class Label {
      * @param maxWidth
      * @param maxHeight
      */
-    public void drawLabel(String[] labelsText, int labelsTextColor, int[] iconsColor, float maxWidth, float maxHeight) {
+    public void drawLabel(int num, String[] labelsText, int labelsTextColor, int[] iconsColor, float maxWidth, float maxHeight) {
         mPaint.setTextAlign(Paint.Align.LEFT);
         mPaint.setTextSize(mLabelTextSize);
         Rect bounds = new Rect();
@@ -69,7 +69,7 @@ public class Label {
 
         float itemHeightMax = mLabelIconHeight > bounds.height() ? mLabelIconHeight : bounds.height();
         itemHeightMax += mResources.getDimension(R.dimen.label_icon_margin);
-        for(int i = 0; i < labelsText.length; i++) {
+        for(int i = 0; i < num; i++) {
             // Draw Label Icon
             float LeftInit = mLeft + maxWidth + mLabelMarginL;
             float topInit = mBottom - maxHeight / 2 - itemHeightMax * labelsText.length / 2 + itemHeightMax * i;

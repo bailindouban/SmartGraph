@@ -76,6 +76,9 @@ public class LineChart extends BaseChart {
             // Draw PolarXY
             drawPolarX(canvas, datas[0].length, 0, barObj.interval);
             drawPolarY(canvas, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, datas.length, maxWidth, maxHeight, colors);
         }
     }
 }

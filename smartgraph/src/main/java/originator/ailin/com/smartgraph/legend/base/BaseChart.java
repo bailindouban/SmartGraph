@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.base.obj.BarObj;
 import originator.ailin.com.smartgraph.legend.base.obj.BubbleObj;
 import originator.ailin.com.smartgraph.legend.base.obj.DoughnutObj;
@@ -125,8 +126,19 @@ public abstract class BaseChart extends View {
         polar.drawPolarY(maxHeight, unitY, polarsTextColorY);
     }
 
+    /**
+     *
+     * @param canvas
+     * @param maxWidth
+     * @param maxHeight
+     */
     public void drawTitle(Canvas canvas, float maxWidth, float maxHeight) {
         Title title = new Title(canvas, paint, left, bottom);
         title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
+    }
+
+    public void drawLabel(Canvas canvas, int num, float maxWidth, float maxHeight, int[] labelsIconColor) {
+        Label label = new Label(getResources(), canvas, paint, left, bottom);
+        label.drawLabel(num, labelsText, labelsTextColor, labelsIconColor,  maxWidth, maxHeight);
     }
 }

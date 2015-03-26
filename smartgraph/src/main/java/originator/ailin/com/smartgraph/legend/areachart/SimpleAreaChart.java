@@ -72,6 +72,9 @@ public class SimpleAreaChart extends BaseChart {
             // Draw PolarXY
             drawPolarX(canvas, data.length, 0, barObj.interval);
             drawPolarY(canvas, maxHeight);
+
+            // Draw label
+            drawLabel(canvas, 1, maxWidth, maxHeight, new int[] {color});
         }
     }
 }

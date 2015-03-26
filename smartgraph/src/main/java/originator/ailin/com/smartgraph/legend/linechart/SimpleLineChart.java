@@ -74,6 +74,7 @@ public class SimpleLineChart extends BaseChart {
             drawPolarY(canvas, maxHeight);
 
             // Draw label
+            drawLabel(canvas, 1, maxWidth, maxHeight, new int[]{color});
         }
     }
 }

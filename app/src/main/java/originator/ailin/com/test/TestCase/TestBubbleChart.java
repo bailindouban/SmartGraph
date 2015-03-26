@@ -3,7 +3,7 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.legend.base.MyPoint;
+import originator.ailin.com.smartgraph.legend.base.obj.MyPoint;
 import originator.ailin.com.smartgraph.legend.bubblechart.BubbleChart;
 import originator.ailin.com.smartgraph.legend.bubblechart.SimpleBubbleChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
@@ -44,7 +44,7 @@ public class TestBubbleChart extends TestChart {
         baseChart = new BubbleChart(context);
         MyPoint[] bubblePointA = {new MyPoint(150, 370, 100), new MyPoint(480, 350, 40), new MyPoint(250, 180, 60), new MyPoint(53, 69, 52)};
         MyPoint[] bubblePointB = {new MyPoint(400, 160, 30), new MyPoint(300, 150, 80), new MyPoint(130, 370, 60)};
-        MyPoint[] bubblePointC = {new MyPoint(50, 270, 100), new MyPoint(380, 320, 40), new MyPoint(500, 80, 80), new MyPoint(400, 60, 50), new MyPoint(750, 260, 40)};
+        MyPoint[] bubblePointC = {new MyPoint(50, 270, 100), new MyPoint(380, 320, 40), new MyPoint(500, 80, 80), new MyPoint(400, 60, 50), new MyPoint(650, 260, 40)};
 
         MyPoint[][] bubblePoints = {bubblePointA, bubblePointB, bubblePointC};
         baseChart.bubbleObj.bubblePoints = bubblePoints;
