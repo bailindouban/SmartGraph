@@ -38,13 +38,21 @@ public class SimplePieChart extends BaseChart {
             for(float d : data) {
                 total += d;
             }
+
+            float startAngleInit = pieObj.startAngle;
             for(int i = 0; i < data.length; i++) {
+                // Draw Legend
                 paint.setColor(colors[i]);
                 RectF oval = new RectF(pieObj.center.x - pieObj.radius, pieObj.center.y - pieObj.radius, pieObj.center.x + pieObj.radius, pieObj.center.y + pieObj.radius);
                 float swipeAngle = data[i] * 360 / total;
-                canvas.drawArc(oval, pieObj.startAngle, swipeAngle, true, paint);
-                pieObj.startAngle += swipeAngle;
+                canvas.drawArc(oval, startAngleInit, swipeAngle, true, paint);
+
+                // swipeAngle++
+                startAngleInit += swipeAngle;
             }
+
+            // Draw Legend Value
+            drawLegendValuePie(canvas, pieObj, pieObj.radius, data);
 
             // Draw Title
             left = pieObj.center.x - pieObj.radius;

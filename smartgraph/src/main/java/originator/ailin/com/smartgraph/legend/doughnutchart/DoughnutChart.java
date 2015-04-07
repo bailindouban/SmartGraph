@@ -39,37 +39,41 @@ public class DoughnutChart extends BaseChart {
         if(data != null) {
             // Draw Legend
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(doughnutObj.radiusOuter - doughnutObj.radiusInner);
-            float radius = (doughnutObj.radiusInner + doughnutObj.radiusOuter ) / 2;
+            paint.setStrokeWidth(pieObj.radiusOuter - pieObj.radiusInner);
+            float radius = (pieObj.radiusInner + pieObj.radiusOuter ) / 2;
 
             float total = 0;
             for(float d : data) {
                 total += d;
             }
 
+            float startAngleInit = pieObj.startAngle;
             for(int i = 0; i < data.length; i++) {
                 paint.setColor(colors[i]);
                 float swipeAngle = data[i] * 360 / total;
 
-                double radian = Math.PI * (2 * doughnutObj.startAngle + swipeAngle) / 360;
+                double radian = Math.PI * (2 * startAngleInit + swipeAngle) / 360;
                 PointF biasXY = new PointF();
-                biasXY.set(doughnutObj.bias[i] * (float)Math.cos(radian), doughnutObj.bias[i] * (float)Math.sin(radian));
+                biasXY.set(pieObj.bias[i] * (float)Math.cos(radian), pieObj.bias[i] * (float)Math.sin(radian));
                 mBiasXMax = (mBiasXMax < biasXY.x) ? biasXY.x : mBiasXMax;
                 mBiasXMin = (mBiasXMin > biasXY.x) ? biasXY.x : mBiasXMin;
                 mBiasYMax = (mBiasYMax < biasXY.y) ? biasXY.y : mBiasYMax;
                 mBiasYMin = (mBiasYMin > biasXY.y) ? biasXY.y : mBiasYMin;
 
-                RectF oval = new RectF(doughnutObj.center.x - radius + biasXY.x, doughnutObj.center.y - radius + biasXY.y, doughnutObj.center.x + radius + biasXY.x, doughnutObj.center.y + radius + biasXY.y);
+                RectF oval = new RectF(pieObj.center.x - radius + biasXY.x, pieObj.center.y - radius + biasXY.y, pieObj.center.x + radius + biasXY.x, pieObj.center.y + radius + biasXY.y);
 
-                canvas.drawArc(oval, doughnutObj.startAngle, swipeAngle, false, paint);
-                doughnutObj.startAngle += swipeAngle;
+                canvas.drawArc(oval, startAngleInit, swipeAngle, false, paint);
+                startAngleInit += swipeAngle;
             }
 
+            // Draw Legend Value
+            drawLegendValuePie(canvas, pieObj, pieObj.radiusOuter, data);
+
             // Draw Title
-            left = doughnutObj.center.x - doughnutObj.radiusOuter + mBiasXMin;
-            bottom = doughnutObj.center.y + doughnutObj.radiusOuter + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin);
-            float maxWidth = doughnutObj.radiusOuter * 2 - mBiasXMin + mBiasXMax;
-            float maxHeight = doughnutObj.radiusOuter * 2 - mBiasYMin + mBiasYMax;
+            left = pieObj.center.x - pieObj.radiusOuter + mBiasXMin;
+            bottom = pieObj.center.y + pieObj.radiusOuter + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin);
+            float maxWidth = pieObj.radiusOuter * 2 - mBiasXMin + mBiasXMax;
+            float maxHeight = pieObj.radiusOuter * 2 - mBiasYMin + mBiasYMax;
             drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw label

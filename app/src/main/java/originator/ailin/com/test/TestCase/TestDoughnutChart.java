@@ -35,10 +35,10 @@ public class TestDoughnutChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
         baseChart.colors = colors;
-        baseChart.doughnutObj.center = new Point(600, 800);
-        baseChart.doughnutObj.radiusOuter = 300;
-        baseChart.doughnutObj.radiusInner = 100;
-        baseChart.doughnutObj.startAngle = 0;
+        baseChart.pieObj.center = new Point(500, 800);
+        baseChart.pieObj.radiusOuter = 300;
+        baseChart.pieObj.radiusInner = 100;
+        baseChart.pieObj.startAngle = 0;
         return baseChart;
     }
 
@@ -54,11 +54,11 @@ public class TestDoughnutChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
         baseChart.colors = colors;
-        baseChart.doughnutObj.bias = bias;
-        baseChart.doughnutObj.center = new Point(500, 800);
-        baseChart.doughnutObj.radiusOuter = 300;
-        baseChart.doughnutObj.radiusInner = 100;
-        baseChart.doughnutObj.startAngle = 0;
+        baseChart.pieObj.bias = bias;
+        baseChart.pieObj.center = new Point(500, 800);
+        baseChart.pieObj.radiusOuter = 300;
+        baseChart.pieObj.radiusInner = 100;
+        baseChart.pieObj.startAngle = 0;
         return baseChart;
     }
 
@@ -69,10 +69,10 @@ public class TestDoughnutChart extends TestChart {
         int[] colors = {Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK, Constant.COLOR_BLUE, Constant.COLOR_GREEN, Constant.COLOR_YELLOW, Constant.COLOR_PINK};
         baseChart.data = data;
         baseChart.colors = colors;
-        baseChart.doughnutObj.center = new Point(500, 800);
-        baseChart.doughnutObj.radiusOuter = 300;
-        baseChart.doughnutObj.radiusInner = 80;
-        baseChart.doughnutObj.startAngle = 0;
+        baseChart.pieObj.center = new Point(500, 800);
+        baseChart.pieObj.radiusOuter = 300;
+        baseChart.pieObj.radiusInner = 80;
+        baseChart.pieObj.startAngle = 0;
         return baseChart;
     }
 }

@@ -7,6 +7,8 @@
     <dimen name="polar_margin_y">4dp</dimen>
 
     <dimen name="pie_title_margin">5dp</dimen>
+    <dimen name="pie_legend_value_margin">30dp</dimen>
+    <dimen name="pie_rose_legend_value_margin">8dp</dimen>
 
     <dimen name="label_margin_left">15dp</dimen>
     <dimen name="label_margin_right">15dp</dimen>

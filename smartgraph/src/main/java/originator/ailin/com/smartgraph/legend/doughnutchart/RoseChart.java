@@ -41,24 +41,31 @@ public class RoseChart extends BaseChart {
             for(float d : data) {
                 maxData = (d > maxData) ? d : maxData;
             }
+
+            float startAngleInit = pieObj.startAngle;
+            float[] radiusDealArray = new float[data.length];
             for(int i = 0; i < data.length; i++) {
-                float widthDeal = (doughnutObj.radiusOuter - doughnutObj.radiusInner) * data[i] / maxData;
-                float radiusDeal = doughnutObj.radiusInner + (doughnutObj.radiusOuter - doughnutObj.radiusInner) * data[i] / maxData / 2;
+                float widthDeal = (pieObj.radiusOuter - pieObj.radiusInner) * data[i] / maxData;
+                float radiusDeal = pieObj.radiusInner + (pieObj.radiusOuter - pieObj.radiusInner) * data[i] / maxData / 2;
+                radiusDealArray[i] = radiusDeal + widthDeal / 2;
                 paint.setStrokeWidth(widthDeal);
 
                 paint.setColor(colors[i]);
-                RectF oval = new RectF(doughnutObj.center.x - radiusDeal, doughnutObj.center.y - radiusDeal, doughnutObj.center.x + radiusDeal, doughnutObj.center.y + radiusDeal);
+                RectF oval = new RectF(pieObj.center.x - radiusDeal, pieObj.center.y - radiusDeal, pieObj.center.x + radiusDeal, pieObj.center.y + radiusDeal);
                 float swipeAngle = 360 / data.length;
-                canvas.drawArc(oval, doughnutObj.startAngle, swipeAngle, false, paint);
+                canvas.drawArc(oval, startAngleInit, swipeAngle, false, paint);
 
-                doughnutObj.startAngle += swipeAngle;
+                startAngleInit += swipeAngle;
             }
 
+            // Draw Legend Value
+            drawLegendValuePieRose(canvas, pieObj, radiusDealArray, data);
+
             // Draw Title
-            left = doughnutObj.center.x - doughnutObj.radiusOuter;
-            bottom = doughnutObj.center.y + doughnutObj.radiusOuter - getResources().getDimension(R.dimen.pie_title_margin);
-            float maxWidth = doughnutObj.radiusOuter * 2;
-            float maxHeight = doughnutObj.radiusOuter * 2;
+            left = pieObj.center.x - pieObj.radiusOuter;
+            bottom = pieObj.center.y + pieObj.radiusOuter - getResources().getDimension(R.dimen.pie_title_margin);
+            float maxWidth = pieObj.radiusOuter * 2;
+            float maxHeight = pieObj.radiusOuter * 2;
             drawTitle(canvas, maxWidth, maxHeight);
 
             // Draw label

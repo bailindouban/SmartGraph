@@ -10,9 +10,9 @@ import android.view.View;
 import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.base.obj.BarObj;
 import originator.ailin.com.smartgraph.legend.base.obj.BubbleObj;
-import originator.ailin.com.smartgraph.legend.base.obj.DoughnutObj;
 import originator.ailin.com.smartgraph.legend.base.obj.PieObj;
 import originator.ailin.com.smartgraph.legend.base.obj.ScatterObj;
+import originator.ailin.com.smartgraph.legend_value.LegendValue;
 import originator.ailin.com.smartgraph.polar.Polar;
 import originator.ailin.com.smartgraph.title.Title;
 
@@ -41,7 +41,6 @@ public abstract class BaseChart extends View {
     // For Chart Objects
     public BarObj barObj = new BarObj();
     public PieObj pieObj = new PieObj();
-    public DoughnutObj doughnutObj = new DoughnutObj();
     public BubbleObj bubbleObj = new BubbleObj();
     public ScatterObj scatterObj = new ScatterObj();
 
@@ -101,7 +100,7 @@ public abstract class BaseChart extends View {
      * Draw PolarX
      * @param canvas
      */
-    public void drawPolarX(Canvas canvas, int num, int width, int interval) {
+    public void drawPolarX (Canvas canvas, int num, int width, int interval) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarX(num, width, interval, polarsTextX, polarsTextColorX);
     }
@@ -111,7 +110,7 @@ public abstract class BaseChart extends View {
      * @param canvas
      * @param maxWidth
      */
-    public void drawPolarBubbleX(Canvas canvas, int maxWidth) {
+    public void drawPolarBubbleX (Canvas canvas, int maxWidth) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarBubbleX(maxWidth, unitX, polarsTextColorX);
     }
@@ -121,7 +120,7 @@ public abstract class BaseChart extends View {
      * @param canvas
      * @param maxHeight
      */
-    public void drawPolarY(Canvas canvas, int maxHeight) {
+    public void drawPolarY (Canvas canvas, int maxHeight) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarY(maxHeight, unitY, polarsTextColorY);
     }
@@ -132,13 +131,50 @@ public abstract class BaseChart extends View {
      * @param maxWidth
      * @param maxHeight
      */
-    public void drawTitle(Canvas canvas, float maxWidth, float maxHeight) {
+    public void drawTitle (Canvas canvas, float maxWidth, float maxHeight) {
         Title title = new Title(canvas, paint, left, bottom);
         title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
     }
 
-    public void drawLabel(Canvas canvas, int num, float maxWidth, float maxHeight, int[] labelsIconColor) {
+    /**
+     *
+     * @param canvas
+     * @param num
+     * @param maxWidth
+     * @param maxHeight
+     * @param labelsIconColor
+     */
+    public void drawLabel (Canvas canvas, int num, float maxWidth, float maxHeight, int[] labelsIconColor) {
         Label label = new Label(getResources(), canvas, paint, left, bottom);
         label.drawLabel(num, labelsText, labelsTextColor, labelsIconColor,  maxWidth, maxHeight);
+    }
+
+    /**
+     *
+     * @param canvas
+     * @param pieObj
+     * @param radius
+     * @param data
+     */
+    public void drawLegendValuePie(Canvas canvas, PieObj pieObj, float radius, float[] data) {
+        LegendValue legendValue = new LegendValue(getResources(), canvas, paint);
+        legendValue.drawValuePie(pieObj, radius, data);
+    }
+
+    /**
+     *
+     * @param canvas
+     * @param pieObj
+     * @param radiusDealArray
+     * @param data
+     */
+    public void drawLegendValuePieRose(Canvas canvas, PieObj pieObj, float[] radiusDealArray, float[] data) {
+        LegendValue legendValue = new LegendValue(getResources(), canvas, paint);
+        legendValue.drawValuePieRose(pieObj, radiusDealArray, data);
+    }
+
+    public void drawLegendValueBar(Canvas canvas, PieObj pieObj, float radius, float[] data) {
+        LegendValue legendValue = new LegendValue(getResources(), canvas, paint);
+        legendValue.drawValuePie(pieObj, radius, data);
     }
 }

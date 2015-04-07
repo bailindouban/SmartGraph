@@ -37,6 +37,7 @@ public class PieChart extends BaseChart {
 
         if(data != null) {
             // Draw Legend
+            float startAngleInit = pieObj.startAngle;
             float total = 0;
             for (float d : data) {
                 total += d;
@@ -45,7 +46,7 @@ public class PieChart extends BaseChart {
                 paint.setColor(colors[i]);
                 float swipeAngle = data[i] * 360 / total;
 
-                double radian = Math.PI * (2 * pieObj.startAngle + swipeAngle) / 360;
+                double radian = Math.PI * (2 * startAngleInit + swipeAngle) / 360;
                 PointF biasXY = new PointF();
                 biasXY.set(pieObj.bias[i] * (float) Math.cos(radian), pieObj.bias[i] * (float) Math.sin(radian));
                 mBiasXMax = (mBiasXMax < biasXY.x) ? biasXY.x : mBiasXMax;
@@ -55,9 +56,12 @@ public class PieChart extends BaseChart {
 
                 RectF oval = new RectF(pieObj.center.x - pieObj.radius + biasXY.x, pieObj.center.y - pieObj.radius + biasXY.y, pieObj.center.x + pieObj.radius + biasXY.x, pieObj.center.y + pieObj.radius + biasXY.y);
 
-                canvas.drawArc(oval, pieObj.startAngle, swipeAngle, true, paint);
-                pieObj.startAngle += swipeAngle;
+                canvas.drawArc(oval, startAngleInit, swipeAngle, true, paint);
+                startAngleInit += swipeAngle;
             }
+
+            // Draw Legend Value
+            drawLegendValuePie(canvas, pieObj, pieObj.radius, data);
 
             // Draw Title
             left = pieObj.center.x - pieObj.radius + mBiasXMin;
