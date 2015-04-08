@@ -11,9 +11,7 @@ import originator.ailin.com.smartgraph.chart.base.obj.PieObj;
  */
 public class SimplePie extends LegendAbs {
     public SimplePie(PieObj pieObj, float[] data, int[] colors) {
-        this.pieObj = pieObj;
-        this.data = data;
-        this.colors = colors;
+        initPieParams(pieObj, data, colors);
     }
 
     @Override

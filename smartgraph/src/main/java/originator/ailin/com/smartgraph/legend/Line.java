@@ -11,11 +11,7 @@ import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
  */
 public class Line extends LegendAbs {
     public Line(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
-        this.leftInit = leftInit;
-        this.bottom = bottom;
-        this.barObj = barObj;
-        this.datas = datas;
-        this.colors = colors;
+        initBarParams(leftInit, bottom, barObj, datas, colors);
     }
 
     @Override

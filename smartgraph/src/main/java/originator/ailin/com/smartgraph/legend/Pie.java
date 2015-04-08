@@ -14,9 +14,7 @@ public class Pie extends LegendAbs {
     private float mBiasXMax = 0, mBiasXMin = 0, mBiasYMax = 0, mBiasYMin = 0;
 
     public Pie(PieObj pieObj, float[] data, int[] colors) {
-        this.pieObj = pieObj;
-        this.data = data;
-        this.colors = colors;
+        initPieParams(pieObj, data, colors);
     }
 
     @Override

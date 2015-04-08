@@ -12,11 +12,7 @@ import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
 public class SimpleLine extends LegendAbs {
 
     public SimpleLine(float leftInit, float bottom, BarObj barObj, float[] data, int color) {
-        this.leftInit = leftInit;
-        this.bottom = bottom;
-        this.barObj = barObj;
-        this.data = data;
-        this.color = color;
+        initBarSimpleParams(leftInit, bottom, barObj, data, color);
     }
 
     @Override

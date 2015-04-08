@@ -11,10 +11,7 @@ import originator.ailin.com.smartgraph.chart.base.obj.ScatterObj;
  */
 public class Scatter extends LegendAbs {
     public Scatter(float leftInit, float bottom, ScatterObj scatterObj, int[] colors) {
-        this.leftInit = leftInit;
-        this.bottom = bottom;
-        this.scatterObj = scatterObj;
-        this.colors = colors;
+        initScatterParams(leftInit, bottom, scatterObj, colors);
     }
     @Override
     public void drawLegend(Canvas canvas, Paint paint) {

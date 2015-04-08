@@ -11,10 +11,7 @@ import originator.ailin.com.smartgraph.chart.base.obj.MyPoint;
  */
 public class Bubble extends LegendAbs {
     public Bubble(float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {
-        this.leftInit = leftInit;
-        this.bottom = bottom;
-        this.bubbleObj = bubbleObj;
-        this.colors = colors;
+        initBubbleParams(leftInit, bottom, bubbleObj, colors);
     }
 
     @Override
