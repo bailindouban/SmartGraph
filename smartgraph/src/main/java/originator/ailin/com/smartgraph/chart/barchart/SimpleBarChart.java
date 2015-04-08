@@ -17,7 +17,6 @@ public class SimpleBarChart extends BaseChart {
      */
     public SimpleBarChart(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -27,11 +26,6 @@ public class SimpleBarChart extends BaseChart {
      */
     public SimpleBarChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new SimpleBar();
     }
 
     @Override
@@ -39,8 +33,6 @@ public class SimpleBarChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(data != null) {
-            float leftInit = left;
-
             // Draw XY axis
             float dataMax = 0;
             for (float d : data) {
@@ -59,7 +51,8 @@ public class SimpleBarChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unit);
 
             // Draw Legend
-            showLegend(canvas, paint, leftInit, bottom, barObj, data, color);
+            legend = new SimpleBar(left, bottom, barObj, data, color);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

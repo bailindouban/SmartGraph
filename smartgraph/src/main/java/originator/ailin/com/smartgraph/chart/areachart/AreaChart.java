@@ -19,7 +19,6 @@ public class AreaChart extends BaseChart {
      */
     public AreaChart(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -29,11 +28,6 @@ public class AreaChart extends BaseChart {
      */
     public AreaChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new Area();
     }
 
     @Override
@@ -61,7 +55,8 @@ public class AreaChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unit);
 
             // Draw Legend
-            showLegend(canvas, paint, leftInit, bottom, barObj, datas, colors);
+            legend = new Area(left, bottom, barObj, datas, colors);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

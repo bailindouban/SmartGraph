@@ -18,7 +18,6 @@ public class ScatterPlot extends BaseChart {
      */
     public ScatterPlot(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -28,11 +27,6 @@ public class ScatterPlot extends BaseChart {
      */
     public ScatterPlot(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new Scatter();
     }
 
     @Override
@@ -60,7 +54,8 @@ public class ScatterPlot extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unitY);
 
             // Draw Legend
-            showLegend(canvas, paint, left, bottom, scatterObj, colors);
+            legend = new Scatter(left, bottom, scatterObj, colors);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

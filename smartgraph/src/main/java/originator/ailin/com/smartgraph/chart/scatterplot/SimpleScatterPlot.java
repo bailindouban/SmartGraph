@@ -18,7 +18,6 @@ public class SimpleScatterPlot extends BaseChart {
      */
     public SimpleScatterPlot(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -28,11 +27,6 @@ public class SimpleScatterPlot extends BaseChart {
      */
     public SimpleScatterPlot(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new SimpleScatter();
     }
 
     @Override
@@ -59,7 +53,8 @@ public class SimpleScatterPlot extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unitY);
 
             // Draw Legend
-            showLegend(canvas, paint, left, bottom, scatterObj, color);
+            legend = new SimpleScatter(left, bottom, scatterObj, color);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

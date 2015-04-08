@@ -10,8 +10,15 @@ import originator.ailin.com.smartgraph.chart.base.obj.MyPoint;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Bubble extends LegendAbs {
+    public Bubble(float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {
+        this.leftInit = leftInit;
+        this.bottom = bottom;
+        this.bubbleObj = bubbleObj;
+        this.colors = colors;
+    }
+
     @Override
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {
+    public void drawLegend(Canvas canvas, Paint paint) {
 
         for(int i = 0; i < bubbleObj.bubblePoints.length; i++) {
             paint.setColor(colors[i]);

@@ -17,8 +17,6 @@ public class LineChart extends BaseChart {
      */
     public LineChart(Context context) {
         super(context);
-
-        init();
     }
 
     /**
@@ -28,12 +26,6 @@ public class LineChart extends BaseChart {
      */
     public LineChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        init();
-    }
-
-    private void init() {
-        legend = new Line();
     }
 
     @Override
@@ -62,7 +54,8 @@ public class LineChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unitY);
 
             // Draw Legend
-            showLegend(canvas, paint, leftInit, bottom, barObj, datas, colors);
+            legend = new Line(left, bottom, barObj, datas, colors);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

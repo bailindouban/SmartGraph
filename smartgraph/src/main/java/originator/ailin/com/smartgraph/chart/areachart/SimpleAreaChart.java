@@ -17,7 +17,6 @@ public class SimpleAreaChart extends BaseChart {
      */
     public SimpleAreaChart(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -27,11 +26,6 @@ public class SimpleAreaChart extends BaseChart {
      */
     public SimpleAreaChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new SimpleArea();
     }
 
     @Override
@@ -60,7 +54,8 @@ public class SimpleAreaChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unit);
 
             // Draw Legend
-            showLegend(canvas, paint, leftInit, bottom, barObj, data, color);
+            legend = new SimpleArea(left, bottom, barObj, data, color);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

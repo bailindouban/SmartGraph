@@ -27,80 +27,9 @@ public abstract class BaseChart extends View {
      * Draw Simple Legend
      * @param canvas
      * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param barObj
-     * @param data
-     * @param color
      */
-    protected void showLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BarObj barObj, float[] data, int color) {
-        legend.drawLegend(canvas, paint, leftInit, bottom, barObj, data, color);
-    }
-
-    /**
-     * Draw Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param barObj
-     * @param datas
-     * @param colors
-     */
-    protected void showLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
-        legend.drawLegend(canvas, paint, leftInit, bottom, barObj, datas, colors);
-    }
-
-    /**
-     * Draw Simple Bubble Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param bubbleObj
-     * @param color
-     */
-    protected void showLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BubbleObj bubbleObj, int color) {
-        legend.drawLegend(canvas, paint, leftInit, bottom, bubbleObj, color);
-    }
-
-    /**
-     * Draw Bubble Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param bubbleObj
-     * @param colors
-     */
-    protected void showLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {
-        legend.drawLegend(canvas, paint, leftInit, bottom, bubbleObj, colors);
-    }
-
-    /**
-     * Draw Simple Bubble Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param scatterObj
-     * @param color
-     */
-    protected void showLegend(Canvas canvas, Paint paint, float leftInit, float bottom, ScatterObj scatterObj, int color) {
-        legend.drawLegend(canvas, paint, leftInit, bottom, scatterObj, color);
-    }
-
-    /**
-     * Draw Bubble Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param scatterObj
-     * @param colors
-     */
-    protected void showLegend(Canvas canvas, Paint paint, float leftInit, float bottom, ScatterObj scatterObj, int[] colors) {
-        legend.drawLegend(canvas, paint, leftInit, bottom, scatterObj, colors);
+    protected void showLegend(Canvas canvas, Paint paint) {
+        legend.drawLegend(canvas, paint);
     }
 
     // Setters

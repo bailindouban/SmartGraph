@@ -11,72 +11,58 @@ import originator.ailin.com.smartgraph.chart.base.obj.ScatterObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public abstract class LegendAbs {
-    /**
-     * Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param barObj
-     * @param datas
-     * @param colors
-     */
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {};
+    public float leftInit;
+    public float bottom;
+    public BarObj barObj;
+    public BubbleObj bubbleObj;
+    public ScatterObj scatterObj;
 
-    /**
-     * Simple Legend
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param barObj
-     * @param data
-     * @param color
-     */
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BarObj barObj, float[] data, int color) {};
+    public float[] data;
+    public int color;
+    public float[][] datas;
+    public int[] colors;
 
     /**
      *
      * @param canvas
      * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param bubbleObj
-     * @param color
      */
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BubbleObj bubbleObj, int color) {};
+    public void drawLegend(Canvas canvas, Paint paint) {};
 
-    /**
-     *
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param bubbleObj
-     * @param colors
-     */
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {};
+    // Setters
+    public void setLeftInit(float leftInit) {
+        this.leftInit = leftInit;
+    }
 
-    /**
-     *
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param scatterObj
-     * @param color
-     */
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, ScatterObj scatterObj, int color) {};
+    public void setBottom(float bottom) {
+        this.bottom = bottom;
+    }
 
-    /**
-     *
-     * @param canvas
-     * @param paint
-     * @param leftInit
-     * @param bottom
-     * @param scatterObj
-     * @param colors
-     */
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, ScatterObj scatterObj, int[] colors) {};
+    public void setBarObj(BarObj barObj) {
+        this.barObj = barObj;
+    }
 
+    public void setBubbleObj(BubbleObj bubbleObj) {
+        this.bubbleObj = bubbleObj;
+    }
+
+    public void setScatterObj(ScatterObj scatterObj) {
+        this.scatterObj = scatterObj;
+    }
+
+    public void setData(float[] data) {
+        this.data = data;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public void setDatas(float[][] datas) {
+        this.datas = datas;
+    }
+
+    public void setColors(int[] colors) {
+        this.colors = colors;
+    }
 }

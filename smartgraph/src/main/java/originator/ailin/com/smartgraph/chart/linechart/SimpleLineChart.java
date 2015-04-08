@@ -17,7 +17,6 @@ public class SimpleLineChart extends BaseChart {
      */
     public SimpleLineChart(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -27,11 +26,6 @@ public class SimpleLineChart extends BaseChart {
      */
     public SimpleLineChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new SimpleLine();
     }
 
     @Override
@@ -59,7 +53,8 @@ public class SimpleLineChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unitY);
 
             // Draw Legend
-            showLegend(canvas, paint, leftInit, bottom, barObj, data, color);
+            legend = new SimpleLine(left, bottom, barObj, data, color);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

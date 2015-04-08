@@ -10,10 +10,16 @@ import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Line extends LegendAbs {
-    int size, size_sub;
+    public Line(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
+        this.leftInit = leftInit;
+        this.bottom = bottom;
+        this.barObj = barObj;
+        this.datas = datas;
+        this.colors = colors;
+    }
 
     @Override
-    public void drawLegend(Canvas canvas, Paint paint, float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
+    public void drawLegend(Canvas canvas, Paint paint) {
         for(int i = 0; i < datas.length; i++) {
             // Draw Legend
             float left = leftInit;

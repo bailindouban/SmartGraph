@@ -18,7 +18,6 @@ public class SimpleBubbleChart extends BaseChart {
      */
     public SimpleBubbleChart(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -28,11 +27,6 @@ public class SimpleBubbleChart extends BaseChart {
      */
     public SimpleBubbleChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new SimpleBubble();
     }
 
     @Override
@@ -59,7 +53,8 @@ public class SimpleBubbleChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unitY);
 
             // Draw Legend
-            showLegend(canvas, paint, left, bottom, bubbleObj, color);
+            legend = new SimpleBubble(left, bottom, bubbleObj, color);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);

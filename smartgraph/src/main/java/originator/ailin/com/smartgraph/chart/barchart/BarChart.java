@@ -18,7 +18,6 @@ public class BarChart extends BaseChart {
      */
     public BarChart(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -28,11 +27,6 @@ public class BarChart extends BaseChart {
      */
     public BarChart(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        legend = new Bar();
     }
 
     @Override
@@ -62,7 +56,8 @@ public class BarChart extends BaseChart {
             grid.drawGridY(maxWidth, maxHeight, unit);
 
             // Draw Legend
-            showLegend(canvas, paint, leftInit, bottom, barObj, datas, colors);
+            legend = new Bar(left, bottom, barObj, datas, colors);
+            showLegend(canvas, paint);
 
             // Draw Title
             drawTitle(canvas, maxWidth, maxHeight);
