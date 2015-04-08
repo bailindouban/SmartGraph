@@ -5,6 +5,7 @@ import android.graphics.Paint;
 
 import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
 import originator.ailin.com.smartgraph.chart.base.obj.BubbleObj;
+import originator.ailin.com.smartgraph.chart.base.obj.PieObj;
 import originator.ailin.com.smartgraph.chart.base.obj.ScatterObj;
 
 /**
@@ -16,6 +17,7 @@ public abstract class LegendAbs {
     public BarObj barObj;
     public BubbleObj bubbleObj;
     public ScatterObj scatterObj;
+    public PieObj pieObj;
 
     public float[] data;
     public int color;

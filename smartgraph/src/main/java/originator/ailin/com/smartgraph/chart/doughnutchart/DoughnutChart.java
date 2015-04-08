@@ -2,14 +2,13 @@ package originator.ailin.com.smartgraph.chart.doughnutchart;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.PointF;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.base.BaseChart;
+import originator.ailin.com.smartgraph.legend.Doughnut;
 
 public class DoughnutChart extends BaseChart {
     private float mBiasXMax = 0, mBiasXMin = 0, mBiasYMax = 0, mBiasYMin = 0;
@@ -38,10 +37,13 @@ public class DoughnutChart extends BaseChart {
 
         if(data != null) {
             // Draw Legend
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(pieObj.radiusOuter - pieObj.radiusInner);
-            float radius = (pieObj.radiusInner + pieObj.radiusOuter ) / 2;
+            legend = new Doughnut(pieObj, data, colors);
+            showLegend(canvas, paint);
 
+            // Draw Legend Value
+            drawLegendValuePie(canvas, pieObj, pieObj.radiusOuter, data);
+
+            // Draw Title
             float total = 0;
             for(float d : data) {
                 total += d;
@@ -60,16 +62,9 @@ public class DoughnutChart extends BaseChart {
                 mBiasYMax = (mBiasYMax < biasXY.y) ? biasXY.y : mBiasYMax;
                 mBiasYMin = (mBiasYMin > biasXY.y) ? biasXY.y : mBiasYMin;
 
-                RectF oval = new RectF(pieObj.center.x - radius + biasXY.x, pieObj.center.y - radius + biasXY.y, pieObj.center.x + radius + biasXY.x, pieObj.center.y + radius + biasXY.y);
-
-                canvas.drawArc(oval, startAngleInit, swipeAngle, false, paint);
                 startAngleInit += swipeAngle;
             }
 
-            // Draw Legend Value
-            drawLegendValuePie(canvas, pieObj, pieObj.radiusOuter, data);
-
-            // Draw Title
             left = pieObj.center.x - pieObj.radiusOuter + mBiasXMin;
             bottom = pieObj.center.y + pieObj.radiusOuter + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin);
             float maxWidth = pieObj.radiusOuter * 2 - mBiasXMin + mBiasXMax;
