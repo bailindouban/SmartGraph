@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
+import android.view.View;
 
 import originator.ailin.com.test.TestCase.TestAreaChart;
 import originator.ailin.com.test.TestCase.TestBarChart;
@@ -55,7 +56,16 @@ public class MainActivity extends ActionBarActivity {
         };
 
         // Default
-        setContentView(mTestChart[6].drawSpecialChart());
+        View mView = mTestChart[0].drawSimpleChart();
+
+        setContentView(mView);
+
+
+
+/*        Animation animation_alpha = new AlphaAnimation(0.1f, 1f);
+        animation_alpha.setDuration(5000);
+        mView.startAnimation(animation_alpha);
+        Animation animation_scale = new ScaleAnimation(0f, 1.4f, 0f, 1.4f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);*/
     }
 
     @Override

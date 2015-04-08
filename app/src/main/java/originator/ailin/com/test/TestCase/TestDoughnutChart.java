@@ -4,9 +4,9 @@ import android.content.Context;
 import android.graphics.Point;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.legend.doughnutchart.DoughnutChart;
-import originator.ailin.com.smartgraph.legend.doughnutchart.RoseChart;
-import originator.ailin.com.smartgraph.legend.doughnutchart.SimpleDoughnutChart;
+import originator.ailin.com.smartgraph.chart.doughnutchart.DoughnutChart;
+import originator.ailin.com.smartgraph.chart.doughnutchart.RoseChart;
+import originator.ailin.com.smartgraph.chart.doughnutchart.SimpleDoughnutChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 

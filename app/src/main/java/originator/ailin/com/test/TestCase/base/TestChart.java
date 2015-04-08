@@ -3,7 +3,7 @@ package originator.ailin.com.test.TestCase.base;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.legend.base.BaseChart;
+import originator.ailin.com.smartgraph.chart.base.BaseChart;
 import originator.ailin.com.test.Utils.Constant;
 
 /**

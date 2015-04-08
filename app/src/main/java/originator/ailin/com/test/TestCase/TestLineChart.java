@@ -3,8 +3,8 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.legend.linechart.LineChart;
-import originator.ailin.com.smartgraph.legend.linechart.SimpleLineChart;
+import originator.ailin.com.smartgraph.chart.linechart.LineChart;
+import originator.ailin.com.smartgraph.chart.linechart.SimpleLineChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 

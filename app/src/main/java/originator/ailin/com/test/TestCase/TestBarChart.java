@@ -3,8 +3,8 @@ package originator.ailin.com.test.TestCase;
 import android.content.Context;
 import android.view.View;
 
-import originator.ailin.com.smartgraph.legend.barchart.BarChart;
-import originator.ailin.com.smartgraph.legend.barchart.SimpleBarChart;
+import originator.ailin.com.smartgraph.chart.barchart.BarChart;
+import originator.ailin.com.smartgraph.chart.barchart.SimpleBarChart;
 import originator.ailin.com.test.TestCase.base.TestChart;
 import originator.ailin.com.test.Utils.Constant;
 
