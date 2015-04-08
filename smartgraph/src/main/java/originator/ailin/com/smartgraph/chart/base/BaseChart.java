@@ -7,10 +7,12 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import originator.ailin.com.smartgraph.axis.AxisAbs;
 import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
 import originator.ailin.com.smartgraph.chart.base.obj.BubbleObj;
 import originator.ailin.com.smartgraph.chart.base.obj.PieObj;
 import originator.ailin.com.smartgraph.chart.base.obj.ScatterObj;
+import originator.ailin.com.smartgraph.grid.GridAbs;
 import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.LegendAbs;
 import originator.ailin.com.smartgraph.legend_value.LegendValue;
@@ -22,6 +24,8 @@ import originator.ailin.com.smartgraph.title.Title;
  */
 public abstract class BaseChart extends View {
     protected LegendAbs legend;
+    protected GridAbs grid;
+    protected AxisAbs axis;
 
     /**
      * Draw Simple Legend
@@ -32,10 +36,27 @@ public abstract class BaseChart extends View {
         legend.drawLegend(canvas, paint);
     }
 
+    protected void showGrid(Canvas canvas, Paint paint) {
+        grid.drawGridY(canvas, paint);
+    }
+
+    protected void showAxisX(Canvas canvas, Paint paint) {
+        axis.drawAxisX(canvas, paint);
+    }
+
+    protected void showAxisY(Canvas canvas, Paint paint) {
+        axis.drawAxisY(canvas, paint);
+    }
+
     // Setters
     public void setLegend(LegendAbs legend) {
         this.legend = legend;
     }
+
+    public void setGrid(GridAbs grid) {
+        this.grid = grid;
+    }
+
 
     public Paint paint;
 

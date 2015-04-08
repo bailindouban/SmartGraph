@@ -34,24 +34,21 @@ public class SimpleAreaChart extends BaseChart {
         Log.d("kim", "onDraw");
 
         if(data != null) {
-            float leftInit = left;
-
             // Draw XY axis
             float dataMax = 0;
             for (float d : data) {
                 dataMax = (d > dataMax) ? d : dataMax;
             }
 
-            int unit = 100;
             int maxWidth = (data.length - 1)* barObj.interval;
-            int maxHeight = (int) dataMax + unit;
-            Axis axis = new Axis(canvas, paint, leftInit, bottom);
-            axis.drawAxisX(maxWidth);
-            axis.drawAxisY(maxHeight);
+            int maxHeight = (int) dataMax + unitY;
+            axis = new Axis(left, bottom, maxWidth, maxHeight);
+            showAxisX(canvas, paint);
+            showAxisY(canvas, paint);
 
             // Draw Grid
-            Grid grid = new Grid(canvas, paint, leftInit, bottom);
-            grid.drawGridY(maxWidth, maxHeight, unit);
+            grid = new Grid(left, bottom, maxWidth, maxHeight, unitY);
+            showGrid(canvas, paint);
 
             // Draw Legend
             legend = new SimpleArea(left, bottom, barObj, data, color);

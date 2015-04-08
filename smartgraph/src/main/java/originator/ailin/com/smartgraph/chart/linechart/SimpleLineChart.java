@@ -44,13 +44,13 @@ public class SimpleLineChart extends BaseChart {
 
             int maxWidth = (data.length - 1)* barObj.interval;
             int maxHeight = (int) dataMax + unitY;
-            Axis axis = new Axis(canvas, paint, leftInit, bottom);
-            axis.drawAxisX(maxWidth);
-            axis.drawAxisY(maxHeight);
+            axis = new Axis(left, bottom, maxWidth, maxHeight);
+            showAxisX(canvas, paint);
+            showAxisY(canvas, paint);
 
             // Draw Grid
-            Grid grid = new Grid(canvas, paint, leftInit, bottom);
-            grid.drawGridY(maxWidth, maxHeight, unitY);
+            grid = new Grid(left, bottom, maxWidth, maxHeight, unitY);
+            showGrid(canvas, paint);
 
             // Draw Legend
             legend = new SimpleLine(left, bottom, barObj, data, color);

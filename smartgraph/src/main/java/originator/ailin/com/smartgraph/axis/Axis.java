@@ -7,49 +7,48 @@ import android.graphics.Paint;
 /**
  * Created by Kim_Bai on 2/15/2015.
  */
-public class Axis {
-    private Canvas mCanvas;
-    private Paint mPaint;
-    private float mLeft, mBottom;
+public class Axis extends AxisAbs {
 
     /**
      *
-     * @param mCanvas
-     * @param mPaint
-     * @param mLeft
-     * @param mBottom
+     * @param left
+     * @param bottom
+     * @param maxWidth
+     * @param maxHeight
      */
-    public Axis(Canvas mCanvas, Paint mPaint, float mLeft, float mBottom) {
-        this.mCanvas = mCanvas;
-        this.mPaint = mPaint;
-        this.mLeft = mLeft - 1;
-        this.mBottom = mBottom + 1;
-
-        init();
+    public Axis(float left, float bottom, float maxWidth, float maxHeight) {
+        this.left = left - 1;
+        this.bottom = bottom + 1;
+        this.maxWidth = maxWidth;
+        this.maxHeight = maxHeight;
     }
 
     /**
      * Init Params
      */
-    private void init() {
-        mPaint.setColor(Color.BLACK);
-        mPaint.setStrokeWidth(2);
+    private void init(Paint paint) {
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(2);
     }
 
     /**
      *
-     * @param maxWidth
+     * @param canvas
+     * @param paint
      */
-    public void drawAxisX(float maxWidth) {
-        mCanvas.drawLine(mLeft, mBottom, maxWidth + mLeft + 1, mBottom, mPaint);
+    public void drawAxisX(Canvas canvas, Paint paint) {
+        init(paint);
+        canvas.drawLine(left, bottom, maxWidth + left + 1, bottom, paint);
     }
 
     /**
      *
-     * @param maxHeight
+     * @param canvas
+     * @param paint
      */
-    public void drawAxisY(float maxHeight) {
-        mCanvas.drawLine(mLeft, mBottom, mLeft, mBottom - maxHeight, mPaint);
+    public void drawAxisY(Canvas canvas, Paint paint) {
+        init(paint);
+        canvas.drawLine(left, bottom, left, bottom - maxHeight, paint);
     }
 
 }

@@ -44,13 +44,13 @@ public class SimpleBubbleChart extends BaseChart {
 
             int maxWidth = (int) dataMaxX + unitX;
             int maxHeight = (int) dataMaxY + unitY;
-            Axis axis = new Axis(canvas, paint, left, bottom);
-            axis.drawAxisX(maxWidth);
-            axis.drawAxisY(maxHeight);
+            axis = new Axis(left, bottom, maxWidth, maxHeight);
+            showAxisX(canvas, paint);
+            showAxisY(canvas, paint);
 
             // Draw Grid
-            Grid grid = new Grid(canvas, paint, left, bottom);
-            grid.drawGridY(maxWidth, maxHeight, unitY);
+            grid = new Grid(left, bottom, maxWidth, maxHeight, unitY);
+            showGrid(canvas, paint);
 
             // Draw Legend
             legend = new SimpleBubble(left, bottom, bubbleObj, color);

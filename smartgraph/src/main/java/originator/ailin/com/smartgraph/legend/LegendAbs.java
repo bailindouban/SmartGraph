@@ -133,42 +133,5 @@ public abstract class LegendAbs {
      * @param canvas
      * @param paint
      */
-    public void drawLegend(Canvas canvas, Paint paint) {};
-
-    // Setters
-    public void setLeftInit(float leftInit) {
-        this.leftInit = leftInit;
-    }
-
-    public void setBottom(float bottom) {
-        this.bottom = bottom;
-    }
-
-    public void setBarObj(BarObj barObj) {
-        this.barObj = barObj;
-    }
-
-    public void setBubbleObj(BubbleObj bubbleObj) {
-        this.bubbleObj = bubbleObj;
-    }
-
-    public void setScatterObj(ScatterObj scatterObj) {
-        this.scatterObj = scatterObj;
-    }
-
-    public void setData(float[] data) {
-        this.data = data;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
-    }
-
-    public void setDatas(float[][] datas) {
-        this.datas = datas;
-    }
-
-    public void setColors(int[] colors) {
-        this.colors = colors;
-    }
+    public abstract void drawLegend(Canvas canvas, Paint paint);
 }

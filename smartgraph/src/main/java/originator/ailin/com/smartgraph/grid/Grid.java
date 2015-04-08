@@ -7,46 +7,39 @@ import android.graphics.Paint;
 /**
  * Created by Kim_Bai on 2/15/2015.
  */
-public class Grid {
-    private Canvas mCanvas;
-    private Paint mPaint;
-    private float mLeft, mBottom;
-
+public class Grid extends GridAbs {
     /**
      *
-     * @param mCanvas
-     * @param mPaint
-     * @param mLeft
-     * @param mBottom
+     * @param left
+     * @param bottom
+     * @param maxWidth
+     * @param maxHeight
+     * @param unitY
      */
-    public Grid(Canvas mCanvas, Paint mPaint, float mLeft, float mBottom) {
-        this.mCanvas = mCanvas;
-        this.mPaint = mPaint;
-        this.mLeft = mLeft;
-        this.mBottom = mBottom;
-
-        init();
+    public Grid(float left, float bottom, float maxWidth, float maxHeight, int unitY) {
+        this.left = left;
+        this.bottom = bottom;
+        this.maxWidth = maxWidth;
+        this.maxHeight = maxHeight;
+        this.unitY = unitY;
     }
 
     /**
      * Init Params
      */
-    private void init() {
-        mPaint.setColor(Color.BLACK);
-        mPaint.setStrokeWidth(2);
+    private void init(Paint paint) {
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(2);
     }
 
-    /**
-     *
-     * @param maxWidth
-     * @param maxHeight
-     * @param unit
-     */
-    public void drawGridY(float maxWidth, float maxHeight, int unit) {
-        int num = (int) (maxHeight / unit + 1);
+    @Override
+    public void drawGridY(Canvas canvas, Paint paint) {
+        init(paint);
 
+        int num = (int) (maxHeight / unitY + 1);
         for(int i = 1; i < num; i++) {
-            mCanvas.drawLine(mLeft, mBottom - unit * i, maxWidth + mLeft, mBottom - unit * i, mPaint);    // X lines
+            canvas.drawLine(left, bottom - unitY * i, maxWidth + left, bottom - unitY * i, paint);    // X lines
         }
     }
+
 }

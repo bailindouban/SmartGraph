@@ -47,13 +47,13 @@ public class BarChart extends BaseChart {
             int unit = 100;
             int maxWidth = datas.length * barObj.interval + datas.length * datas[0].length * barObj.width;
             int maxHeight = (int) dataMax + unit;
-            Axis axis = new Axis(canvas, paint, leftInit, bottom);
-            axis.drawAxisX(maxWidth);
-            axis.drawAxisY(maxHeight);
+            axis = new Axis(left, bottom, maxWidth, maxHeight);
+            showAxisX(canvas, paint);
+            showAxisY(canvas, paint);
 
             // Draw Grid
-            Grid grid = new Grid(canvas, paint, leftInit, bottom);
-            grid.drawGridY(maxWidth, maxHeight, unit);
+            grid = new Grid(left, bottom, maxWidth, maxHeight, unit);
+            showGrid(canvas, paint);
 
             // Draw Legend
             legend = new Bar(left, bottom, barObj, datas, colors);

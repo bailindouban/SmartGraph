@@ -34,8 +34,6 @@ public class AreaChart extends BaseChart {
     protected void onDraw(Canvas canvas) {
 
         if(datas != null) {
-            float leftInit = left;
-
             // Draw XY axis
             Float[][] dataArray = getDataArray();
             float dataMax = 0;
@@ -43,16 +41,15 @@ public class AreaChart extends BaseChart {
                 dataMax = (d > dataMax) ? d : dataMax;
             }
 
-            int unit = 100;
             int maxWidth = (size_sub - 1) * barObj.interval;
-            int maxHeight = (int) dataMax + unit;
-            Axis axis = new Axis(canvas, paint, leftInit, bottom);
-            axis.drawAxisX(maxWidth);
-            axis.drawAxisY(maxHeight);
+            int maxHeight = (int) dataMax + unitY;
+            axis = new Axis(left, bottom, maxWidth, maxHeight);
+            showAxisX(canvas, paint);
+            showAxisY(canvas, paint);
 
             // Draw Grid
-            Grid grid = new Grid(canvas, paint, leftInit, bottom);
-            grid.drawGridY(maxWidth, maxHeight, unit);
+            grid = new Grid(left, bottom, maxWidth, maxHeight, unitY);
+            showGrid(canvas, paint);
 
             // Draw Legend
             legend = new Area(left, bottom, barObj, datas, colors);
