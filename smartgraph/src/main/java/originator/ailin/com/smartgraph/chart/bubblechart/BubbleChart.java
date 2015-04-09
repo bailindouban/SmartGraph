@@ -5,11 +5,15 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import originator.ailin.com.smartgraph.axis.Axis;
-import originator.ailin.com.smartgraph.grid.Grid;
+import originator.ailin.com.smartgraph.axis.AxisX;
+import originator.ailin.com.smartgraph.axis.AxisY;
 import originator.ailin.com.smartgraph.chart.BaseChart;
-import originator.ailin.com.smartgraph.obj.MyPoint;
+import originator.ailin.com.smartgraph.grid.GridY;
 import originator.ailin.com.smartgraph.legend.Bubble;
+import originator.ailin.com.smartgraph.obj.MyPoint;
+import originator.ailin.com.smartgraph.polar.PolarBubbleX;
+import originator.ailin.com.smartgraph.polar.PolarY;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class BubbleChart extends BaseChart {
     /**
@@ -46,24 +50,28 @@ public class BubbleChart extends BaseChart {
 
             int maxWidth = (int) dataMaxX + unitX;
             int maxHeight = (int) dataMaxY + unitY;
-            axis = new Axis(left, bottom, maxWidth, maxHeight);
+            axisX = new AxisX(left, bottom, maxWidth, maxHeight);
+            axisY = new AxisY(left, bottom, maxWidth, maxHeight);
             showAxisX(canvas, paint);
             showAxisY(canvas, paint);
 
             // Draw Grid
-            grid = new Grid(left, bottom, maxWidth, maxHeight, unitY);
-            showGrid(canvas, paint);
+            gridY = new GridY(left, bottom, maxWidth, maxHeight, unitY);
+            showGridY(canvas, paint);
 
             // Draw Legend
             legend = new Bubble(left, bottom, bubbleObj, colors);
             showLegend(canvas, paint);
 
             // Draw Title
-            drawTitle(canvas, maxWidth, maxHeight);
+            title = new Title(left, bottom, titleText, titleSize, titleColor, maxWidth, maxHeight);
+            showTitle(canvas, paint);
 
             // Draw PolarXY
-            drawPolarBubbleX(canvas, maxWidth);
-            drawPolarY(canvas, maxHeight);
+            polarBubbleX = new PolarBubbleX(left, bottom, maxWidth, unitX, polarTextColorX);
+            polarY = new PolarY(left, bottom, maxHeight, unitY, polarTextColorY);
+            showPolarBubbleX(getResources(), canvas, paint);
+            showPolarY(getResources(), canvas, paint);
 
             // Draw label
             drawLabel(canvas, bubbleObj.bubblePoints.length, maxWidth, maxHeight, colors);

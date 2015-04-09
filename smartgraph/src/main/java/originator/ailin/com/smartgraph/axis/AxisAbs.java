@@ -1,6 +1,7 @@
 package originator.ailin.com.smartgraph.axis;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 /**
@@ -11,16 +12,31 @@ public abstract class AxisAbs {
 
     /**
      *
-     * @param canvas
-     * @param paint
+     * @param left
+     * @param bottom
+     * @param maxWidth
+     * @param maxHeight
      */
-    abstract public void drawAxisX(Canvas canvas, Paint paint);
+    public AxisAbs(float left, float bottom, float maxWidth, float maxHeight) {
+        this.left = left - 1;
+        this.bottom = bottom + 1;
+        this.maxWidth = maxWidth;
+        this.maxHeight = maxHeight;
+    }
+
+    /**
+     * Init Params
+     */
+    protected void init(Paint paint) {
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(2);
+    }
 
     /**
      *
      * @param canvas
      * @param paint
      */
-    abstract public void drawAxisY(Canvas canvas, Paint paint);
+    abstract public void drawAxis(Canvas canvas, Paint paint);
 
 }

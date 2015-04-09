@@ -8,6 +8,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.legend.SimpleDoughnut;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class SimpleDoughnutChart extends BaseChart {
     /**
@@ -45,7 +46,8 @@ public class SimpleDoughnutChart extends BaseChart {
             bottom = pieObj.center.y + pieObj.radiusOuter - getResources().getDimension(R.dimen.pie_title_margin);
             float maxWidth = pieObj.radiusOuter * 2;
             float maxHeight = pieObj.radiusOuter * 2;
-            drawTitle(canvas, maxWidth, maxHeight);
+            title = new Title(left, bottom, titleText, titleSize, titleColor, maxWidth, maxHeight);
+            showTitle(canvas, paint);
 
             // Draw label
             drawLabel(canvas, data.length, maxWidth, maxHeight, colors);

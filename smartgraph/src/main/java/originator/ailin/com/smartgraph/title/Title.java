@@ -6,39 +6,39 @@ import android.graphics.Paint;
 /**
  * Created by Kim_Bai on 3/2/2015.
  */
-public class Title {
-    private Canvas mCanvas;
-    private Paint mPaint;
-    private float mLeft, mBottom;
-
+public class Title extends TitleAbs {
     /**
-     *
-     * @param mCanvas
-     * @param mPaint
-     * @param mLeft
-     * @param mBottom
-     */
-    public Title(Canvas mCanvas, Paint mPaint, float mLeft, float mBottom) {
-        this.mCanvas = mCanvas;
-        this.mPaint = mPaint;
-        this.mLeft = mLeft;
-        this.mBottom = mBottom;
-    }
-
-    /**
-     *
+     * Constructor
+     * @param left
+     * @param bottom
      * @param titleText
      * @param titleSize
      * @param titleColor
      * @param maxWidth
      * @param maxHeight
      */
-    public void drawTitle(String titleText, int titleSize, int titleColor, float maxWidth, float maxHeight) {
-        mPaint.setTextAlign(Paint.Align.CENTER);
-        mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setStrokeWidth(1);
-        mPaint.setTextSize(titleSize);
-        mPaint.setColor(titleColor);
-        mCanvas.drawText(titleText, mLeft + maxWidth / 2, mBottom - maxHeight, mPaint);
+    public Title(float left, float bottom, String titleText, int titleSize, int titleColor, float maxWidth, float maxHeight) {
+        this.left = left;
+        this.bottom = bottom;
+        this.titleText = titleText;
+        this.titleSize = titleSize;
+        this.titleColor = titleColor;
+        this.maxWidth = maxWidth;
+        this.maxHeight = maxHeight;
+    }
+
+    /**
+     *
+     * @param canvas
+     * @param paint
+     */
+    @Override
+    public void drawTitle(Canvas canvas, Paint paint) {
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setStrokeWidth(1);
+        paint.setTextSize(titleSize);
+        paint.setColor(titleColor);
+        canvas.drawText(titleText, left + maxWidth / 2, bottom - maxHeight, paint);
     }
 }

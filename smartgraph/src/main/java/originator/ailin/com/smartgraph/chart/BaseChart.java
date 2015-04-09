@@ -1,6 +1,7 @@
 package originator.ailin.com.smartgraph.chart;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,24 +9,26 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import originator.ailin.com.smartgraph.axis.AxisAbs;
-import originator.ailin.com.smartgraph.obj.BarObj;
-import originator.ailin.com.smartgraph.obj.BubbleObj;
-import originator.ailin.com.smartgraph.obj.PieObj;
-import originator.ailin.com.smartgraph.obj.ScatterObj;
 import originator.ailin.com.smartgraph.grid.GridAbs;
 import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.LegendAbs;
 import originator.ailin.com.smartgraph.legend_value.LegendValue;
-import originator.ailin.com.smartgraph.polar.Polar;
-import originator.ailin.com.smartgraph.title.Title;
+import originator.ailin.com.smartgraph.obj.BarObj;
+import originator.ailin.com.smartgraph.obj.BubbleObj;
+import originator.ailin.com.smartgraph.obj.PieObj;
+import originator.ailin.com.smartgraph.obj.ScatterObj;
+import originator.ailin.com.smartgraph.polar.PolarAbs;
+import originator.ailin.com.smartgraph.title.TitleAbs;
 
 /**
  * Created by Kim_Bai on 2/5/2015.
  */
 public abstract class BaseChart extends View {
     protected LegendAbs legend;
-    protected GridAbs grid;
-    protected AxisAbs axis;
+    protected GridAbs gridY;
+    protected AxisAbs axisX, axisY;
+    protected PolarAbs polarX, polarY, polarBubbleX;
+    protected TitleAbs title;
 
     /**
      * Draw Simple Legend
@@ -36,25 +39,37 @@ public abstract class BaseChart extends View {
         legend.drawLegend(canvas, paint);
     }
 
-    protected void showGrid(Canvas canvas, Paint paint) {
-        grid.drawGridY(canvas, paint);
+    protected void showGridY(Canvas canvas, Paint paint) {
+        gridY.drawGrid(canvas, paint);
     }
 
     protected void showAxisX(Canvas canvas, Paint paint) {
-        axis.drawAxisX(canvas, paint);
+        axisX.drawAxis(canvas, paint);
     }
 
     protected void showAxisY(Canvas canvas, Paint paint) {
-        axis.drawAxisY(canvas, paint);
+        axisY.drawAxis(canvas, paint);
+    }
+
+    protected void showPolarX(Resources resources, Canvas canvas, Paint paint) {
+        polarX.drawPolar(resources, canvas, paint);
+    }
+
+    protected void showPolarY(Resources resources, Canvas canvas, Paint paint) {
+        polarY.drawPolar(resources, canvas, paint);
+    }
+
+    protected void showPolarBubbleX(Resources resources, Canvas canvas, Paint paint) {
+        polarBubbleX.drawPolar(resources, canvas, paint);
+    }
+
+    protected void showTitle(Canvas canvas, Paint paint) {
+        title.drawTitle(canvas, paint);
     }
 
     // Setters
     public void setLegend(LegendAbs legend) {
         this.legend = legend;
-    }
-
-    public void setGrid(GridAbs grid) {
-        this.grid = grid;
     }
 
 
@@ -70,7 +85,7 @@ public abstract class BaseChart extends View {
 
     // For polarX
     public String[] polarsTextX;
-    public int polarsTextColorX, polarsTextColorY;
+    public int polarTextColorX, polarTextColorY;
 
     // For label
     public String[] labelsText;
@@ -127,52 +142,49 @@ public abstract class BaseChart extends View {
         titleSize = 50;
 
         polarsTextX = new String[] {"1月份", "2月份", "3月份", "4月份", "5月份", "6月份", "7月份", "8月份", "9月份", "10月份", "11月份", "12月份"};
-        polarsTextColorX = Color.BLUE;
-        polarsTextColorY = Color.BLUE;
+        polarTextColorX = Color.BLUE;
+        polarTextColorY = Color.BLUE;
 
         labelsText = new String[] {"小明", "小李", "小王", "小白", "小朱", "小志", "小管", "小张"};
         labelsTextColor = Color.BLUE;
     }
 
-    /**
+/*
+    */
+/**
      * Draw PolarX
      * @param canvas
-     */
+     *//*
+
     public void drawPolarX (Canvas canvas, int num, int width, int interval) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarX(num, width, interval, polarsTextX, polarsTextColorX);
     }
 
-    /**
+    */
+/**
      * Draw PolarX
      * @param canvas
      * @param maxWidth
-     */
+     *//*
+
     public void drawPolarBubbleX (Canvas canvas, int maxWidth) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarBubbleX(maxWidth, unitX, polarsTextColorX);
     }
 
-    /**
+    */
+/**
      * Draw PolarY
      * @param canvas
      * @param maxHeight
-     */
+     *//*
+
     public void drawPolarY (Canvas canvas, int maxHeight) {
         Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
         polar.drawPolarY(maxHeight, unitY, polarsTextColorY);
     }
-
-    /**
-     *
-     * @param canvas
-     * @param maxWidth
-     * @param maxHeight
-     */
-    public void drawTitle (Canvas canvas, float maxWidth, float maxHeight) {
-        Title title = new Title(canvas, paint, left, bottom);
-        title.drawTitle(titleText, titleSize, titleColor, maxWidth, maxHeight);
-    }
+*/
 
     /**
      *

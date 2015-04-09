@@ -9,6 +9,7 @@ import android.util.Log;
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.legend.Pie;
+import originator.ailin.com.smartgraph.title.Title;
 
 public class PieChart extends BaseChart {
     private float mBiasXMax = 0, mBiasXMin = 0, mBiasYMax = 0, mBiasYMin = 0;
@@ -68,7 +69,8 @@ public class PieChart extends BaseChart {
             bottom = pieObj.center.y + pieObj.radius + mBiasYMax - getResources().getDimension(R.dimen.pie_title_margin);
             float maxWidth = pieObj.radius * 2 - mBiasXMin + mBiasXMax;
             float maxHeight = pieObj.radius * 2 - mBiasYMin + mBiasYMax;
-            drawTitle(canvas, maxWidth, maxHeight);
+            title = new Title(left, bottom, titleText, titleSize, titleColor, maxWidth, maxHeight);
+            showTitle(canvas, paint);
 
             // Draw label
             drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
