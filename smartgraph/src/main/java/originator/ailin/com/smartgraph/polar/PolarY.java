@@ -14,15 +14,15 @@ public class PolarY extends PolarAbs {
      * @param left
      * @param bottom
      * @param maxHeight
-     * @param unitY
-     * @param polarsTextColorY
+     * @param interval
+     * @param polarsTextColor
      */
-    public PolarY(float left, float bottom, float maxHeight, int unitY, int polarsTextColorY) {
+    public PolarY(float left, float bottom, float maxHeight, float interval, int polarsTextColor) {
         this.left = left;
         this.bottom = bottom;
         this.maxHeight = maxHeight;
-        this.unitY = unitY;
-        this.polarTextColorY = polarsTextColorY;
+        this.interval = interval;
+        this.polarTextColor = polarsTextColor;
     }
 
     /**
@@ -36,15 +36,15 @@ public class PolarY extends PolarAbs {
         init(resources, paint);
         
         paint.setTextAlign(Paint.Align.RIGHT);
-        paint.setTextSize(polarTextSizeY);
-        paint.setColor(polarTextColorY);
-        int num = (int) (maxHeight / unitY + 1);
+        paint.setTextSize(polarTextSize);
+        paint.setColor(polarTextColor);
+        int num = (int) (maxHeight / interval + 1);
 
         for (int i = 0; i < num; i++) {
-            String polarYText = String.valueOf(unitY * i);
+            String polarYText = String.valueOf((int) interval * i);
             Rect bounds = new Rect();
             paint.getTextBounds(polarYText, 0, polarYText.length(), bounds);
-            canvas.drawText(polarYText, left - polarMarginY, bottom - unitY * i + bounds.height() / 2, paint);    // Y Polars
+            canvas.drawText(polarYText, left - polarMargin, bottom - interval * i + bounds.height() / 2, paint);    // Y Polars
         }
     }
 }

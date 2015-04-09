@@ -16,17 +16,17 @@ public class PolarX extends PolarAbs {
      * @param num
      * @param width
      * @param interval
-     * @param polarsTextX
-     * @param polarTextColorX
+     * @param polarsText
+     * @param polarTextColor
      */
-    public PolarX(float left, float bottom, int num, float width, float interval, String[] polarsTextX, int polarTextColorX) {
+    public PolarX(float left, float bottom, int num, float width, float interval, String[] polarsText, int polarTextColor) {
         this.left = left;
         this.bottom = bottom;
         this.num = num;
         this.width = width;
         this.interval = interval;
-        this.polarsTextX = polarsTextX;
-        this.polarTextColorX = polarTextColorX;
+        this.polarsText = polarsText;
+        this.polarTextColor = polarTextColor;
     }
 
     /**
@@ -38,13 +38,13 @@ public class PolarX extends PolarAbs {
         init(resources, paint);
 
         paint.setTextAlign(Paint.Align.LEFT);
-        paint.setTextSize(polarTextSizeX);
-        paint.setColor(polarTextColorX);
+        paint.setTextSize(polarTextSize);
+        paint.setColor(polarTextColor);
 
         for (int i = 0; i < num; i++) {
             Rect bounds = new Rect();
-            paint.getTextBounds(polarsTextX[i], 0, polarsTextX[i].length(), bounds);
-            canvas.drawText(polarsTextX[i], left + width / 2 + (width + interval) * i - bounds.width() / 2, bottom + bounds.height() + polarMarginX, paint);    // X Polars
+            paint.getTextBounds(polarsText[i], 0, polarsText[i].length(), bounds);
+            canvas.drawText(polarsText[i], left + width / 2 + (width + interval) * i - bounds.width() / 2, bottom + bounds.height() + polarMargin, paint);    // X Polars
         }
     }
 

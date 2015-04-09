@@ -16,11 +16,10 @@ public abstract class PolarAbs {
     protected float width;
     protected float maxWidth, maxHeight;
     protected float interval;
-    protected int unitX, unitY;
-    protected String[] polarsTextX;
-    protected int polarTextColorX, polarTextColorY;
-    protected int polarTextSizeX, polarTextSizeY;
-    protected float polarMarginX, polarMarginY;
+    protected String[] polarsText;
+    protected int polarTextColor;
+    protected int polarTextSize;
+    protected float polarMargin;
 
     /**
      *
@@ -34,9 +33,7 @@ public abstract class PolarAbs {
      */
     protected void init(Resources resources, Paint paint) {
         paint.setColor(Color.BLUE);
-        polarTextSizeX = 34;
-        polarTextSizeY = 34;
-        polarMarginX = resources.getDimension(R.dimen.polar_margin_x);
-        polarMarginY = resources.getDimension(R.dimen.polar_margin_y);
+        polarTextSize = 34;
+        polarMargin = resources.getDimension(R.dimen.polar_margin_x);
     }
 }

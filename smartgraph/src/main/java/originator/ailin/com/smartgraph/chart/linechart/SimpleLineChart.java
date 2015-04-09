@@ -66,7 +66,7 @@ public class SimpleLineChart extends BaseChart {
             showTitle(canvas, paint);
 
             // Draw PolarXY
-            polarX = new PolarX(left, bottom, datas.length, 0, barObj.interval, polarsTextX, polarTextColorX);
+            polarX = new PolarX(left, bottom, data.length, 0, barObj.interval, polarsTextX, polarTextColorX);
             polarY = new PolarY(left, bottom, maxHeight, unitY, polarTextColorY);
             showPolarX(getResources(), canvas, paint);
             showPolarY(getResources(), canvas, paint);
