@@ -8,8 +8,10 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.BaseChart;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.Pie;
 import originator.ailin.com.smartgraph.title.Title;
+import originator.ailin.com.smartgraph.value.ValuePie;
 
 public class PieChart extends BaseChart {
     private float mBiasXMax = 0, mBiasXMin = 0, mBiasYMax = 0, mBiasYMin = 0;
@@ -42,7 +44,8 @@ public class PieChart extends BaseChart {
             showLegend(canvas, paint);
 
             // Draw Legend Value
-            drawLegendValuePie(canvas, pieObj, pieObj.radius, data);
+            value = new ValuePie(pieObj, pieObj.radius, data);
+            showValue(getResources(), canvas, paint);
 
             // Draw Title
             float startAngleInit = pieObj.startAngle;
@@ -73,7 +76,8 @@ public class PieChart extends BaseChart {
             showTitle(canvas, paint);
 
             // Draw label
-            drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
+            label = new Label(left, bottom, data.length, labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
+            showLabel(getResources(), canvas, paint);
         }
     }
 }

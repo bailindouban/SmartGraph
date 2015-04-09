@@ -9,6 +9,7 @@ import originator.ailin.com.smartgraph.axis.AxisX;
 import originator.ailin.com.smartgraph.axis.AxisY;
 import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.grid.GridY;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.Line;
 import originator.ailin.com.smartgraph.polar.PolarX;
 import originator.ailin.com.smartgraph.polar.PolarY;
@@ -73,7 +74,8 @@ public class LineChart extends BaseChart {
             showPolar(getResources(), canvas, paint);
 
             // Draw label
-            drawLabel(canvas, datas.length, maxWidth, maxHeight, colors);
+            label = new Label(left, bottom, datas.length, labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
+            showLabel(getResources(), canvas, paint);
         }
     }
 }

@@ -7,8 +7,10 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.BaseChart;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.SimpleDoughnut;
 import originator.ailin.com.smartgraph.title.Title;
+import originator.ailin.com.smartgraph.value.ValuePie;
 
 public class SimpleDoughnutChart extends BaseChart {
     /**
@@ -39,7 +41,8 @@ public class SimpleDoughnutChart extends BaseChart {
             showLegend(canvas, paint);
 
             // Draw Legend Value
-            drawLegendValuePie(canvas, pieObj, pieObj.radiusOuter, data);
+            value = new ValuePie(pieObj, pieObj.radiusOuter, data);
+            showValue(getResources(), canvas, paint);
 
             // Draw Title
             left = pieObj.center.x - pieObj.radiusOuter;
@@ -50,7 +53,8 @@ public class SimpleDoughnutChart extends BaseChart {
             showTitle(canvas, paint);
 
             // Draw label
-            drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
+            label = new Label(left, bottom, data.length, labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
+            showLabel(getResources(), canvas, paint);
         }
     }
 }

@@ -7,8 +7,10 @@ import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.BaseChart;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.Rose;
 import originator.ailin.com.smartgraph.title.Title;
+import originator.ailin.com.smartgraph.value.ValueRose;
 
 public class RoseChart extends BaseChart {
     /**
@@ -49,7 +51,8 @@ public class RoseChart extends BaseChart {
                 float radiusDeal = pieObj.radiusInner + (pieObj.radiusOuter - pieObj.radiusInner) * data[i] / maxData / 2;
                 radiusDealArray[i] = radiusDeal + widthDeal / 2;
             }
-            drawLegendValuePieRose(canvas, pieObj, radiusDealArray, data);
+            value = new ValueRose(pieObj, radiusDealArray, data);
+            showValue(getResources(), canvas, paint);
 
             // Draw Title
             left = pieObj.center.x - pieObj.radiusOuter;
@@ -60,7 +63,8 @@ public class RoseChart extends BaseChart {
             showTitle(canvas, paint);
 
             // Draw label
-            drawLabel(canvas, data.length, maxWidth, maxHeight, colors);
+            label = new Label(left, bottom, data.length, labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
+            showLabel(getResources(), canvas, paint);
         }
     }
 }

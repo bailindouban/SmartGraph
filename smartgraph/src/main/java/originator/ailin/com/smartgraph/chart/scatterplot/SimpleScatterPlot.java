@@ -10,6 +10,7 @@ import originator.ailin.com.smartgraph.axis.AxisX;
 import originator.ailin.com.smartgraph.axis.AxisY;
 import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.grid.GridY;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.SimpleScatter;
 import originator.ailin.com.smartgraph.polar.PolarBubbleX;
 import originator.ailin.com.smartgraph.polar.PolarY;
@@ -72,7 +73,8 @@ public class SimpleScatterPlot extends BaseChart {
             showPolar(getResources(), canvas, paint);
 
             // Draw label
-            drawLabel(canvas, 1, maxWidth, maxHeight, new int[] {color});
+            label = new Label(left, bottom, 1, labelsText, labelsTextColor, new int[] {color},  maxWidth, maxHeight);
+            showLabel(getResources(), canvas, paint);
         }
     }
 }

@@ -10,15 +10,16 @@ import android.view.View;
 
 import originator.ailin.com.smartgraph.axis.AxisAbs;
 import originator.ailin.com.smartgraph.grid.GridAbs;
-import originator.ailin.com.smartgraph.label.Label;
+import originator.ailin.com.smartgraph.label.LabelAbs;
 import originator.ailin.com.smartgraph.legend.LegendAbs;
-import originator.ailin.com.smartgraph.legend_value.LegendValue;
+import originator.ailin.com.smartgraph.value.LegendValue;
 import originator.ailin.com.smartgraph.obj.BarObj;
 import originator.ailin.com.smartgraph.obj.BubbleObj;
 import originator.ailin.com.smartgraph.obj.PieObj;
 import originator.ailin.com.smartgraph.obj.ScatterObj;
 import originator.ailin.com.smartgraph.polar.PolarAbs;
 import originator.ailin.com.smartgraph.title.TitleAbs;
+import originator.ailin.com.smartgraph.value.ValueAbs;
 
 /**
  * Created by Kim_Bai on 2/5/2015.
@@ -29,6 +30,8 @@ public abstract class BaseChart extends View {
     protected AxisAbs axis;
     protected PolarAbs polar;
     protected TitleAbs title;
+    protected LabelAbs label;
+    protected ValueAbs value;
 
     /**
      * Draw Simple Legend
@@ -69,6 +72,16 @@ public abstract class BaseChart extends View {
 
     /**
      *
+     * @param resources
+     * @param canvas
+     * @param paint
+     */
+    protected void showValue(Resources resources, Canvas canvas, Paint paint) {
+        value.drawValue(resources, canvas, paint);
+    }
+
+    /**
+     *
      * @param canvas
      * @param paint
      */
@@ -76,9 +89,43 @@ public abstract class BaseChart extends View {
         title.drawTitle(canvas, paint);
     }
 
+    /**
+     *
+     * @param resources
+     * @param canvas
+     * @param paint
+     */
+    protected void showLabel (Resources resources, Canvas canvas, Paint paint) {
+        label.drawLabel(resources, canvas, paint);
+    }
+
     // Setters
     public void setLegend(LegendAbs legend) {
         this.legend = legend;
+    }
+
+    public void setAxis(AxisAbs axis) {
+        this.axis = axis;
+    }
+
+    public void setGrid(GridAbs grid) {
+        this.grid = grid;
+    }
+
+    public void setPolar(PolarAbs polar) {
+        this.polar = polar;
+    }
+
+    public void setTitle(TitleAbs title) {
+        this.title = title;
+    }
+
+    public void setLabel(LabelAbs label) {
+        this.label = label;
+    }
+
+    public void setValue(ValueAbs value) {
+        this.value = value;
     }
 
 
@@ -156,19 +203,6 @@ public abstract class BaseChart extends View {
 
         labelsText = new String[] {"小明", "小李", "小王", "小白", "小朱", "小志", "小管", "小张"};
         labelsTextColor = Color.BLUE;
-    }
-
-    /**
-     *
-     * @param canvas
-     * @param num
-     * @param maxWidth
-     * @param maxHeight
-     * @param labelsIconColor
-     */
-    public void drawLabel (Canvas canvas, int num, float maxWidth, float maxHeight, int[] labelsIconColor) {
-        Label label = new Label(getResources(), canvas, paint, left, bottom);
-        label.drawLabel(num, labelsText, labelsTextColor, labelsIconColor,  maxWidth, maxHeight);
     }
 
     /**

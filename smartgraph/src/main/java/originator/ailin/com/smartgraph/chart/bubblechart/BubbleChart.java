@@ -9,6 +9,7 @@ import originator.ailin.com.smartgraph.axis.AxisX;
 import originator.ailin.com.smartgraph.axis.AxisY;
 import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.grid.GridY;
+import originator.ailin.com.smartgraph.label.Label;
 import originator.ailin.com.smartgraph.legend.Bubble;
 import originator.ailin.com.smartgraph.obj.MyPoint;
 import originator.ailin.com.smartgraph.polar.PolarBubbleX;
@@ -74,7 +75,8 @@ public class BubbleChart extends BaseChart {
             showPolar(getResources(), canvas, paint);
 
             // Draw label
-            drawLabel(canvas, bubbleObj.bubblePoints.length, maxWidth, maxHeight, colors);
+            label = new Label(left, bottom, bubbleObj.bubblePoints.length, labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
+            showLabel(getResources(), canvas, paint);
         }
     }
 }
