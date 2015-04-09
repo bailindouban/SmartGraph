@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
 
-import originator.ailin.com.smartgraph.chart.base.obj.PieObj;
+import originator.ailin.com.smartgraph.obj.PieObj;
 
 /**
  * Created by Kim_Bai on 4/8/2015.

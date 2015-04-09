@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import originator.ailin.com.smartgraph.R;
-import originator.ailin.com.smartgraph.chart.base.BaseChart;
+import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.legend.Doughnut;
 
 public class DoughnutChart extends BaseChart {

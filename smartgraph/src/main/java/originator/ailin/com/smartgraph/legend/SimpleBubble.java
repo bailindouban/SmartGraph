@@ -3,8 +3,8 @@ package originator.ailin.com.smartgraph.legend;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import originator.ailin.com.smartgraph.chart.base.obj.BubbleObj;
-import originator.ailin.com.smartgraph.chart.base.obj.MyPoint;
+import originator.ailin.com.smartgraph.obj.BubbleObj;
+import originator.ailin.com.smartgraph.obj.MyPoint;
 
 /**
  * Created by Kim_Bai on 4/8/2015.

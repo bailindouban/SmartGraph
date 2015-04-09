@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 
-import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
+import originator.ailin.com.smartgraph.obj.BarObj;
 
 /**
  * Created by Kim_Bai on 4/8/2015.

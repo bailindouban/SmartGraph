@@ -3,10 +3,10 @@ package originator.ailin.com.smartgraph.legend;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import originator.ailin.com.smartgraph.chart.base.obj.BarObj;
-import originator.ailin.com.smartgraph.chart.base.obj.BubbleObj;
-import originator.ailin.com.smartgraph.chart.base.obj.PieObj;
-import originator.ailin.com.smartgraph.chart.base.obj.ScatterObj;
+import originator.ailin.com.smartgraph.obj.BarObj;
+import originator.ailin.com.smartgraph.obj.BubbleObj;
+import originator.ailin.com.smartgraph.obj.PieObj;
+import originator.ailin.com.smartgraph.obj.ScatterObj;
 
 /**
  * Created by Kim_Bai on 4/8/2015.

@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 
 import originator.ailin.com.smartgraph.R;
-import originator.ailin.com.smartgraph.chart.base.obj.PieObj;
+import originator.ailin.com.smartgraph.obj.PieObj;
 
 /**
  * Created by Kim_Bai on 2/15/2015.

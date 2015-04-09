@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import originator.ailin.com.smartgraph.axis.Axis;
-import originator.ailin.com.smartgraph.chart.base.BaseChart;
+import originator.ailin.com.smartgraph.chart.BaseChart;
 import originator.ailin.com.smartgraph.grid.Grid;
 import originator.ailin.com.smartgraph.legend.Line;
 

@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 
-import originator.ailin.com.smartgraph.chart.base.obj.ScatterObj;
+import originator.ailin.com.smartgraph.obj.ScatterObj;
 
 /**
  * Created by Kim_Bai on 4/8/2015.
