@@ -25,9 +25,9 @@ import originator.ailin.com.smartgraph.title.TitleAbs;
  */
 public abstract class BaseChart extends View {
     protected LegendAbs legend;
-    protected GridAbs gridY;
-    protected AxisAbs axisX, axisY;
-    protected PolarAbs polarX, polarY, polarBubbleX;
+    protected GridAbs grid;
+    protected AxisAbs axis;
+    protected PolarAbs polar;
     protected TitleAbs title;
 
     /**
@@ -39,30 +39,39 @@ public abstract class BaseChart extends View {
         legend.drawLegend(canvas, paint);
     }
 
-    protected void showGridY(Canvas canvas, Paint paint) {
-        gridY.drawGrid(canvas, paint);
+    /**
+     *
+     * @param canvas
+     * @param paint
+     */
+    protected void showGrid(Canvas canvas, Paint paint) {
+        grid.drawGrid(canvas, paint);
     }
 
-    protected void showAxisX(Canvas canvas, Paint paint) {
-        axisX.drawAxis(canvas, paint);
+    /**
+     *
+     * @param canvas
+     * @param paint
+     */
+    protected void showAxis(Canvas canvas, Paint paint) {
+        axis.drawAxis(canvas, paint);
     }
 
-    protected void showAxisY(Canvas canvas, Paint paint) {
-        axisY.drawAxis(canvas, paint);
+    /**
+     *
+     * @param resources
+     * @param canvas
+     * @param paint
+     */
+    protected void showPolar(Resources resources, Canvas canvas, Paint paint) {
+        polar.drawPolar(resources, canvas, paint);
     }
 
-    protected void showPolarX(Resources resources, Canvas canvas, Paint paint) {
-        polarX.drawPolar(resources, canvas, paint);
-    }
-
-    protected void showPolarY(Resources resources, Canvas canvas, Paint paint) {
-        polarY.drawPolar(resources, canvas, paint);
-    }
-
-    protected void showPolarBubbleX(Resources resources, Canvas canvas, Paint paint) {
-        polarBubbleX.drawPolar(resources, canvas, paint);
-    }
-
+    /**
+     *
+     * @param canvas
+     * @param paint
+     */
     protected void showTitle(Canvas canvas, Paint paint) {
         title.drawTitle(canvas, paint);
     }
@@ -148,43 +157,6 @@ public abstract class BaseChart extends View {
         labelsText = new String[] {"小明", "小李", "小王", "小白", "小朱", "小志", "小管", "小张"};
         labelsTextColor = Color.BLUE;
     }
-
-/*
-    */
-/**
-     * Draw PolarX
-     * @param canvas
-     *//*
-
-    public void drawPolarX (Canvas canvas, int num, int width, int interval) {
-        Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
-        polar.drawPolarX(num, width, interval, polarsTextX, polarsTextColorX);
-    }
-
-    */
-/**
-     * Draw PolarX
-     * @param canvas
-     * @param maxWidth
-     *//*
-
-    public void drawPolarBubbleX (Canvas canvas, int maxWidth) {
-        Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
-        polar.drawPolarBubbleX(maxWidth, unitX, polarsTextColorX);
-    }
-
-    */
-/**
-     * Draw PolarY
-     * @param canvas
-     * @param maxHeight
-     *//*
-
-    public void drawPolarY (Canvas canvas, int maxHeight) {
-        Polar polar = new Polar(getResources(), canvas, paint, left, bottom);
-        polar.drawPolarY(maxHeight, unitY, polarsTextColorY);
-    }
-*/
 
     /**
      *

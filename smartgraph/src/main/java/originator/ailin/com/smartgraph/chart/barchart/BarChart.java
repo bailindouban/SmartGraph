@@ -51,14 +51,14 @@ public class BarChart extends BaseChart {
             int unit = 100;
             int maxWidth = datas.length * barObj.interval + datas.length * datas[0].length * barObj.width;
             int maxHeight = (int) dataMax + unit;
-            axisX = new AxisX(left, bottom, maxWidth, maxHeight);
-            axisY = new AxisY(left, bottom, maxWidth, maxHeight);
-            showAxisX(canvas, paint);
-            showAxisY(canvas, paint);
+            axis = new AxisX(left, bottom, maxWidth, maxHeight);
+            showAxis(canvas, paint);
+            axis = new AxisY(left, bottom, maxWidth, maxHeight);
+            showAxis(canvas, paint);
 
             // Draw Grid
-            gridY = new GridY(left, bottom, maxWidth, maxHeight, unitY);
-            showGridY(canvas, paint);
+            grid = new GridY(left, bottom, maxWidth, maxHeight, unitY);
+            showGrid(canvas, paint);
 
             // Draw Legend
             legend = new Bar(left, bottom, barObj, datas, colors);
@@ -69,10 +69,10 @@ public class BarChart extends BaseChart {
             showTitle(canvas, paint);
 
             // Draw PolarXY
-            polarX = new PolarX(left, bottom, datas.length, barObj.width * datas[0].length, barObj.interval, polarsTextX, polarTextColorX);
-            polarY = new PolarY(left, bottom, maxHeight, unitY, polarTextColorY);
-            showPolarX(getResources(), canvas, paint);
-            showPolarY(getResources(), canvas, paint);
+            polar = new PolarX(left, bottom, datas.length, barObj.width * datas[0].length, barObj.interval, polarsTextX, polarTextColorX);
+            showPolar(getResources(), canvas, paint);
+            polar = new PolarY(left, bottom, maxHeight, unitY, polarTextColorY);
+            showPolar(getResources(), canvas, paint);
 
             // Draw label
             drawLabel(canvas, datas[0].length, maxWidth, maxHeight, colors);
