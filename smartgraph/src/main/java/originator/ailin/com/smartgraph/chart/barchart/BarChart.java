@@ -39,8 +39,6 @@ public class BarChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(datas != null) {
-            float leftInit = left;
-
             // Draw XY axis
             float dataMax = 0;
             for (float[] data : datas) {

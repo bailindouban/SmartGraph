@@ -39,8 +39,6 @@ public class SimpleLineChart extends BaseChart {
         Log.d("kim", "onDraw");
 
         if(data != null) {
-            float leftInit = left;
-
             // Draw XY axis
             float dataMax = 0;
             for (float d : data) {

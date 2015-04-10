@@ -44,9 +44,8 @@ public class SimpleBarChart extends BaseChart {
                 dataMax = (d > dataMax) ? d : dataMax;
             }
 
-            int unit = 100;
             int maxWidth = data.length * (barObj.width + barObj.interval);
-            int maxHeight = (int) dataMax + unit;
+            int maxHeight = (int) dataMax + unitX;
             axis = new AxisX(left, bottom, maxWidth, maxHeight);
             showAxis(canvas, paint);
             axis = new AxisY(left, bottom, maxWidth, maxHeight);

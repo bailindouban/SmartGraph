@@ -39,7 +39,6 @@ public class BubbleChart extends BaseChart {
         super.onDraw(canvas);
         Log.d("kim", "onDraw");
         if(bubbleObj.bubblePoints != null) {
-
             // Draw XY axis
             float dataMaxX = 0, dataMaxY = 0;
             for (MyPoint[] points : bubbleObj.bubblePoints) {
