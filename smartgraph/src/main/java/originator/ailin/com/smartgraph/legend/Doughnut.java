@@ -13,8 +13,8 @@ import originator.ailin.com.smartgraph.obj.PieObj;
 public class Doughnut extends LegendAbs {
     private float mBiasXMax = 0, mBiasXMin = 0, mBiasYMax = 0, mBiasYMin = 0;
 
-    public Doughnut(PieObj pieObj, float[] data, int[] colors) {
-        initPieParams(pieObj, data, colors);
+    public Doughnut(PieObj pieObj, float[] data, int[] colors, float ratio) {
+        initPieParams(pieObj, data, colors, ratio);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class Doughnut extends LegendAbs {
         }
 
         float startAngleInit = pieObj.startAngle;
-        for(int i = 0; i < data.length; i++) {
+        for(int i = 0; i < ratio; i++) {
             paint.setColor(colors[i]);
             float swipeAngle = data[i] * 360 / total;
 

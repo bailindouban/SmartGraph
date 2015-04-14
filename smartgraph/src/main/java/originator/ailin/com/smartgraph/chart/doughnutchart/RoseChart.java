@@ -2,8 +2,11 @@ package originator.ailin.com.smartgraph.chart.doughnutchart;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.SurfaceHolder;
 
 import originator.ailin.com.smartgraph.R;
 import originator.ailin.com.smartgraph.chart.BaseChart;
@@ -31,14 +34,10 @@ public class RoseChart extends BaseChart {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    protected void drawBackground(Canvas canvas) {
         Log.d("kim", "onDraw");
 
         if(data != null) {
-            // Draw Legend
-            legend = new Rose(pieObj, data, colors);
-            showLegend(canvas, paint);
 
             // Draw Legend Value
             float maxData = data[0];
@@ -65,6 +64,45 @@ public class RoseChart extends BaseChart {
             // Draw label
             label = new Label(left, bottom, data.length, labelsText, labelsTextColor, colors,  maxWidth, maxHeight);
             showLabel(getResources(), canvas, paint);
+        }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        Thread drawThread = new Thread(new DrawRunnable(holder));
+        drawThread.start();
+    }
+
+    class DrawRunnable implements Runnable {
+        SurfaceHolder holder;
+
+        public DrawRunnable(SurfaceHolder holder) {
+            this.holder = holder;
+        }
+
+        @Override
+        public void run() {
+            synchronized (this) {
+                for(int i = 1; i <= data.length; i++) {
+                    Canvas canvas = holder.lockCanvas();
+                    canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+                    // Draw Legend
+                    legend = new Rose(pieObj, data, colors, i);
+                    showLegend(canvas, paint);
+
+                    // Draw Chart Background
+                    drawBackground(canvas);
+
+                    holder.unlockCanvasAndPost(canvas);
+
+                    try {
+                        wait(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 }

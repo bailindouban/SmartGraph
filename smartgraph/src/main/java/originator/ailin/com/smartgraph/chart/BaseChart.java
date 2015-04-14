@@ -5,14 +5,15 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
 import originator.ailin.com.smartgraph.axis.AxisAbs;
 import originator.ailin.com.smartgraph.grid.GridAbs;
 import originator.ailin.com.smartgraph.label.LabelAbs;
 import originator.ailin.com.smartgraph.legend.LegendAbs;
-import originator.ailin.com.smartgraph.value.LegendValue;
 import originator.ailin.com.smartgraph.obj.BarObj;
 import originator.ailin.com.smartgraph.obj.BubbleObj;
 import originator.ailin.com.smartgraph.obj.PieObj;
@@ -24,7 +25,7 @@ import originator.ailin.com.smartgraph.value.ValueAbs;
 /**
  * Created by Kim_Bai on 2/5/2015.
  */
-public abstract class BaseChart extends View {
+public abstract class BaseChart extends SurfaceView implements SurfaceHolder.Callback{
     protected LegendAbs legend;
     protected GridAbs grid;
     protected AxisAbs axis;
@@ -164,6 +165,10 @@ public abstract class BaseChart extends View {
     // Unit Scale
     public int unitX = 100, unitY = 100;
 
+    public int animTime = 20;
+
+    private SurfaceHolder holder;
+
     /**
      * Constructor 1
      *
@@ -203,34 +208,27 @@ public abstract class BaseChart extends View {
 
         labelsText = new String[] {"小明", "小李", "小王", "小白", "小朱", "小志", "小管", "小张"};
         labelsTextColor = Color.BLUE;
+
+        holder = getHolder();
+        holder.addCallback(this);
+        holder.setFormat(PixelFormat.TRANSPARENT);
+        setZOrderOnTop(true);
     }
 
-    /**
-     *
-     * @param canvas
-     * @param pieObj
-     * @param radius
-     * @param data
-     */
-    public void drawLegendValuePie(Canvas canvas, PieObj pieObj, float radius, float[] data) {
-        LegendValue legendValue = new LegendValue(getResources(), canvas, paint);
-        legendValue.drawValuePie(pieObj, radius, data);
+    protected void drawBackground(Canvas canvas) {};
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+
     }
 
-    /**
-     *
-     * @param canvas
-     * @param pieObj
-     * @param radiusDealArray
-     * @param data
-     */
-    public void drawLegendValuePieRose(Canvas canvas, PieObj pieObj, float[] radiusDealArray, float[] data) {
-        LegendValue legendValue = new LegendValue(getResources(), canvas, paint);
-        legendValue.drawValuePieRose(pieObj, radiusDealArray, data);
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
     }
 
-    public void drawLegendValueBar(Canvas canvas, PieObj pieObj, float radius, float[] data) {
-        LegendValue legendValue = new LegendValue(getResources(), canvas, paint);
-        legendValue.drawValuePie(pieObj, radius, data);
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+
     }
 }

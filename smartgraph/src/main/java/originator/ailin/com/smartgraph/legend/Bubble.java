@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.MyPoint;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Bubble extends LegendAbs {
-    public Bubble(float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {
-        initBubbleParams(leftInit, bottom, bubbleObj, colors);
+    public Bubble(float leftInit, float bottom, BubbleObj bubbleObj, int[] colors, float ratio) {
+        initBubbleParams(leftInit, bottom, bubbleObj, colors, ratio);
     }
 
     @Override
@@ -19,7 +19,8 @@ public class Bubble extends LegendAbs {
 
         for(int i = 0; i < bubbleObj.bubblePoints.length; i++) {
             paint.setColor(colors[i]);
-            for(MyPoint point : bubbleObj.bubblePoints[i]) {
+            for(int j = 0; j < ratio; j++) {
+                MyPoint point = bubbleObj.bubblePoints[i][j];
                 canvas.drawCircle(leftInit + point.x, bottom - point.y, point.radius, paint);
             }
         }

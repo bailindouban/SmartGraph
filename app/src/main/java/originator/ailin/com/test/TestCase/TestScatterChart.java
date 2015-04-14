@@ -43,9 +43,9 @@ public class TestScatterChart extends TestChart {
     @Override
     public View drawChart() {
         baseChart = new ScatterPlot(context);
-        PointF[] scatterPointA = {new PointF(150, 370), new PointF(480, 350), new PointF(250, 180), new PointF(53, 69)};
-        PointF[] scatterPointB = {new PointF(400, 160), new PointF(300, 150), new PointF(130, 370)};
-        PointF[] scatterPointC = {new PointF(50, 270), new PointF(380, 320), new PointF(500, 80), new PointF(400, 60), new PointF(620, 260)};
+        PointF[] scatterPointA = {new PointF(150, 270), new PointF(480, 350), new PointF(250, 180), new PointF(53, 69), new PointF(553, 469)};
+        PointF[] scatterPointB = {new PointF(400, 160), new PointF(300, 150), new PointF(130, 370), new PointF(620, 260), new PointF(323, 89)};
+        PointF[] scatterPointC = {new PointF(50, 270), new PointF(380, 320), new PointF(500, 80), new PointF(400, 60), new PointF(23, 169)};
 
         PointF[][] scatterPoints = {scatterPointA, scatterPointB, scatterPointC};
         baseChart.scatterObj.scatterPoints = scatterPoints;

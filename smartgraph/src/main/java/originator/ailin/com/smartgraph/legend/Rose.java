@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.PieObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Rose extends LegendAbs {
-    public Rose(PieObj pieObj, float[] data, int[] colors) {
-        initPieParams(pieObj, data, colors);
+    public Rose(PieObj pieObj, float[] data, int[] colors, float ratio) {
+        initPieParams(pieObj, data, colors, ratio);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Rose extends LegendAbs {
 
         float startAngleInit = pieObj.startAngle;
         float[] radiusDealArray = new float[data.length];
-        for(int i = 0; i < data.length; i++) {
+        for(int i = 0; i < ratio; i++) {
             float widthDeal = (pieObj.radiusOuter - pieObj.radiusInner) * data[i] / maxData;
             float radiusDeal = pieObj.radiusInner + (pieObj.radiusOuter - pieObj.radiusInner) * data[i] / maxData / 2;
             radiusDealArray[i] = radiusDeal + widthDeal / 2;

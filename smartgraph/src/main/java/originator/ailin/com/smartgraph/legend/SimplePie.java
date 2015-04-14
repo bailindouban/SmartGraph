@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.PieObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class SimplePie extends LegendAbs {
-    public SimplePie(PieObj pieObj, float[] data, int[] colors) {
-        initPieParams(pieObj, data, colors);
+    public SimplePie(PieObj pieObj, float[] data, int[] colors, float ratio) {
+        initPieParams(pieObj, data, colors, ratio);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class SimplePie extends LegendAbs {
         }
 
         float startAngleInit = pieObj.startAngle;
-        for(int i = 0; i < data.length; i++) {
+        for(int i = 0; i < ratio; i++) {
             // Draw Legend
             paint.setColor(colors[i]);
             RectF oval = new RectF(pieObj.center.x - pieObj.radius, pieObj.center.y - pieObj.radius, pieObj.center.x + pieObj.radius, pieObj.center.y + pieObj.radius);

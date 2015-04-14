@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.BarObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Line extends LegendAbs {
-    public Line(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
-        initBarParams(leftInit, bottom, barObj, datas, colors);
+    public Line(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors, float ratio) {
+        initBarParams(leftInit, bottom, barObj, datas, colors, ratio);
     }
 
     @Override
@@ -24,12 +24,11 @@ public class Line extends LegendAbs {
             paint.setStrokeWidth(barObj.width);
             Path path = new Path();
             path.moveTo(left, bottom - datas[i][0]);
-            for(int j = 1; j < datas[i].length; j++) {
+            for(int j = 1; j < ratio; j++) {
                 left += barObj.interval;
                 path.lineTo(left, bottom - datas[i][j]);
             }
             canvas.drawPath(path, paint);
-
         }
     }
 }

@@ -11,8 +11,8 @@ import originator.ailin.com.smartgraph.obj.BarObj;
  */
 public class SimpleLine extends LegendAbs {
 
-    public SimpleLine(float leftInit, float bottom, BarObj barObj, float[] data, int color) {
-        initBarSimpleParams(leftInit, bottom, barObj, data, color);
+    public SimpleLine(float leftInit, float bottom, BarObj barObj, float[] data, int color, float ratio) {
+        initBarSimpleParams(leftInit, bottom, barObj, data, color, ratio);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class SimpleLine extends LegendAbs {
         paint.setStrokeWidth(barObj.width);
         Path path = new Path();
         path.moveTo(leftInit, bottom - data[0]);
-        for(int i = 1; i < data.length; i++) {
+        for(int i = 1; i < ratio; i++) {
             leftInit += barObj.interval;
             path.lineTo(leftInit, bottom - data[i]);
         }

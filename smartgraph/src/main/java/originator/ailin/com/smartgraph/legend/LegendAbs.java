@@ -23,6 +23,7 @@ public abstract class LegendAbs {
     public int color;
     public float[][] datas;
     public int[] colors;
+    public float ratio = 20;
 
     /**
      *
@@ -31,12 +32,14 @@ public abstract class LegendAbs {
      * @param barObj
      * @param data
      * @param color
+     * @param ratio
      */
-    public void initBarSimpleParams(float leftInit, float bottom, BarObj barObj, float[] data, int color) {
+    public void initBarSimpleParams(float leftInit, float bottom, BarObj barObj, float[] data, int color, float ratio) {
         initLeftBottom(leftInit, bottom);
         this.barObj = barObj;
         this.data = data;
         this.color = color;
+        this.ratio = ratio;
     }
 
     /**
@@ -46,12 +49,14 @@ public abstract class LegendAbs {
      * @param barObj
      * @param datas
      * @param colors
+     * @param ratio
      */
-    public void initBarParams(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
+    public void initBarParams(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors, float ratio) {
         initLeftBottom(leftInit, bottom);
         this.barObj = barObj;
         this.datas = datas;
         this.colors = colors;
+        this.ratio = ratio;
     }
 
     /**
@@ -61,10 +66,11 @@ public abstract class LegendAbs {
      * @param bubbleObj
      * @param color
      */
-    public void initBubbleSimpleParams(float leftInit, float bottom, BubbleObj bubbleObj, int color) {
+    public void initBubbleSimpleParams(float leftInit, float bottom, BubbleObj bubbleObj, int color, float ratio) {
         initLeftBottom(leftInit, bottom);
         this.bubbleObj = bubbleObj;
         this.color = color;
+        this.ratio = ratio;
     }
 
     /**
@@ -74,10 +80,11 @@ public abstract class LegendAbs {
      * @param bubbleObj
      * @param colors
      */
-    public void initBubbleParams(float leftInit, float bottom, BubbleObj bubbleObj, int[] colors) {
+    public void initBubbleParams(float leftInit, float bottom, BubbleObj bubbleObj, int[] colors, float ratio) {
         initLeftBottom(leftInit, bottom);
         this.bubbleObj = bubbleObj;
         this.colors = colors;
+        this.ratio = ratio;
     }
 
     /**
@@ -87,10 +94,11 @@ public abstract class LegendAbs {
      * @param scatterObj
      * @param color
      */
-    public void initScatterSimpleParams(float leftInit, float bottom, ScatterObj scatterObj, int color) {
+    public void initScatterSimpleParams(float leftInit, float bottom, ScatterObj scatterObj, int color, float ratio) {
         initLeftBottom(leftInit, bottom);
         this.scatterObj = scatterObj;
         this.color = color;
+        this.ratio = ratio;
     }
 
     /**
@@ -100,10 +108,11 @@ public abstract class LegendAbs {
      * @param scatterObj
      * @param colors
      */
-    public void initScatterParams(float leftInit, float bottom, ScatterObj scatterObj, int[] colors) {
+    public void initScatterParams(float leftInit, float bottom, ScatterObj scatterObj, int[] colors, float ratio) {
         initLeftBottom(leftInit, bottom);
         this.scatterObj = scatterObj;
         this.colors = colors;
+        this.ratio = ratio;
     }
 
     /**
@@ -122,10 +131,11 @@ public abstract class LegendAbs {
      * @param data
      * @param colors
      */
-    public void initPieParams(PieObj pieObj, float[] data, int[] colors) {
+    public void initPieParams(PieObj pieObj, float[] data, int[] colors, float ratio) {
         this.pieObj = pieObj;
         this.data = data;
         this.colors = colors;
+        this.ratio = ratio;
     }
 
     /**

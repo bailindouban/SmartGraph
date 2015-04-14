@@ -43,8 +43,8 @@ public class TestBubbleChart extends TestChart {
     public View drawChart() {
         baseChart = new BubbleChart(context);
         MyPoint[] bubblePointA = {new MyPoint(150, 370, 100), new MyPoint(480, 350, 40), new MyPoint(250, 180, 60), new MyPoint(53, 69, 52)};
-        MyPoint[] bubblePointB = {new MyPoint(400, 160, 30), new MyPoint(300, 150, 80), new MyPoint(130, 370, 60)};
-        MyPoint[] bubblePointC = {new MyPoint(50, 270, 100), new MyPoint(380, 320, 40), new MyPoint(500, 80, 80), new MyPoint(400, 60, 50), new MyPoint(650, 260, 40)};
+        MyPoint[] bubblePointB = {new MyPoint(400, 160, 30), new MyPoint(300, 150, 80), new MyPoint(130, 370, 60), new MyPoint(300, 260, 30)};
+        MyPoint[] bubblePointC = {new MyPoint(50, 270, 100), new MyPoint(380, 320, 40), new MyPoint(500, 80, 80), new MyPoint(400, 60, 50)};
 
         MyPoint[][] bubblePoints = {bubblePointA, bubblePointB, bubblePointC};
         baseChart.bubbleObj.bubblePoints = bubblePoints;

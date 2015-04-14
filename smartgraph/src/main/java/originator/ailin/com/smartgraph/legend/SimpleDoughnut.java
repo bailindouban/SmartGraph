@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.PieObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class SimpleDoughnut extends LegendAbs {
-    public SimpleDoughnut(PieObj pieObj, float[] data, int[] colors) {
-        initPieParams(pieObj, data, colors);
+    public SimpleDoughnut(PieObj pieObj, float[] data, int[] colors, float ratio) {
+        initPieParams(pieObj, data, colors, ratio);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class SimpleDoughnut extends LegendAbs {
         }
 
         float startAngleInit = pieObj.startAngle;
-        for(int i = 0; i < data.length; i++) {
+        for(int i = 0; i < ratio; i++) {
             paint.setColor(colors[i]);
             RectF oval = new RectF(pieObj.center.x - radius, pieObj.center.y - radius, pieObj.center.x + radius, pieObj.center.y + radius);
             float swipeAngle = data[i] * 360 / total;

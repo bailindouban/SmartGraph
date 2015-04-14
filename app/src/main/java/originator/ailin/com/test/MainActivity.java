@@ -60,8 +60,6 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(mView);
 
-
-
 /*        Animation animation_alpha = new AlphaAnimation(0.1f, 1f);
         animation_alpha.setDuration(5000);
         mView.startAnimation(animation_alpha);

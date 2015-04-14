@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.BarObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Bar extends LegendAbs {
-    public Bar(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
-        initBarParams(leftInit, bottom, barObj, datas, colors);
+    public Bar(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors, float ratio) {
+        initBarParams(leftInit, bottom, barObj, datas, colors, ratio);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Bar extends LegendAbs {
         for(int i = 0; i < datas.length; i++) {
             for(int j = 0; j < datas[i].length; j++) {
                 paint.setColor(colors[j]);
-                RectF rectF = new RectF(leftInit, bottom - datas[i][j], leftInit + barObj.width, bottom);
+                RectF rectF = new RectF(leftInit, bottom - datas[i][j] * ratio, leftInit + barObj.width, bottom);
                 canvas.drawRect(rectF, paint);
                 leftInit += barObj.width;
             }

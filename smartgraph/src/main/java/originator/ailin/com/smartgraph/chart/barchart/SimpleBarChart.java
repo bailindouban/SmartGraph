@@ -2,8 +2,11 @@ package originator.ailin.com.smartgraph.chart.barchart;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.SurfaceHolder;
 
 import originator.ailin.com.smartgraph.axis.AxisX;
 import originator.ailin.com.smartgraph.axis.AxisY;
@@ -34,8 +37,7 @@ public class SimpleBarChart extends BaseChart {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    protected void drawBackground(Canvas canvas) {
         Log.d("kim", "onDraw");
         if(data != null) {
             // Draw XY axis
@@ -55,10 +57,6 @@ public class SimpleBarChart extends BaseChart {
             grid = new GridY(left, bottom, maxWidth, maxHeight, unitY);
             showGrid(canvas, paint);
 
-            // Draw Legend
-            legend = new SimpleBar(left, bottom, barObj, data, color);
-            showLegend(canvas, paint);
-
             // Draw Title
             title = new Title(left, bottom, titleText, titleSize, titleColor, maxWidth, maxHeight);
             showTitle(canvas, paint);
@@ -72,6 +70,40 @@ public class SimpleBarChart extends BaseChart {
             // Draw label
             label = new Label(left, bottom, 1, labelsText, labelsTextColor, new int[] {color},  maxWidth, maxHeight);
             showLabel(getResources(), canvas, paint);
+
+        }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        Thread drawThread = new Thread(new DrawRunnable(holder));
+        drawThread.start();
+    }
+
+    class DrawRunnable implements Runnable {
+        SurfaceHolder holder;
+
+        public DrawRunnable(SurfaceHolder holder) {
+            this.holder = holder;
+        }
+
+        @Override
+        public void run() {
+            synchronized (this) {
+                for(int i = 1; i <= animTime; i++) {
+                    Canvas canvas = holder.lockCanvas();
+                    canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+                    // Draw Chart Background
+                    drawBackground(canvas);
+
+                    // Draw Legend
+                    legend = new SimpleBar(left, bottom, barObj, data, color, (float)i / animTime);
+                    showLegend(canvas, paint);
+
+                    holder.unlockCanvasAndPost(canvas);
+                }
+            }
         }
     }
 }

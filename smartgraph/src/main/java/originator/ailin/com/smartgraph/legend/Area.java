@@ -10,8 +10,8 @@ import originator.ailin.com.smartgraph.obj.BarObj;
  * Created by Kim_Bai on 4/8/2015.
  */
 public class Area extends LegendAbs {
-    public Area(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors) {
-        initBarParams(leftInit, bottom, barObj, datas, colors);
+    public Area(float leftInit, float bottom, BarObj barObj, float[][] datas, int[] colors, float ratio) {
+        initBarParams(leftInit, bottom, barObj, datas, colors, ratio);
     }
 
     int size, size_sub;
@@ -26,7 +26,7 @@ public class Area extends LegendAbs {
             path.moveTo(left, bottom - dataArray[i][0]);
             for(int j = 1; j < size_sub; j++) {
                 left += barObj.interval;
-                path.lineTo(left, bottom - dataArray[i][j]);
+                path.lineTo(left, bottom - dataArray[i][j] * ratio);
             }
             path.lineTo(left, bottom);
             path.lineTo(leftInit, bottom);
@@ -63,5 +63,4 @@ public class Area extends LegendAbs {
 
         return dataArray;
     }
-
 }
